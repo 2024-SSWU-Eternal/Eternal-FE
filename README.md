@@ -1,4 +1,4 @@
-# 2024 수정 대동제 "Eternal" 사이틑
+# 2024 수정 대동제 "Eternal" 
 
 <div align="center">
 <img width="283" alt="eternal" src="https://github.com/user-attachments/assets/a22d85a4-3863-4453-a32b-9b9c6d17add8">
