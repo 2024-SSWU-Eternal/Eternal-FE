@@ -1,0 +1,51 @@
+// 해당 폴더는 vars, 전역으로 사용할 css 변수를 선언하는 폴더입니다.
+// 형식은 다음과 같습니다. 
+// 수정 시 보다 편리하게 관리하기 위해 사용됩니다.
+// .example {
+//     color: var(--maincolor);
+// }
+// 폰트는 프리텐다드를 사용합니다.
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+:root {
+    --mainfont: "pretendard";
+
+    // 메인 컬러 
+    --maincolor: #5C4795;
+    --purple01: #A384BC;
+    --purple02: #D6BEDC;
+    --purple03: #C7C2DE;
+    --blue01: #606FA7;
+    --blue02: #91A7D3;
+    --body: #E2D7FF;
+
+    // 각종 검정색-회색
+    --white: #fff;
+    --gray100: #E8E8E8;
+    --gray200: #D3D3D3;
+    --gray300: #B2B2B2;
+    --gray400: #BCBCBE;
+    --gray500: #7B7B7E;
+    --gray600: #2F2F32;
+    --gray700: #3F3F43;
+    --gray800: #353538;
+    --gray900: #2F2F32;
+    --black: #242427;
+    
+    // 투명
+    --none: #00000000;
+
+    // 폰트 세팅
+    font-family: var(--mainfont);
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    // 폰트 최적화
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
