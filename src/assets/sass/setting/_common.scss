@@ -10,14 +10,13 @@ body {
     background-color: var(--black);
 }
 
-// 각 컴포넌트 가장 바깥 div에 해당 클래스를 넣으면 자동으로 설정됩니다.
+// 각 컴포넌트 가장 바깥 div에 해당 클래스를 넣으면 자동으로 크기가 설정됩니다.
 .container {
     margin: 0 auto;
     background-color: var(--body);
     width: 393px;
     height: 100vh;
     min-height: 852px;
-    overflow: hidden;
 }
 
 // 해당 클래스를 붙이면 display가 무조건 none이 됩니다.

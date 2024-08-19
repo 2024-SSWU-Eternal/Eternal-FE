@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import HourGlass from '../assets/img/main/hourglass.png';
-import Glow01 from '../assets/img/main/glow01.png';
-import Glow02 from '../assets/img/main/glow02.png';
-import Light from '../assets/img/main/light02.png';
-import Logo from '../assets/img/main/Logo.png';
-import Text01 from '../assets/img/main/text01.svg';
-import Text02 from '../assets/img/main/text02.svg';
+import HourGlass from '../../assets/img/main/hourglass.png';
+import Glow01 from '../../assets/img/main/glow01.png';
+import Glow02 from '../../assets/img/main/glow02.png';
+import Light from '../../assets/img/main/light02.png';
+import Logo from '../../assets/img/main/Logo.png';
+import Text01 from '../../assets/img/main/text01.svg';
+import Text02 from '../../assets/img/main/text02.svg';
 import Nav from './Nav';
 
 const Main = () => {

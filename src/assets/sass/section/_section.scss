@@ -4,6 +4,7 @@
     background-position: center;
     background-image: url(../../img/main/landing_backgrondimage.png);
     position: relative;
+    overflow-x: hidden;
 
     .fade_out_wrapper {
         position: absolute;
@@ -84,7 +85,9 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        z-index: 2;
+        z-index: 10;
+        position: relative;
+        margin-bottom: 60px;
 
         .login {
             position: absolute;
@@ -133,7 +136,7 @@
         }
 
         .nav_box {
-            padding: 20px;
+            padding: 0px 20px 8px 20px;
             width: 100%;
             display: flex;
             color: var(--maincolor);
@@ -141,12 +144,18 @@
             justify-content: space-between;
 
             .announcement {
+                cursor: pointer;
+                background-position: right bottom;
+                background-repeat: no-repeat;
+                background-image: url(../../img/main/light03.svg);
+                background-size: 60px;
                 font-weight: 600;
                 width: 31%;
-                background-color: #ffffff25;
+                background-color: #ffffff40;
                 border-radius: 12px;
                 padding: 15px;
                 height: 160px;
+                border: 1px solid #5C479525;
             }
 
             .box {
@@ -155,16 +164,60 @@
                 flex-wrap: wrap;
                 justify-content: space-between;
 
-                >div {
+                >a {
+                    cursor: pointer;
+                    background-position: right bottom;
+                    background-repeat: no-repeat;
+                    background-image: url(../../img/main/light04.svg);
                     font-weight: 600;
                     width: 48.5%;
                     height: 75px;
                     margin-bottom: 10px;
-                    background-color: #ffffff25;
+                    background-color: #ffffff40;
                     border-radius: 12px;
                     padding: 15px;
+                    border: 1px solid #5C479525;
                 }
             }
+        }
+    }
+}
+
+.Footer_wrap {
+    background-color: var(--gray900);
+    padding: 30px;
+    height: 160px;
+    color: var(--purple03);
+
+    .top {
+        margin-bottom: 20px;
+
+        h5 {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 10px;
+        }
+    }
+
+    .bottom {
+        display: flex;
+        font-size: 10px;
+        justify-content: space-between;
+
+        p {
+            width: 33.3%;
+            text-align: center;
+        }
+
+        .left {
+            border-right: 1px solid var(--purple03);
+        }
+
+        .right {
+            border-left: 1px solid var(--purple03);
         }
     }
 }
