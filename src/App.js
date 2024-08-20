@@ -7,6 +7,7 @@ import Program from './components/Program/Program'
 import Test from './components/Test/Test'
 import Timetable from './components/TimeTable/Timetable'
 import Join from './components/User/Join/Join'
+import AnnonceDetail from './components/Announce/AnnonceDetail'
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Route path='/' element={<Main />} />
 
                 <Route path='/announce' element={<Announe />} />
+                <Route path='/announce/:detail' element={<AnnonceDetail />} />
 
                 <Route path='/map' element={<Map />} />
 
