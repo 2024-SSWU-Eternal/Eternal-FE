@@ -3,12 +3,12 @@ import JoinForm from './JoinForm/JoinForm';
 import TermsWrap from './Terms/TermsWrap';
 
 const Join = () => {
-    const [agree, setAgree] = useState(true);
+    const [agree, setAgree] = useState(false);
 
     return (
         <div className='Join_wrap container'>
             {agree ? (
-                <JoinForm />
+                <JoinForm setAgree={setAgree}/>
             ) : (
                 <TermsWrap setAgree={setAgree} />
             )}

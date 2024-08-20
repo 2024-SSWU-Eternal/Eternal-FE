@@ -15,6 +15,7 @@ const FormPass = ({ step, FadeIn, password, setPassword, click, setClick }) => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             type="password"
+                            placeholder='영문, 숫자 포함 8자 이상'
                         />
                         <img src="" alt="" />
                     </div>
