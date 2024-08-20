@@ -5,6 +5,7 @@
     background-image: url(../../img/main/landing_backgrondimage.png);
     position: relative;
     overflow-x: hidden;
+    overflow-y: scroll;
 
     .fade_out_wrapper {
         position: absolute;
@@ -183,6 +184,19 @@
     }
 }
 
+.Main_wrap::-webkit-scrollbar {
+    width: 5px;
+}
+
+.Main_wrap::-webkit-scrollbar-thumb {
+    background: var(--maincolor);
+    border-radius: 10px;
+}
+
+.Main_wrap::-webkit-scrollbar-track {
+    background: var(--black400);
+}
+
 .Footer_wrap {
     background-color: var(--gray900);
     padding: 30px;
@@ -221,3 +235,4 @@
         }
     }
 }
+

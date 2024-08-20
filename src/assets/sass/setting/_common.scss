@@ -17,6 +17,22 @@ body {
     width: 393px;
     height: 100vh;
     min-height: 852px;
+    position: relative;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 393px;
+    height: 100vh;
+    min-height: 852px;
+    background-position: center top;
+    background-size: cover;
+    background-image: url(../../img/main/Background.png);
+    background-repeat: no-repeat;
 }
 
 // 해당 클래스를 붙이면 display가 무조건 none이 됩니다.
