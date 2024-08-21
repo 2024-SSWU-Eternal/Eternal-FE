@@ -1,0 +1,151 @@
+.Login_wrap {
+    padding: 60px 25px 20px 25px;
+    overflow: hidden;
+    color: var(--black);
+
+    .header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 35px;
+
+        .back {
+            position: absolute;
+            left: 0px;
+        }
+        
+        p {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+
+    .main{
+        margin-top: 16px;
+
+        .email{
+            margin-top: 32px;
+            width: 345px;
+            height: 101px;
+            padding: 12px;
+
+            p{
+                font-size: 14px;
+                color: var(--gray600);
+            }
+
+            >div {
+                display: flex;
+
+                .id {
+                    background-color: transparent;
+                    border: none;
+                    border-bottom: 1px solid var(--gray300);
+                    width: 147px;
+                    padding: 8px 0;
+                    outline: none;
+                    font-size: 16px;
+                    cursor: pointer;
+
+                    transition: border-bottom 400ms ease-in;
+                }
+
+                .id:focus {
+                    border-bottom: 1px solid var(--maincolor);
+                }
+
+                p {
+                    font-size: 16px;
+                    text-align: center;
+                    color: var(--gray600);
+                }
+
+            }
+
+            
+        }
+
+        .password {
+            width: 345px;
+            height: 86px;
+            padding: 12px;
+
+            p{
+                font-size: 14px;
+                color: var(--gray600);
+            }
+
+            >div {
+                display: flex;
+        
+                .pw{
+                    background-color: transparent;
+                    border: none;
+                    border-bottom: 1px solid var(--gray300);
+                    width: 321px;
+                    padding: 8px 0;
+                    outline: none;
+                    font-size: 16px;
+                    cursor: pointer;
+
+                    transition: border-bottom 400ms ease-in;
+                }
+
+                .pw:focus {
+                    border-bottom: 1px solid var(--maincolor);
+                }
+
+                img {
+                    position: absolute;
+                    width: 16px;
+                    height: 10.91;
+                    right: 41px;
+                    top: 406px;
+                }
+            }
+        }
+        
+        .submit-button {
+            width: 345px;
+            height: 48px;
+            background-color: var(--gray400);
+            color: var(--white);
+            font-weight: bold;
+            margin-top: 24px;
+            border-radius: 10px;
+
+            transition: border-bottom 400ms ease-in;
+
+            &.active {
+                background-color: var(--maincolor);
+                cursor: pointer;
+            }
+    
+            &.disable {
+                background-color: var(--gray400);
+                cursor: not-allowed;
+            }
+        }
+
+        .option {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--maincolor);
+            font-size: 14px;
+
+            .join{
+                font-weight: bold;
+                text-decoration: underline;
+                cursor: pointer;
+                padding: 5px;
+            }
+        }
+
+
+    }
+}
+
