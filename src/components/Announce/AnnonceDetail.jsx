@@ -1,12 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/announce/back.svg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const AnnonceDetail = () => {
-    const navigation = useNavigate()
+    const navigation = useNavigate();
+    const [manage, setManage] = useState(false);
+    const params = useParams()
+
+    useEffect(() => {
+        if (params.manager === 'manager') {
+            setManage(true);
+        } else {
+            setManage(false)
+        }
+    }, [])
 
     const onBack = () => {
-        navigation('/announce')
+        if (params.manager) {
+            navigation('/announce/manager')
+        } else {
+            navigation(-1)
+        }
+    }
+
+    const onModify = () => {
+        navigation('/announce/write/modify')
+    }
+
+    const onDelete = () => {
+        alert('정말 삭제하시겠습니까?')
     }
 
     return (
@@ -39,6 +61,14 @@ const AnnonceDetail = () => {
                     </p>
                 </div>
             </div>
+            {manage ? (
+                <div className="btnbox">
+                    <button className="delete" onClick={() => { onDelete() }}>삭제</button>
+                    <button className="modify" onClick={() => { onModify() }}>수정</button>
+                </div>
+            ) : (
+                <></>
+            )}
         </div>
     )
 }

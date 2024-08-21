@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -9,9 +10,9 @@ const Footer = () => {
                 <p>All rights reserved</p>
             </div>
             <div className="bottom">
-                <p className='left'>만든 이들</p>
-                <p>후원사</p>
-                <p className='right'>관리자모드</p>
+                <Link to='/' className='left'>만든 이들</Link>
+                <Link to='/'>후원사</Link>
+                <Link to='/manager' className='right'>관리자모드</Link>
             </div>
         </div>
     )

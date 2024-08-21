@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Back from '../../assets/img/announce/back.svg';
 import Temporary from '../../assets/img/announce/temporary.png';
-import { useNavigate } from 'react-router-dom';
+import Write from '../../assets/img/announce/write_btn.svg';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Announe = () => {
+    const params = useParams();
+    const [manage, setManage] = useState(false)
+    const navigation = useNavigate();
+
+    useEffect(() => {
+        if (params.manager === 'manager') {
+            setManage(true);
+        } else {
+            setManage(false)
+        }
+    }, [])
+
     const announceData = [
         {
             title: "수정대동제 웹사이트 오픈",
@@ -62,7 +75,6 @@ const Announe = () => {
         },
     ];
 
-    const navigation = useNavigate();
 
     const onDetail = () => {
         navigation('/announce/:detail');
@@ -120,6 +132,9 @@ const Announe = () => {
                     ))}
                 </motion.div>
             </div>
+            {manage ? (
+                <Link to='/announce/write'><img src={Write} alt="" /></Link>
+            ):(<></>)}
         </div>
     );
 }

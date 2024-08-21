@@ -14,7 +14,6 @@ const JoinForm = ({ setAgree }) => {
     const [password, setPassword] = useState('');
     const [title, setTitle] = useState('이름을 입력해주세요');
     const [all, setAll] = useState(false);
-
     const [step, setStep] = useState(1);
 
     const FadeIn = {
@@ -55,12 +54,38 @@ const JoinForm = ({ setAgree }) => {
 
 
     useEffect(() => {
-        if (name && email && emailCheck && password) {
-            setAll(true);
-        } else {
-            setAll(false);
+        if (step === 4) {
+            if (name && email && emailCheck && password) {
+                setAll(true);
+            } else {
+                setAll(false);
+            }
         }
-    }, [name, email, emailCheck, password])
+
+        if (step === 1) {
+            if (name !== '') {
+                setAll(true);
+            } else {
+                setAll(false);
+            }
+        }
+
+        if (step === 2) {
+            if (email !== '') {
+                setAll(true);
+            } else {
+                setAll(false);
+            }
+        }
+
+        if (step === 3) {
+            if (emailCheck !== '') {
+                setAll(true);
+            } else {
+                setAll(false);
+            }
+        }
+    }, [step, name, email, emailCheck, password]);
 
     const onBack = () => {
         if (step === 1) {
@@ -94,7 +119,7 @@ const JoinForm = ({ setAgree }) => {
             {step >= 4 ? (
                 <button className={all ? 'full' : ''}>회원가입</button>
             ) : (
-                <button onClick={handleNextStep}>확인</button>
+                <button onClick={handleNextStep} className={all ? 'full' : ''}>확인</button>
             )}
         </div>
     );
