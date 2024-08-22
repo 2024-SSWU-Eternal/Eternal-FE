@@ -8,8 +8,8 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const backClick = () => {
-        navigate ('/main');
+    const joinClick = () => {
+        navigate ('/join');
     }
 
     {/* 비밀번호 보기/숨기기 함수 */}
@@ -38,13 +38,27 @@ const Login = () => {
     }
 
     const isButtonActive = inputValue.length > 0;
+
+    {/* 슬라이드 */}
+
+    const [isSlideOut, setIsSlideOut] = useState(false);
+
+    const handleSlideOut = () => {
+        setIsSlideOut(true);
+        setTimeout(()=>{ 
+            navigate ('/');
+        }, 400)
+    }
     
   return (
 
     <div className='Login_wrap container'>
 
         <div className='header'>
-            <button className="back" onClick={backClick}>
+            <button 
+            className={`back ${isSlideOut ? 'slide-out-left' : ''}`} 
+            onClick={handleSlideOut}
+            >
                 <img src={Back} alt="back button" />
             </button>
             <p>로그인</p>
@@ -86,7 +100,7 @@ const Login = () => {
 
             <div className='option'>
                 <p>아직 회원이 아니신가요?</p>
-                <p className='join'>회원가입하러 가기</p>
+                <p className='join' onClick={joinClick}>회원가입하러 가기</p>
             </div>
         </div>
     </div>

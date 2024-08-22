@@ -10,9 +10,26 @@
         position: relative;
         margin-bottom: 35px;
 
+        .slide-out-left {
+            animation: slideOutLeft 400ms ease-in-out forwards;
+          }
+          
+          @keyframes slideOutLeft {
+            from {
+              transform: translateX(0);
+              opacity: 1;
+            }
+            to {
+              transform: translateX(-100%);
+              opacity: 0;
+            }
+          }
+
         .back {
             position: absolute;
             left: 0px;
+
+            transition: transform 400ms ease-in-out, opacity 400ms ease-in-out
         }
         
         p {
@@ -24,6 +41,7 @@
 
     .main{
         margin-top: 16px;
+        position: absolute;
 
         .email{
             margin-top: 32px;
@@ -102,7 +120,7 @@
                     width: 16px;
                     height: 10.91;
                     right: 41px;
-                    top: 406px;
+                    top: 285px;
                 }
             }
         }
@@ -142,6 +160,8 @@
                 text-decoration: underline;
                 cursor: pointer;
                 padding: 5px;
+
+                transition: transform 400ms ease-in-out, opacity 400ms ease-in-out
             }
         }
 
