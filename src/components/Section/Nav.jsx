@@ -24,7 +24,7 @@ const Nav = () => {
                     <img className='Logo' src={Logo} alt="logo" />
                 </div>
                 <div className="nav_box">
-                    <Link to='/announce' className="announcement">공지사항</Link>
+                    <Link to='/announce/normal' className="announcement">공지사항</Link>
                     <div className="box">
                         <Link to='/timetable' className="time">타임테이블</Link>
                         <Link to='/program' className="program">프로그램 소개</Link>

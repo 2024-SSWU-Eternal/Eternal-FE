@@ -13,10 +13,10 @@ const AnnonceDetail = () => {
         } else {
             setManage(false)
         }
-    }, [])
+    }, [params])
 
     const onBack = () => {
-        if (params.manager) {
+        if (params.manager === 'manager') {
             navigation('/announce/manager')
         } else {
             navigation(-1)

@@ -17,9 +17,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Main />} />
 
-                <Route path='/announce' element={<Announe />} />
                 <Route path='/announce/:manager' element={<Announe />} />
-                <Route path='/announce/:detail' element={<AnnonceDetail />} />
                 <Route path='/announce/:detail/:manager' element={<AnnonceDetail />} />
                 <Route path='/announce/write' element={<AnnonceWrite />} />
                 <Route path='/announce/write/:modify' element={<AnnonceWrite />} />

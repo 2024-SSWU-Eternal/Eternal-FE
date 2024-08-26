@@ -16,7 +16,7 @@ const Announe = () => {
         } else {
             setManage(false)
         }
-    }, [])
+    }, [params])
 
     const announceData = [
         {
@@ -77,7 +77,7 @@ const Announe = () => {
 
 
     const onDetail = () => {
-        navigation('/announce/:detail');
+        navigation('/announce/detail/normal');
     };
 
     const onBack = () => {
