@@ -2,7 +2,7 @@ import React from 'react'
 import Back from '../../assets/img/Test/back.svg'
 import Cute01 from '../../assets/img/Test/cute_01.svg'
 
-const TestMain = () => {
+const TestMain = ({ setStory }) => {
     return (
         <>
             <img src={Back} alt="back button" />
@@ -13,7 +13,7 @@ const TestMain = () => {
                 </div>
                 <img src={Cute01} alt="sueryong" />
             </div>
-            <button className='full'>다음으로</button>
+            <button className='full' onClick={() => { setStory(true) }}>다음으로</button>
         </>
     )
 }

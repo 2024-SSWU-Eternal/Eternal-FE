@@ -10,6 +10,8 @@ import Join from './components/User/Join/Join'
 import AnnonceDetail from './components/Announce/AnnonceDetail'
 import Manger from './components/Manager/Manger'
 import AnnonceWrite from './components/Announce/AnnonceWrite'
+import Testing from './components/Test/Testing'
+import TestEnding from './components/Test/TestEnding'
 
 const App = () => {
     return (
@@ -27,6 +29,8 @@ const App = () => {
                 <Route path='/program' element={<Program />} />
 
                 <Route path='/test' element={<Test />} />
+                <Route path='/testing' element={<Testing />} />
+                <Route path='/testresult/:ending' element={<TestEnding />} />
 
                 <Route path='/timetable' element={<Timetable />} />
 
