@@ -3,16 +3,17 @@ import Back from '../../assets/img/Test/back.svg'
 import Clack from '../../assets/img/Test/clack.svg'
 import { useParams } from 'react-router-dom'
 import Suryong from './js/result'
+import TestResult from './TestResult'
 
 const TestEnding = () => {
     const params = useParams();
     const [index, setIndex] = useState(0);
     const [story, setStory] = useState(false);
-    const [ending, setEnding] = useState(true);
+    const [ending, setEnding] = useState(false);
     const [content, setContent] = useState([])
 
     useEffect(() => {
-        setContent( Suryong[params.ending])
+        setContent(Suryong[params.ending])
     }, [])
 
     const Text = [
@@ -50,14 +51,13 @@ const TestEnding = () => {
 
     return (
         <div className='TestEnding_wrap container'>
-            <div className="header">
-                <img className='back' src={Back} alt="back button" />
-            </div>
             {ending ? (
-                <>
-                </>
+                <TestResult />
             ) : (
                 <>
+                    <div className="header">
+                        <img className='back' src={Back} alt="back button" />
+                    </div>
                     <div className="main">
                         {story ? (
                             <div className="text">
