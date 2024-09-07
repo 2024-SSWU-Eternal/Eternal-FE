@@ -6,16 +6,13 @@ import Map from './components/Map/Map'
 import Program from './components/Program/Program'
 import Test from './components/Test/Test'
 import Timetable from './components/TimeTable/Timetable'
-<<<<<<< HEAD
 import Join from './components/User/Join/Join'
 import AnnonceDetail from './components/Announce/AnnonceDetail'
 import Manger from './components/Manager/Manger'
 import AnnonceWrite from './components/Announce/AnnonceWrite'
 import Testing from './components/Test/Testing'
 import TestEnding from './components/Test/TestEnding'
-=======
 import Login from './components/Login/Login'
->>>>>>> u
 
 const App = () => {
     return (
@@ -38,13 +35,10 @@ const App = () => {
 
                 <Route path='/timetable' element={<Timetable />} />
 
-<<<<<<< HEAD
                 <Route path='/join' element={<Join />} />
 
                 <Route path='/manager' element={<Manger />} />
-=======
                 <Route path='/login' element={<Login />} />
->>>>>>> u
             </Routes>
         </BrowserRouter>
     )
