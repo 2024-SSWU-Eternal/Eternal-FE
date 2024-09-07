@@ -6,6 +6,7 @@ import Map from './components/Map/Map'
 import Program from './components/Program/Program'
 import Test from './components/Test/Test'
 import Timetable from './components/TimeTable/Timetable'
+import FoodInfo from './components/FoodInfo/FoodInfo'
 
 const App = () => {
     return (
@@ -14,6 +15,8 @@ const App = () => {
                 <Route path='/' element={<Main />} />
 
                 <Route path='/announce' element={<Announe />} />
+
+                <Route path='/foodinfo' element={<FoodInfo />} />
 
                 <Route path='/map' element={<Map />} />
 
