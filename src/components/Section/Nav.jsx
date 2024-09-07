@@ -16,7 +16,7 @@ const Nav = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 4.8 }}
                 className='Nav_wrap'>
-                <Link to='/' className='login'>로그인</Link>
+                <Link to='/login' className='login'>로그인</Link>
                 <div className='img_box'>
                     <img className='hourclass' src={HourGlass} alt="hourglass" />
                     <img className='hourclassglow' src={Glow02} alt="hourglass glow" />
