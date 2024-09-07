@@ -271,10 +271,11 @@
         margin: 0 auto 20px auto;
         // background-color: rgba(0, 0, 0, 0.2);
         background-color: rgba(0, 0, 0, 0);
-        padding-top: 50px;
+        padding-top: 60px;
 
         /* 반투명 배경 */
         border-radius: 12px;
+        justify-content: center;
 
         .now-on-image {
             position: absolute;
@@ -309,16 +310,11 @@
         .now-on-time,
         .now-on-name,
         .now-on-location {
-            margin: 0 15px;
-            /* 항목 간의 간격 조정 */
             text-align: center;
-            /* 텍스트를 중앙 정렬 */
             flex: 1;
-            /* 각 항목을 동일한 너비로 설정 */
             text-align: center;
-            /* 텍스트 중앙 정렬 */
             margin: 0 20px;
-            /* 기본 여백 제거 */
+            width: 65px;
         }
 
         .now-on-time {
