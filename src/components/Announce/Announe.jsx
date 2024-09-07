@@ -77,7 +77,11 @@ const Announe = () => {
 
 
     const onDetail = () => {
-        navigation('/announce/detail/normal');
+        if (params.manager === 'manager') {
+            navigation('/announce/detail/manager');
+        } else {
+            navigation('/announce/detail/normal');
+        }
     };
 
     const onBack = () => {
@@ -134,7 +138,7 @@ const Announe = () => {
             </div>
             {manage ? (
                 <Link to='/announce/write'><img src={Write} alt="" /></Link>
-            ):(<></>)}
+            ) : (<></>)}
         </div>
     );
 }

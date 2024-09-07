@@ -6,6 +6,8 @@
     position: relative;
     overflow-x: hidden;
     overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     .fade_out_wrapper {
         position: absolute;
@@ -82,13 +84,14 @@
     }
 
     .Nav_wrap {
+        height: 892px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         z-index: 10;
         position: relative;
-        margin-bottom: 40px;
+        padding-bottom: 40px;
 
         .login {
             position: absolute;
@@ -182,6 +185,7 @@
         }
     }
 }
+
 .Timetable_wrap {
     background-size: cover;
     background-repeat: no-repeat;
@@ -292,13 +296,13 @@
         border-radius: 12px;
         backdrop-filter: blur(10px);
         max-height: 602px; 
-        overflow-y: auto; /* 수직 스크롤 설정 */
-        scrollbar-width: none; /* Firefox: 스크롤 바 숨기기 */
-        -ms-overflow-style: none;  /* IE 10+: 스크롤 바 숨기기 */
+        overflow-y: auto; 
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
     .timetable::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera: 스크롤 바 숨기기 */
+        display: none;
     }
 
     .program-item {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/Test/back.svg'
 
-const TestStory = () => {
+const TestStory = ({ setStory }) => {
     const [index, setIndex] = useState(0)
 
     const Text = [
@@ -9,6 +9,10 @@ const TestStory = () => {
         "평소와 다른, 낯선 모습... \n돋아난 뿔과 빵실해진 배, \n그리고... 꼬리?!!",
         "수룡이가 되어버린 나\n 나는 어떤 수룡이일까?",
     ]
+
+    const onBack = () => {
+        setStory(false)
+    }
 
     useEffect(() => {
         if (index < Text.length - 1) {
@@ -21,7 +25,7 @@ const TestStory = () => {
 
     return (
         <>
-            <img src={Back} alt="back button" />
+            <img src={Back} alt="back button" onClick={() => { onBack() }} />
             <div className="main">
                 <div className="title_box">
                     <h2>

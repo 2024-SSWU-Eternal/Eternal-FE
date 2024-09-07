@@ -13,6 +13,8 @@ import AnnonceWrite from './components/Announce/AnnonceWrite'
 import Testing from './components/Test/Testing'
 import TestEnding from './components/Test/TestEnding'
 import Login from './components/Login/Login'
+import Sponsor from './components/ETC/Sponsor'
+import Making from './components/ETC/Making'
 
 const App = () => {
     return (
@@ -35,10 +37,13 @@ const App = () => {
 
                 <Route path='/timetable' element={<Timetable />} />
 
-                <Route path='/join' element={<Join />} />
-
                 <Route path='/manager' element={<Manger />} />
+                <Route path='/join' element={<Join />} />
                 <Route path='/login' element={<Login />} />
+
+                <Route path='/sponsor' element={<Sponsor />} />
+                <Route path='/making' element={<Making />} />
+
             </Routes>
         </BrowserRouter>
     )

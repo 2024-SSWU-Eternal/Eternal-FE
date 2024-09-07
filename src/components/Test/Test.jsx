@@ -9,7 +9,7 @@ const Test = () => {
         <div className='Test_wrap container'>
                 <>
                     {story ? (
-                        <TestStory />
+                        <TestStory setStory={setStory} />
                     ) : (
                         <TestMain setStory={setStory} />
                     )}

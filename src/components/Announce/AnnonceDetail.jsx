@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/announce/back.svg';
+import Del from '../../assets/img/announce/delete.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const AnnonceDetail = () => {
     const navigation = useNavigate();
     const [manage, setManage] = useState(false);
+    const [pop, setPop] = useState(true)
     const params = useParams()
 
     useEffect(() => {
@@ -28,11 +30,25 @@ const AnnonceDetail = () => {
     }
 
     const onDelete = () => {
-        alert('정말 삭제하시겠습니까?')
+
     }
 
     return (
         <div className='AnnonceDetail_wrap container'>
+            {pop ? (
+                <div className='popup_wrap'>
+                    <div className="popup">
+                        <img src={Del} alt="delete button" />
+                        <h3>정말 삭제하시겠어요?</h3>
+                        <div className="btn_box">
+                            <button onClick={() => {setPop(false)}}>취소</button>
+                            <button onClick={() => {onDelete()}} className='del_btn'>삭제</button>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                <></>
+            )}
             <div className="header">
                 <button className="back" onClick={() => { onBack() }}><img src={Back} alt="back button" /></button>
                 <h4>공지사항</h4>
@@ -63,7 +79,7 @@ const AnnonceDetail = () => {
             </div>
             {manage ? (
                 <div className="btnbox">
-                    <button className="delete" onClick={() => { onDelete() }}>삭제</button>
+                    <button className="delete" onClick={() => { setPop(true) }}>삭제</button>
                     <button className="modify" onClick={() => { onModify() }}>수정</button>
                 </div>
             ) : (
