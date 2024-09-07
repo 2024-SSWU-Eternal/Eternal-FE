@@ -6,6 +6,7 @@ import Map from './components/Map/Map'
 import Program from './components/Program/Program'
 import Test from './components/Test/Test'
 import Timetable from './components/TimeTable/Timetable'
+import Loading from './components/Loading/Loading'
 
 const App = () => {
     return (
@@ -22,6 +23,8 @@ const App = () => {
                 <Route path='/test' element={<Test />} />
 
                 <Route path='/timetable' element={<Timetable />} />
+                
+                <Route path='/loading' element={<Loading />} />
             </Routes>
         </BrowserRouter>
     )
