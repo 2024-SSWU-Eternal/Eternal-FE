@@ -16,6 +16,7 @@ import Login from './components/Login/Login'
 import Sponsor from './components/ETC/Sponsor'
 import Making from './components/ETC/Making'
 import Loading from './components/Loading/Loading'
+import FoodInfo from './components/FoodInfo/FoodInfo'
 
 const App = () => {
     return (
@@ -27,6 +28,8 @@ const App = () => {
                 <Route path='/announce/:detail/:manager' element={<AnnonceDetail />} />
                 <Route path='/announce/write' element={<AnnonceWrite />} />
                 <Route path='/announce/write/:modify' element={<AnnonceWrite />} />
+
+                <Route path='/foodinfo' element={<FoodInfo />} />
 
                 <Route path='/map' element={<Map />} />
 

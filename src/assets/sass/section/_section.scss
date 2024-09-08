@@ -185,6 +185,90 @@
         }
     }
 }
+.FoodInfo_wrap{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../img/foodinfo/Background.png);
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+   
+
+    .table{
+        width: 345px;
+        margin: 16px auto;
+        
+
+       .food_name{
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: var(--black);
+       }
+
+       .ingredients{
+        width: 345px;
+        padding: 24px 16px;
+        border-radius: 8px;
+        background-color: #5c47950e;
+        display: flex;
+        align-items: center;
+
+        p{
+            color: var(--black);
+            font-size: 12px;
+            font-weight: 600;
+           }
+       }
+    }
+    
+    header{
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        .back_btn{
+            width: 24px;
+            height: 32px;
+            position: absolute;
+            left: 24px;
+            
+        }
+        .title{
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--black);
+        }
+    }
+    .category{
+        padding: 8px 22px;
+        color: var(--gray500);
+        display: flex;
+        >div{
+            border: 1.5px solid var(--gray500);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .cate_food, .cate_dessert{
+            width: 55px;
+            height: 30px;
+            border-radius: 24px;
+            
+        }
+        .cate_drink{
+            width: 45px;
+            height: 30px;
+            border-radius: 24px;
+        }
+    }
+}
 
 .Timetable_wrap {
     background-size: cover;
