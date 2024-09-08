@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/Test/back.svg'
 import AllText from './js/text'
-import Suryong from './js/result'
 import { useNavigate } from 'react-router-dom'
 
 const Testing = () => {
@@ -32,7 +31,7 @@ const Testing = () => {
     }
 
     const onEnding = () => {
-        const Number = ['언덕룡', '여유룡', '투어룡', '실속룡', '타투룡','독서룡','가수룡','게임룡']
+        const Number = ['언덕룡', '여유룡', '투어룡', '실속룡', '타투룡', '독서룡', '가수룡', '게임룡']
 
         navigation(`/testresult/${Number[findMostFrequent() - 1]}`)
     }
@@ -60,11 +59,20 @@ const Testing = () => {
         return mostFrequent;
     };
 
+    const onBack = () => {
+        if (questionindex === 0) {
+            navigation(-1);
+        } else {
+            setQuestionindex(questionindex - 1);
+            setHear('')
+        }
+    }
+
     return (
         <div className='Testing_wrap container'>
             <div>
                 <div className="header">
-                    <img className='back' src={Back} alt="back button" />
+                    <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
                     <div className="bar"></div>
                 </div>
                 <div className="main">

@@ -17,6 +17,7 @@ import Sponsor from './components/ETC/Sponsor'
 import Making from './components/ETC/Making'
 import Loading from './components/Loading/Loading'
 import FoodInfo from './components/FoodInfo/FoodInfo'
+import Reservation from './components/ETC/Reservation'
 
 const App = () => {
     return (
@@ -47,6 +48,7 @@ const App = () => {
 
                 <Route path='/sponsor' element={<Sponsor />} />
                 <Route path='/making' element={<Making />} />
+                <Route path='/reservation' element={<Reservation />} />
                 
                 <Route path='/loading' element={<Loading />} />
             </Routes>

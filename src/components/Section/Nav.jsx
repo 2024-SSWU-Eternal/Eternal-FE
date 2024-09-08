@@ -28,8 +28,8 @@ const Nav = () => {
                             <div className="box">
                                 <Link to='/announce/normal' className="announce">공지사항</Link>
                                 <Link to='/timetable' className="time">타임테이블</Link>
-                                <Link to='/timetable' className="program">프로그램 소개</Link>
-                                <Link to='/program' className="goods">굿즈 예약</Link>
+                                <Link to='/program' className="program">프로그램 소개</Link>
+                                <Link to='/reservation' className="goods">굿즈 예약</Link>
                                 <Link to='/map' className="map">축제 배치도</Link>
                                 <Link to='/test' className="test">유형 테스트</Link>
                             </div>
@@ -43,8 +43,8 @@ const Nav = () => {
             ) : (
                 <>
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 0, zIndex: 0 }}
+                        animate={{ opacity: 1, zIndex: 10 }}
                         transition={{ duration: 1, delay: 4.8 }}
                         className='Nav_wrap'>
                         <Link to='/login' className='login'>로그인</Link>

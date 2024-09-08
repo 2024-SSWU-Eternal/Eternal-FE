@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import backIcon from '../../assets/img/timetable/icon_back.png';
+import backIcon from '../../assets/img/timetable/back.svg';
 import nowOnImage from '../../assets/img/timetable/nowon.png';
 import ongoingImage from '../../assets/img/timetable/icon_ongoingprogram.png';
 

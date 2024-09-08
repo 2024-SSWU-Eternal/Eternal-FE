@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/Test/back.svg'
+import { useNavigate } from 'react-router-dom'
 
 const TestStory = ({ setStory }) => {
+    const navigation = useNavigate();
     const [index, setIndex] = useState(0)
 
     const Text = [
@@ -21,7 +23,16 @@ const TestStory = ({ setStory }) => {
             }, 2000)
             return () => clearTimeout(timeout)
         }
-    }, [index, Text.length])
+    }, [index, Text.length]);
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        if (index === Text.length - 1) {
+            setTimeout(() => {
+                navigation('/testing')
+            }, 2000)
+        }
+    }, [index, Text.length, navigation]);
 
     return (
         <>

@@ -1,39 +1,88 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/Test/back.svg'
 import Test01 from '../../assets/img/Test/test01.svg'
+import Test02 from '../../assets/img/Test/test02.svg'
+import Test03 from '../../assets/img/Test/test03.svg'
+import Test04 from '../../assets/img/Test/test04.svg'
+import Test05 from '../../assets/img/Test/test05.svg'
+import Test06 from '../../assets/img/Test/test06.svg'
+import Test07 from '../../assets/img/Test/test07.png'
+import Test08 from '../../assets/img/Test/test08.svg'
+import { Link, useNavigate } from 'react-router-dom'
 
-const TestResult = () => {
+const TestResult = ({ content, params }) => {
+    const [Img, setImg] = useState(Test01);
+    const navigation = useNavigate()
+
+    const onBack = () => {
+        navigation(-1);
+    }
+
+    useEffect(() => {
+        switch (params.ending) {
+            case '언덕룡':
+                setImg(Test01)
+                return;
+            case '여유룡':
+                setImg(Test02)
+                return;
+            case '투어룡':
+                setImg(Test03)
+                return;
+            case '실속룡':
+                setImg(Test04)
+                return;
+            case '타투룡':
+                setImg(Test05)
+                return;
+            case '독서룡':
+                setImg(Test06)
+                return;
+            case '가수룡':
+                setImg(Test07)
+                return;
+            case '게임룡':
+                setImg(Test08)
+                return;
+            default:
+                setImg(Test01)
+        }
+    }, [content, params])
+
     return (
         <div className='TestResult_wrap'>
             <div className="header">
-                <img className='back' src={Back} alt="back button" />
+                <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
                 <h4>테스트 결과</h4>
             </div>
             <div className="main">
                 <div className="desc_box">
-                    <img src={Test01} alt="" />
+                    <img src={Img} alt="" />
                     <div className="top">
-                        <h1>언덕룡</h1>
-                        <p className='desc'>언덕 오르는 수룡</p>
+                        <h1>{content.title}</h1>
+                        <p className='desc'>{content.subtitle}</p>
                         <p className='percent'>전체 사용자 중 10.7%가 이 유형이에요!</p>
                     </div>
                     <div className="bottom">
-                        <h2>철저한 계획형 수룡이</h2>
+                        <h2>{content.desctitle}</h2>
                         <p>
-                            안정성과 신뢰성을 중요하게 여겨요.<br />
-                            하려고 한 것은 무조건 해야 해요.<br />
-                            항상 기본적인 규칙을 지키려고 노력해요.
+                            {content.desc.split('\n').map((line, index) => (
+                                <React.Fragment key={index}>
+                                    {line}
+                                    <br />
+                                </React.Fragment>
+                            ))}
                         </p>
                     </div>
                 </div>
                 <div className="suggest">
                     <p>추천 활동</p>
-                    <h3>푸드트럭 구경하기</h3>
+                    <h3>{content.suggestion}</h3>
                 </div>
             </div>
             <div className="button_box">
-                <button className="gomain">메인으로</button>
-                <button className="reset">테스트 다시하기</button>
+                <button className="gomain"><Link to='/'>메인으로</Link></button>
+                <button className="reset" onClick={() => { onBack() }}>테스트 다시하기</button>
             </div>
         </div>
     )

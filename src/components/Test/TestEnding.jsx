@@ -14,7 +14,7 @@ const TestEnding = () => {
 
     useEffect(() => {
         setContent(Suryong[params.ending])
-    }, [])
+    }, [params.ending])
 
     const Text = [
         {
@@ -52,7 +52,7 @@ const TestEnding = () => {
     return (
         <div className='TestEnding_wrap container'>
             {ending ? (
-                <TestResult />
+                <TestResult content={content} params={params}/>
             ) : (
                 <>
                     <div className="header">

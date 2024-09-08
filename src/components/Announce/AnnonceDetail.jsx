@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 const AnnonceDetail = () => {
     const navigation = useNavigate();
     const [manage, setManage] = useState(false);
-    const [pop, setPop] = useState(true)
+    const [pop, setPop] = useState(false)
     const params = useParams()
 
     useEffect(() => {
