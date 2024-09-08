@@ -15,6 +15,7 @@ import TestEnding from './components/Test/TestEnding'
 import Login from './components/Login/Login'
 import Sponsor from './components/ETC/Sponsor'
 import Making from './components/ETC/Making'
+import Loading from './components/Loading/Loading'
 
 const App = () => {
     return (
@@ -43,7 +44,8 @@ const App = () => {
 
                 <Route path='/sponsor' element={<Sponsor />} />
                 <Route path='/making' element={<Making />} />
-
+                
+                <Route path='/loading' element={<Loading />} />
             </Routes>
         </BrowserRouter>
     )
