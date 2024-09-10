@@ -1,0 +1,301 @@
+//부스 검색
+.back-icon{
+    width: 7px;
+    height: 14px;
+    cursor: pointer;
+    margin-left: 24px;
+}
+
+.filter-icon {
+    width: 24px;
+    height: 32px;
+    cursor: pointer;
+    margin-left: 120px;
+    position: relative;
+    z-index: 10;
+    cursor: pointer
+}
+
+.Booth-title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--black);
+    padding-left: 130px;
+}
+
+.booth-image{
+    width: 134px;
+    height: 134px;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+
+.Booth_wrap .back-icon,
+.Booth_wrap .Booth-title,
+.Booth_wrap .filter-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.Booth_wrap{
+    padding-top: 60px;
+}
+
+.banner {
+    margin-top:20px;
+    margin-left:24px;
+}
+
+.banner-img {
+    width: 345px;
+    height: 75px;
+}
+
+.booth-search {
+    margin-top: 30px;
+}
+
+.booth-search-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    color: var(--black);
+    margin-left: 24px;
+    margin-top: -10px;
+}
+
+.booth-search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.booth-search-bg {
+    position: absolute;
+    left: 0;
+    width: 345px;
+    height: 52px;
+    z-index: 0;
+    margin-left: 24px;
+}
+
+.booth-search-icon{
+    width: 18px;
+    height: 18px;
+    margin-right:45px;
+}
+
+.search-input {
+    position: relative;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    z-index: 1;
+    background: transparent;
+    margin-left: 24px;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+// 부스 리스트
+
+.booth-list {
+    margin-top: 5px;
+}
+
+.booth-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: -35px;
+    margin-top:-20px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.booth-image {
+    width: 134px;
+    height: 134px;
+    border-radius: 8px;
+    margin-bottom: -11px;
+
+}
+.booth-info {
+    position: relative;
+    flex-grow: 1;
+    margin-left: -12px;
+    padding: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.booth-description {
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: var(--gray800);
+    margin-left: 15px;
+}
+
+.booth-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+.booth-info::before {
+    content: '';
+    margin-top:-13px;
+    position: absolute;
+    width: 202px;
+    height: 134px;
+    background-color: rgba(255, 255, 255, 0.05); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    z-index: -1; 
+}
+
+.booth-name-location {
+    display: flex; 
+    align-items: center; 
+    
+}
+
+.booth-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--maincolor);
+    margin-left: 15px;
+    margin-right:40px;
+}
+
+.booth-location {
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: var(--purple01);
+    font-weight: bold;
+}
+
+.booth-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--purple01);
+    border-radius: 5px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 8px;
+    font-weight: bold;
+    margin-top:-5px;
+    margin-left:10px;
+}
+
+.booth-date {
+    font-size: 10px;
+    color: var(--gray500);
+    margin-top:-8px;
+}
+
+.booth-list-container {
+    position: relative;
+    margin-top:10px;
+    min-height: 550px;
+    max-height: 550px;
+    overflow-y: auto; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.booth-list-container::-webkit-scrollbar {
+    display: none;
+}
+//필터
+
+.filter-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 배경 흐리게 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.filter-content {
+    background-image: url('../../img/booth/filterbg.png');
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    width: 345px;
+    max-width: 360px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: var(--gray800);
+}
+
+.filter-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--gray600);
+}
+
+.filter-options {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+
+.filter-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cancel-button, .apply-button {
+    width: 48%;
+    padding: 13px 8px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top:8px;
+    margin-bottom:8px;
+}
+
+.cancel-button {
+    border: 1px solid var(--maincolor);
+    color: var(--maincolor);
+}
+
+.apply-button {
+    background-color: var(--maincolor);
+    color: var(--white);
+    border: none;
+}
+
+.filter-options button {
+    background: none;
+    border: 1px solid var(--gray500);
+    border-radius: 15px;
+    padding: 6px 9px;
+    font-size: 12.5px;
+    cursor: pointer;
+    color: var(--gray500);
+}
+
+.filter-options button.active {
+    background-color: rgba(163, 132, 188, 0.3); 
+    border: 1px solid var(--purple01); 
+    color: var(--maincolor); 
+}
