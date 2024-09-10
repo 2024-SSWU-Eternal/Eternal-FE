@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import backIcon from '../../assets/img/timetable/back.svg';
-import nowOnImage from '../../assets/img/timetable/nowon.png';
-import ongoingImage from '../../assets/img/timetable/icon_ongoingprogram.png';
+import Back from '../../assets/img/timetable/back.svg';
+import nowOnImage from '../../assets/img/timetable/nowon.svg';
+import ongoingImage from '../../assets/img/timetable/icon_ongoingprogram.svg';
 
 
 const Timetable = () => {
@@ -87,12 +87,17 @@ const Timetable = () => {
     const handleNavigation = () => {
         navigate('/'); // This should match the route you defined in App.js
     };
+    const onBack = () => {
+        navigate('/');
+    };
 
     return (
         <div className='Timetable_wrap container'>
-            <button className="icon_back" onClick={handleNavigation}>
-                <img src={backIcon} alt="Back" />
-            </button>
+            <div className="header">
+                <button className="back" onClick={() => { onBack() }}><img src={Back} alt="back button" /></button>
+                <h4>타임테이블</h4>
+            </div>
+            
 
             <div className="tabs">
                 <button

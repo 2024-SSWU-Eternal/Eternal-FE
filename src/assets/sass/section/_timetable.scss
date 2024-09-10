@@ -7,22 +7,29 @@
     overflow-x: hidden;
     padding-top: 60px;
     padding-bottom: 60px;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding: 60px 0px 20px 0px;
+    overflow: hidden;
 
-    .icon_back {
-        left: 25px;
-        position: absolute;
-        background: none;
-        border: none;
-        cursor: pointer;
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 25px;
 
-        img {
+        .back {
+            position: absolute;
+            left: 24px;
             width: 24px;
-            height: 24px;
+            height: 32px;
+            
         }
+
+        h4 {
+            text-align: center;
+            font-weight: 600;
+        }
+        
+    
     }
 
     .tabs {
@@ -31,6 +38,7 @@
         margin-bottom: 10px;
         position: relative;
 
+
         ::after {
             content: "";
             position: absolute;
@@ -38,6 +46,7 @@
             bottom: 0.5px; // 여기에서 선의 위치를 조정
             width: 100%;
             // border-bottom: 2px solid #b2b2b4; // 원하는 두께와 색상으로 설정
+
         }
 
         button {
@@ -176,10 +185,6 @@
         backdrop-filter: blur(10px);
         max-height: 602px;
         overflow-y: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        max-height: 602px;
-        overflow-y: auto;
         /* 수직 스크롤 설정 */
         scrollbar-width: none;
         /* Firefox: 스크롤 바 숨기기 */
@@ -191,7 +196,7 @@
         /* 자식 요소의 위치를 기준으로 배경 이미지 위치 설정 */
 
         /* 배경 이미지 설정 */
-        background-image: url('../../img/timetable/Logo_main.png');
+        background-image: url('../../img/timetable/Logo_main.svg');
         /* 'path-to-back-image.jpg'를 실제 이미지 경로로 변경 */
         background-size: 50% 80%;
         /* 이미지 크기를 요소 크기에 맞게 조정 */
@@ -255,7 +260,9 @@
     .program-time,
     .program-details {
         position: relative;
+        /* 자식 요소의 위치를 기준으로 배경 위에 위치하도록 설정 */
         z-index: 1;
+        /* 배경 이미지 위에 텍스트가 오도록 설정 */
     }
 
 }
