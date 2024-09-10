@@ -4,6 +4,7 @@
     height: 14px;
     cursor: pointer;
     margin-left: 24px;
+    position: relative;
 }
 
 .filter-icon {
@@ -13,7 +14,8 @@
     margin-left: 120px;
     position: relative;
     z-index: 10;
-    cursor: pointer
+    cursor: pointer;
+    position: relative;
 }
 
 .Booth-title {
@@ -22,6 +24,7 @@
     font-weight: bold;
     color: var(--black);
     padding-left: 130px;
+    position: relative;
 }
 
 .booth-image{
@@ -45,6 +48,7 @@
 .banner {
     margin-top:20px;
     margin-left:24px;
+    position: relative;
 }
 
 .banner-img {
@@ -54,6 +58,7 @@
 
 .booth-search {
     margin-top: 30px;
+    position: relative;
 }
 
 .booth-search-title {
