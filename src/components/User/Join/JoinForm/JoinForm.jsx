@@ -5,8 +5,11 @@ import FormName from './FormName';
 import FormEmail from './FormEmail';
 import FormEmailCheck from './FormEmailCheck';
 import FormPass from './FormPass';
+import axios from 'axios';
 
 const JoinForm = ({ setAgree }) => {
+    const URL = 'https://www.eternal-server.store';
+
     const [click, setClick] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -28,12 +31,17 @@ const JoinForm = ({ setAgree }) => {
             alert('이름을 채워주세요!')
             return;
         } else if (step === 2 && email === '') {
-            alert('이메일을 채워주세요!')
+            alert('이메일을 채워주세요!');
             return;
+        } else if (step === 2 && email !== '') {
+            onEmail();
         } else if (step === 3 && emailCheck === '') {
             alert('인증번호를 채워주세요!')
             return;
-        } else if (step === 4 && password === '') {
+        } else if (step === 3 && emailCheck !== '') {
+            onEmailCheck();
+        }
+        else if (step === 4 && password === '') {
             alert('비밀번호를 채워주세요!')
             return;
         }
@@ -51,6 +59,53 @@ const JoinForm = ({ setAgree }) => {
             setTitle(<span>비밀번호를 입력해주세요</span>);
         }
     }, [step]);
+
+    const onEmail = () => {
+        axios.post(`${URL}/user/send-verification-code`, {}, {
+            params: {
+                email: `${email}@sungshin.ac.kr`
+            }
+        })
+            .then((res) => {
+                console.log(res.status);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    const onEmailCheck = () => {
+        axios.post(`${URL}/user/verify-email`, {}, {
+            params: {
+                email: `${email}@sungshin.ac.kr`,
+                code: emailCheck
+            }
+        })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    const onJoin = () => {
+        axios.post(`${URL}/user/register`,
+            {
+                "studentNumber": email,
+                "name": name,
+                "email": `${email}@sungshin.ac.kr`,
+                "password": password,
+                "allowed": true
+            }
+        )
+            .then((res) => {
+                console.log(res.status)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
 
 
     useEffect(() => {
@@ -117,7 +172,7 @@ const JoinForm = ({ setAgree }) => {
                 <FormPass step={step} FadeIn={FadeIn} password={password} setPassword={setPassword} click={click} setClick={setClick} />
             </div>
             {step >= 4 ? (
-                <button className={all ? 'full' : ''}>회원가입</button>
+                <button className={all ? 'full' : ''} onClick={() => { onJoin() }}>회원가입</button>
             ) : (
                 <button onClick={handleNextStep} className={all ? 'full' : ''}>확인</button>
             )}

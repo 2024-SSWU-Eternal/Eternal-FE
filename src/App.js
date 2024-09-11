@@ -49,7 +49,7 @@ const App = () => {
                 <Route path='/sponsor' element={<Sponsor />} />
                 <Route path='/making' element={<Making />} />
                 <Route path='/reservation' element={<Reservation />} />
-                
+
                 <Route path='/loading' element={<Loading />} />
             </Routes>
         </BrowserRouter>

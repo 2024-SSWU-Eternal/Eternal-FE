@@ -4,11 +4,14 @@ import Back from '../../assets/img/login/back.svg'
 import Logo from '../../assets/img/login/logo_main.svg'
 import Eye from '../../assets/img/login/eyeicon.svg'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { setTokens } from '../../store/authSlice'
 
 const Login = () => {
     const URL = 'https://www.eternal-server.store'
     const [email, setEmain] = useState('')
     const [inputValue, setInputValue] = useState('');
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
@@ -33,7 +36,6 @@ const Login = () => {
         })
     }
 
-
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     }
@@ -54,12 +56,17 @@ const Login = () => {
     const onLogin = () => {
         axios.post(`${URL}/user/login`,
             {
-                "email": "westjiuuu@naver.com",
-                "password": "jjiiwwoo03"
+                "email": `${email}@sungshin.ac.kr`,
+                "password": inputValue
             }
         )
             .then((res) => {
-                console.log(res.status);
+                if(res.status ===200){
+                    const accessToken = res.data.token;
+                    const roles = res.data.roles;
+                    dispatch(setTokens({ accessToken, roles }));
+                    navigate('/')
+                }
             })
             .catch((err) => {
                 console.log(err)
@@ -86,6 +93,8 @@ const Login = () => {
                     <p>이메일</p>
                     <div>
                         <input
+                            value={email}
+                            onChange={(e) => { setEmain(e.target.value) }}
                             type='text'
                             className='id' />
                         <p>@sungshin.ac.kr</p>
@@ -110,7 +119,7 @@ const Login = () => {
                 <button
                     className={`submit-button ${isButtonActive ? 'active' : ''}`}
                     disabled={!isButtonActive}
-                    onClick={() => {onLogin()}}
+                    onClick={() => { onLogin() }}
                 >
                     로그인
                 </button>

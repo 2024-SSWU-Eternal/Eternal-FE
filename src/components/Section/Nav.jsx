@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion';
 import HourGlass from '../../assets/img/main/hourglass.png';
 import Logo from '../../assets/img/main/Logo.png';
@@ -7,17 +7,32 @@ import Light from '../../assets/img/main/light02.png';
 import Banner01 from '../../assets/img/main/banner01.png'
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearTokens } from '../../store/authSlice';
 
 const Nav = () => {
     const isLoad = useSelector((state => state.load.isLoading))
+    const accessToken = useSelector((state) => state.auth.accessToken);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        console.log(accessToken);
+    }, [accessToken]);
+
+    const onLogout = () => {
+        dispatch(clearTokens);
+    }
 
     return (
         <>
             {isLoad ? (
                 <>
                     <div className='Nav_wrap'>
-                        <Link to='/login' className='login'>로그인</Link>
+                        {accessToken ? (
+                            <div className='login' onClick={() => { onLogout(); }}>로그아웃</div>
+                        ) : (
+                            <Link to='/login' className='login'>로그인</Link>
+                        )}
                         <div className='img_box'>
                             <img className='hourclass' src={HourGlass} alt="hourglass" />
                             <img className='hourclassglow' src={Glow02} alt="hourglass glow" />
