@@ -44,9 +44,9 @@ const Login = () => {
     const [isSlideOut, setIsSlideOut] = useState(false);
 
     const handleSlideOut = () => {
-        setIsSlideOut(true);
+        setIsSlideOut(true)
         setTimeout(()=>{ 
-            navigate ('/');
+            navigate ('/')
         }, 400)
     }
     
@@ -54,18 +54,20 @@ const Login = () => {
 
     <div className='Login_wrap container'>
 
-        <div className='header'>
-            <button 
-            className={`back ${isSlideOut ? 'slide-out-left' : ''}`} 
-            onClick={handleSlideOut}
-            >
-                <img src={Back} alt="back button" />
-            </button>
-            <p>로그인</p>
-        </div>
+        <div className={`Login_wrap container ${isSlideOut ? 'slide-out-left' : ''}`}>
 
-        <div className='main'>
-            <img src={Logo} alt='로고' />
+            <div className='header'>
+                <button 
+                className='back'
+                onClick={handleSlideOut}
+                >
+                    <img src={Back} alt="back button" />
+                </button>
+                <p>로그인</p>
+            </div>
+
+            <div className='main'>
+                <img src={Logo} alt='로고' />
                 <div className='email'>
                     <p>이메일</p>
                     <div>
