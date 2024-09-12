@@ -26,7 +26,7 @@ const App = () => {
                             >
                                 <Main />
                             </motion.div>}
-                            />
+                             />
 
                         <Route path='/announce/:manager' element={ <Announe /> } />
 

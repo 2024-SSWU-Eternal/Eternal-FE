@@ -17,19 +17,7 @@ const Nav = () => {
                 transition={{ duration: 1, delay: 4.8 }}
                 className='Nav_wrap'>
                 
-                <motion.div
-                    initial={{ x: 100 }}
-                    animate={{ x:0 }}
-                    exit={{ x: 0 }}
-                    transition={{ 
-                        duration: 0.4, 
-                        ease: "easeInOut"
-                    }}
-                    >
-                        <Link to='/login' className='login'>
-                            로그인
-                        </Link>
-                    </motion.div>
+                <Link to='/login' className='login'> 로그인 </Link>
                         
                 <div className='img_box'>
                     <img className='hourclass' src={HourGlass} alt="hourglass" />

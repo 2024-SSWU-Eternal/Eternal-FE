@@ -12,7 +12,7 @@ const Login = () => {
         navigate ('/join');
     }
 
-    {/* 비밀번호 보기/숨기기 함수 */}
+    // 비밀번호 보기/숨기기 함수
 
     const [pwType, setpwType] = useState({
         type: "password",
@@ -29,7 +29,7 @@ const Login = () => {
         })
     }
 
-    {/* 버튼 활성화 함수 */}
+    // 버튼 활성화 함수 
 
     const [inputValue, setInputValue] = useState('');
 
@@ -39,7 +39,7 @@ const Login = () => {
 
     const isButtonActive = inputValue.length > 0;
 
-    {/* 슬라이드 */}
+    // 슬라이드 
 
     const [isSlideOut, setIsSlideOut] = useState(false);
 
