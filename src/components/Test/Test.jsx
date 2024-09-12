@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+import TestMain from './TestMain'
+import TestStory from './TestStory'
 
 const Test = () => {
     const [story, setStory] = useState(false)

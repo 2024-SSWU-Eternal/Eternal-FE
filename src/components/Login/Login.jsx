@@ -51,10 +51,7 @@ const Login = () => {
     }
     
   return (
-
-    <div className='Login_wrap container'>
-
-        <div className={`Login_wrap container ${isSlideOut ? 'slide-out-left' : ''}`}>
+     <div className={`Login_wrap container ${isSlideOut ? 'slide-out-left' : ''}`}>
 
             <div className='header'>
                 <button 
