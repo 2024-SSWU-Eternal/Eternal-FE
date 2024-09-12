@@ -19,7 +19,8 @@ import Loading from './components/Loading/Loading'
 import FoodInfo from './components/FoodInfo/FoodInfo'
 import Reservation from './components/ETC/Reservation'
 import Booth from './components/Booth/Booth'
-import QR from './components/QR/test'
+import Stamp from './components/Stamp/Stamp'
+import StampLogin from './components/Stamp/StampLogin'
 
 const App = () => {
     return (
@@ -55,7 +56,8 @@ const App = () => {
                 <Route path='/loading' element={<Loading />} />
                 <Route path='/booth' element={<Booth />} />
 
-                <Route path='/QR' element={<QR />} />
+                <Route path='/stamp' element={<Stamp />} />
+                <Route path='/stamplogin' element={<StampLogin />} />
 
             </Routes>
         </BrowserRouter>
