@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 import HourGlass from '../../assets/img/main/hourglass.png';
 import Logo from '../../assets/img/main/Logo.png';
@@ -11,16 +11,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearTokens } from '../../store/authSlice';
 
 const Nav = () => {
-    const isLoad = useSelector((state => state.load.isLoading))
+    const [loginbtn, setLoginbtn] = useState(false);
+    const token = localStorage.getItem('token')
+    const isLoad = localStorage.getItem('loading');
     const accessToken = useSelector((state) => state.auth.accessToken);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(accessToken);
-    }, [accessToken]);
+        console.log(token)
+        if(token){
+            setLoginbtn(true);
+        } else {
+            setLoginbtn(false)
+        }
+    });
 
     const onLogout = () => {
         dispatch(clearTokens);
+        localStorage.removeItem('token');
     }
 
     return (
@@ -28,7 +36,7 @@ const Nav = () => {
             {isLoad ? (
                 <>
                     <div className='Nav_wrap'>
-                        {accessToken ? (
+                        {loginbtn ? (
                             <div className='login' onClick={() => { onLogout(); }}>로그아웃</div>
                         ) : (
                             <Link to='/login' className='login'>로그인</Link>
@@ -62,7 +70,11 @@ const Nav = () => {
                         animate={{ opacity: 1, zIndex: 10 }}
                         transition={{ duration: 1, delay: 4.8 }}
                         className='Nav_wrap'>
-                        <Link to='/login' className='login'>로그인</Link>
+                        {loginbtn ? (
+                            <div className='login' onClick={() => { onLogout(); }}>로그아웃</div>
+                        ) : (
+                            <Link to='/login' className='login'>로그인</Link>
+                        )}
                         <div className='img_box'>
                             <img className='hourclass' src={HourGlass} alt="hourglass" />
                             <img className='hourclassglow' src={Glow02} alt="hourglass glow" />

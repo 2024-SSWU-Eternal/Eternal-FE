@@ -59,18 +59,23 @@
                 }
 
                 >div {
+                    width: calc((100% - 83px));
+
                     >div {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
+                        flex-wrap: wrap;
                         margin-bottom: 8px;
 
                         h4 {
+                            width: calc(100% - 85px);
                             font-weight: 500;
                             color: var(--maincolor);
                         }
 
                         p {
+                            width: 79px;
                             color: var(--gray600);
                             font-size: 10px;
                         }
@@ -145,6 +150,11 @@
             background-color: var(--white);
             width: 100%;
             height: 393px;
+
+            img {
+                width: inherit;
+                height: inherit;
+            }
         }
 
         .text_box {

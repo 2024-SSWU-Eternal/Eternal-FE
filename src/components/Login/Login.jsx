@@ -65,6 +65,7 @@ const Login = () => {
                     const accessToken = res.data.token;
                     const roles = res.data.roles;
                     dispatch(setTokens({ accessToken, roles }));
+                    localStorage.setItem('token', res.data.token);
                     navigate('/')
                 }
             })
