@@ -14,27 +14,27 @@ const Timetable = () => {
     useEffect(() => {
         const fetchedPrograms = currentTab === '09-25'
             ? [
-                { id: 1, name: '푸드트럭', location: '수정캠퍼스', time: '11:00 - 22:59' },
-                { id: 2, name: '수정네컷', location: '난향관 앞', time: '11:00 - 22:00' },
-                { id: 3, name: '총학생회 부스', location: '성신관 앞', time: '11:00 - 22:00' },
-                { id: 4, name: '포토존', location: '수정캠퍼스 잔디밭', time: '11:00 - 22:00' },
-                { id: 5, name: '학생/체험형/제휴부스', location: '수정캠퍼스 잔디밭', time: '11:00 - 20:00' },
-                { id: 6, name: '미니 이벤트', location: '수정캠퍼스 잔디밭', time: '16:00 - 17:00' },
-                { id: 7, name: '운정가요제', location: '성신관 옆', time: '17:00 - 18:00' },
-                { id: 8, name: '연예인 공연', location: '수정캠퍼스 잔디밭', time: '02:30 - 21:30' },
-                { id: 9, name: '애프터 파티', location: '수정캠퍼스 잔디밭', time: '22:00 - 23:59' },
+                { id: 1, name: '푸드트럭', location: '수정캠퍼스 잔디밭', time: '11:00 - 22:59' },
+                { id: 2, name: '총학생회 부스', location: '난향관 앞', time: '11:00 - 22:00' },
+                { id: 3, name: '수정네컷', location: '성신관 앞', time: '11:00 - 22:00' },
+                { id: 4, name: '힐링 앤 포토존', location: '수정캠퍼스 잔디밭', time: '11:00 - 22:00' },
+                { id: 5, name: '학생/체험형 부스', location: '잔디밭 광장', time: '11:00 - 20:00' },
+                { id: 6, name: '프로모션 부스', location: '잔디밭 광장', time: '16:00 - 17:00' },
+                { id: 7, name: '수정플래닛 999', location: '잔디밭 광장', time: '17:00 - 20:59' },
+                { id: 8, name: '연예인 공연', location: '잔디밭 광장', time: '21:00 - 21:59' },
+                { id: 9, name: '애프터 파티', location: '잔디밭 광장', time: '21:00 - 22:00' },
             ]
             : currentTab === '09-26'
                 ? [
-                    { id: 10, name: '푸드트럭', location: '수정캠퍼스', time: '11:00 - 22:59' },
-                    { id: 12, name: '수정네컷', location: '난향관 앞', time: '11:00 - 22:00' },
-                    { id: 13, name: '총학생회 부스', location: '성신관 앞', time: '11:00 - 22:00' },
-                    { id: 14, name: '포토존', location: '수정캠퍼스 잔디밭', time: '11:00 - 22:00' },
-                    { id: 15, name: '학생/체험형/제휴부스', location: '수정캠퍼스 잔디밭', time: '11:00 - 20:00' },
-                    { id: 16, name: '미니 이벤트', location: '수정캠퍼스 잔디밭', time: '16:00 - 17:00' },
-                    { id: 17, name: '운정가요제', location: '성신관 옆', time: '17:00 - 18:00' },
-                    { id: 18, name: '연예인 공연', location: '수정캠퍼스 잔디밭', time: '20:30 - 21:30' },
-                    { id: 19, name: '애프터 파티', location: '수정캠퍼스 잔디밭', time: '22:00 - 23:59' },
+                    { id: 1, name: '푸드트럭', location: '수정캠퍼스 잔디밭', time: '11:00 - 22:59' },
+                    { id: 2, name: '총학생회 부스', location: '난향관 앞', time: '11:00 - 22:00' },
+                    { id: 3, name: '수정네컷', location: '성신관 앞', time: '11:00 - 22:00' },
+                    { id: 4, name: '힐링 앤 포토존', location: '수정캠퍼스 잔디밭', time: '11:00 - 22:00' },
+                    { id: 5, name: '학생/체험형 부스', location: '잔디밭 광장', time: '11:00 - 20:00' },
+                    { id: 6, name: '프로모션 부스', location: '잔디밭 광장', time: '16:00 - 17:00' },
+                    { id: 7, name: '학생 공연', location: '잔디밭 광장', time: '17:00 - 20:59' },
+                    { id: 8, name: '연예인 공연', location: '잔디밭 광장', time: '21:00 - 21:59' },
+                    { id: 9, name: '애프터 파티', location: '잔디밭 광장', time: '22:00 - 23:59' },
                 ]
                 : [];
 
@@ -90,7 +90,7 @@ const Timetable = () => {
     const onBack = () => {
         navigate('/');
     };
-
+    
     return (
         <div className='Timetable_wrap container'>
             <div className="header">
@@ -112,6 +112,7 @@ const Timetable = () => {
                 >
                     9월 26일 (목)
                 </button>
+                <line></line>
             </div>
 
             <motion.div
