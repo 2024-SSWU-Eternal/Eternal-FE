@@ -32,11 +32,15 @@
         font-size: 16px;
         font-weight: bold;
         color: var(--maincolor);
-
+    
         .number {
-            margin-left: 220px;
+            position: absolute;
+            right: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--maincolor);
         }
-    }
+    }    
 
     .info-wrapper {
         display: flex;
@@ -125,4 +129,84 @@
             }
         }
     }
+
+    .qr-reader {
+        position: relative;
+    }
+
+    // 추가된 버튼 스타일
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background-color: var(--maincolor);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        
+        &:hover {
+            background-color: var(--maincolor);
+        }
+    }
+
+    .stamp {
+        position: absolute;
+      
+        &.stamp-1 {
+          top: 120px;
+          left: 23px;
+          width: 90px;
+        }
+      
+        &.stamp-2 {
+          top: 120px;
+          left: 75px;
+          width: 90px;
+        }
+      
+        &.stamp-3 {
+          top: 120px;
+          right: 25px;
+          width: 90px;
+        }
+      
+        &.stamp-4 {
+          top: 175px;
+          left: 23px;
+          width: 90px;
+        }
+      
+        &.stamp-5 {
+          top: 175px;
+          left: 75px;
+          width: 90px;
+        }
+      
+        &.stamp-6 {
+          top: 175px;
+          right: 25px;
+          width: 90px;
+        }
+      
+        &.stamp-7 {
+          top: 225px;
+          left: 23px;
+          width: 90px;
+        }
+      
+        &.stamp-8 {
+          top: 225px;
+          left: 75px;
+          width: 90px;
+        }
+      
+        &.stamp-9 {
+          top: 225px;
+          right: 25px;
+          width: 90px;
+        }
+      }
+      
 }

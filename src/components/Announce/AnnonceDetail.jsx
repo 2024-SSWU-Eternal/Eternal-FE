@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/announce/back.svg';
 import Del from '../../assets/img/announce/delete.svg';
 import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const AnnonceDetail = () => {
+    const URL = 'https://www.eternal-server.store';
+
     const navigation = useNavigate();
     const [manage, setManage] = useState(false);
+    const [data, setData] = useState([])
     const [pop, setPop] = useState(false)
-    const params = useParams()
+    const params = useParams();
 
     useEffect(() => {
         if (params.manager === 'manager') {
@@ -15,13 +19,26 @@ const AnnonceDetail = () => {
         } else {
             setManage(false)
         }
-    }, [params])
+    }, [params]);
+
+    useEffect(() => {
+        axios.get(`${URL}/notices/${params.detail}`)
+            .then((res) => {
+                if (res.status === 200) {
+                    setData(res.data);
+                    console.log(res.data);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, [])
 
     const onBack = () => {
         if (params.manager === 'manager') {
             navigation('/announce/manager')
         } else {
-            navigation(-1)
+            navigation(-1);
         }
     }
 
@@ -30,7 +47,13 @@ const AnnonceDetail = () => {
     }
 
     const onDelete = () => {
-
+        axios.delete(`${URL}/notices/${params.detail}`)
+            .then((res) => {
+                console.log(res.status)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     return (
@@ -41,8 +64,8 @@ const AnnonceDetail = () => {
                         <img src={Del} alt="delete button" />
                         <h3>정말 삭제하시겠어요?</h3>
                         <div className="btn_box">
-                            <button onClick={() => {setPop(false)}}>취소</button>
-                            <button onClick={() => {onDelete()}} className='del_btn'>삭제</button>
+                            <button onClick={() => { setPop(false) }}>취소</button>
+                            <button onClick={() => { onDelete() }} className='del_btn'>삭제</button>
                         </div>
                     </div>
                 </div>
@@ -55,26 +78,11 @@ const AnnonceDetail = () => {
             </div>
             <div className="main">
                 <div className="img_box">
-
+                    <img src={data.images} alt="" />
                 </div>
                 <div className="text_box">
-                    <h3>수정대동제 Eternal 사이트 오픈</h3>
-                    <p>
-                        GROWL TO WORLD🔥 <br /> <br />
-
-                        💡 멋쟁이사자처럼이란? <br />
-                        멋쟁이사자처럼은 현재는 국내외 121개 대학, 4천여 명이 활동하는 국내 최대 규모의 IT 창업 동아리입니다. <br /> <br />
-
-                        💡 활동 기간 <br />
-                        2024.03 ~ 2024.12  <br /> <br />
-
-                        💡 주요 행사 및 활동 <br />
-                        - 1학기 : 파트별 스터디 (상시 진행), 아이디어톤 (5월) <br />
-                        -방학 : 전체 파트 토이 프로젝트 (6월), 서울권 여대 연합 해커톤 (7월), 중앙 해커톤 (8월) <br />
-                        -2학기 : 각종 연합 해커톤 (추후 안내 예정)  <br /> <br />
-
-                        많은 관심과 참여 부탁드립니다🧡 <br />
-                    </p>
+                    <h3>{data.title}</h3>
+                    <p>{data.content}</p>
                 </div>
             </div>
             {manage ? (

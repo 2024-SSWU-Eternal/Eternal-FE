@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/announce/back.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 import Imgbtn from '../../assets/img/announce/img_btn.svg';
+import axios from 'axios';
 
 const AnnonceWrite = () => {
+    const URL = 'https://www.eternal-server.store';
+
     const [click, setClick] = useState('');
     const [section, setSection] = useState('공지사항 등록');
     const [btntext, setBtnText] = useState('등록');
@@ -39,7 +42,25 @@ const AnnonceWrite = () => {
             alert('제목과 내용을 입력해주세요!');
             return;
         }
-        navigation('/announce/detail/manager')
+        
+        console.log(file);
+
+        axios.post(`${URL}/notice/create`, {
+            "title": title,
+            "content": content,
+            "userId": 'sswulion',
+            "images": file
+        })
+            .then((res) => {
+                console.log(res.status);
+                if(res.status === 200){
+                    alert('글 작성에 성공하였습니다.');
+                    navigation('/announce/detail/manager')
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     return (
