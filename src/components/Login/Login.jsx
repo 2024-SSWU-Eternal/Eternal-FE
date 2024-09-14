@@ -65,7 +65,8 @@ const Login = () => {
                     const accessToken = res.data.token;
                     const roles = res.data.roles;
                     dispatch(setTokens({ accessToken, roles }));
-                    localStorage.setItem('token', res.data.token);
+                    localStorage.setItem('jwtToken', res.data.token);
+                    console.log('저장된 JWT 토큰:', localStorage.getItem('jwtToken'));
                     navigate('/')
                 }
             })

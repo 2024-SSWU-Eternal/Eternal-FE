@@ -11,8 +11,7 @@ const Stamp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [stamps, setStamps] = useState([]);
   const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
-  const [username, setUsername] = useState(''); 
+  const [studentNum, setStudentNum] = useState(''); 
 
   const navigate = useNavigate(); 
 
@@ -32,19 +31,11 @@ const Stamp = () => {
       
       if (response.ok) {
         const data = await response.json();
-        console.log('API 응답 데이터:', data); 
         setStamps(data);
-        if (data.length > 0) {
-          setUsername(data[0].userName);
-        }
-      } else if (response.status === 401) {
-        setError('유효하지 않은 JWT 토큰입니다.');
-      } else if (response.status === 404) {
-        setError('사용자를 찾을 수 없습니다.');
       } else {
-        setError('알 수 없는 오류가 발생했습니다.');
+        setError('스탬프 데이터를 불러올 수 없습니다.');
       }
-    } catch (err) {
+    } catch {
       setError('네트워크 오류가 발생했습니다.');
     }
   };
@@ -60,57 +51,43 @@ const Stamp = () => {
       });
 
       if (response.ok) {
-        const contentType = response.headers.get('content-type');
-        let data;
-
-        if (contentType && contentType.includes('application/json')) {
-          data = await response.json();
-        } else {
-          data = await response.text();  
-        }
-
         fetchStamps();
-      } else if (response.status === 401) {
-        setError('유효하지 않은 JWT 토큰입니다.');
-      } else if (response.status === 404) {
-        setError('사용자를 찾을 수 없거나 해당 스탬프를 찾을 수 없습니다.');
-      } else if (response.status === 403) {
-        setError('해당 스탬프는 이 사용자에게 할당되지 않았습니다.');
       } else {
-        setError('알 수 없는 오류가 발생했습니다.');
+        setError('스탬프 등록에 실패했습니다.');
       }
-    } catch (err) {
-      console.error('오류 발생:', err);
+    } catch {
       setError('네트워크 오류가 발생했습니다.');
     }
   };
 
-  const extractUsernameFromToken = () => {
+  useEffect(() => {
     const token = localStorage.getItem('jwtToken');
     if (token) {
-      const base64Url = token.split('.')[1]; 
+      const base64Url = token.split('.')[1];
       const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
       const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
       }).join(''));
-  
+
       const decodedToken = JSON.parse(jsonPayload);
-      console.log('토큰값:', decodedToken); 
-  
-      return decodedToken.sub || '사용자'; 
+
+      const currentTime = Math.floor(Date.now() / 1000);
+      if (decodedToken.exp && decodedToken.exp >= currentTime) {
+        setStudentNum(decodedToken.student_num); 
+        fetchStamps(); 
+        simulateStampRegistration();
+      } else {
+        setError('토큰이 만료되었습니다.');
+      }
+    } else {
+      setError('JWT 토큰이 존재하지 않습니다.');
     }
-    return '사용자';
-  };
-  
-  useEffect(() => {
-    setUsername(extractUsernameFromToken()); 
-    simulateStampRegistration(); 
-    fetchStamps(); 
   }, []);
 
+  //스탬프 찍히는 것 확인하기 위함 실제로는 지울 것
   const simulateStampRegistration = async () => {
-    console.log("Simulating stamp registration...");
-    await registerStamp(1);
+    await registerStamp(1); 
+    await registerStamp(2); 
   };
 
   const stampedCount = stamps.filter(stamp => stamp.status).length;
@@ -127,7 +104,7 @@ const Stamp = () => {
         <div className="title">내 빙고판</div>
       </div>
       <div className='stamp_info'>
-        <div className="name">{username}의 빙고판</div>
+        <div className="name">{studentNum}의 빙고판</div>
         <div className="number">{stampedCount}/{totalStamps}</div> 
       </div>
 
@@ -156,26 +133,23 @@ const Stamp = () => {
         <div className="bingo_info"><img src={Bingo} alt="빙고판" /></div>
       </div>
 
-      <div className='location_info'>
+      <div className='location_info' onClick={handleLocationClick}>
         <div className='location'>QR코드 위치 확인하기</div>
-        <div className="go" onClick={handleLocationClick}><img src={Go} alt="qr위치 확인하기" /></div> {/* 클릭 시 페이지 이동 */}
+        <div className="go"><img src={Go} alt="qr위치 확인하기" /></div>
       </div>
 
       {error && <div className="error-message">{error}</div>}
-      {successMessage && <div className="success-message">{successMessage}</div>}
 
       <div className="stamps-list">
         {stamps.map(stamp => (
           <div key={stamp.stampId} className={`stamp stamp-${stamp.stampId} ${stamp.status ? 'set' : 'not-set'}`}>
-            {stamp.status ? (
-              <>
-                <img 
-                  src={stamp.stampImg} 
-                  alt={`스탬프 ${stamp.stampId}`} 
-                  className={`stamp stamp-${stamp.stampId}`} 
-                />
-              </>
-            ) : null}
+            {stamp.status && (
+              <img 
+                src={stamp.stampImg} 
+                alt={`스탬프 ${stamp.stampId}`} 
+                className={`stamp stamp-${stamp.stampId}`} 
+              />
+            )}
           </div>
         ))}
       </div>
