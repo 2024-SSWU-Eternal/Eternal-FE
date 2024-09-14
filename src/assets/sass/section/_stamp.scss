@@ -1,232 +1,232 @@
 .Stamp_wrap {
-    padding: 60px 25px 20px 25px;
-    overflow: hidden;
-    color: var(--black);
-    position: relative;
+  padding: 60px 25px 20px 25px;
+  overflow: hidden;
+  color: var(--black);
+  position: relative;
 
-    .top {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        
-        .back {
-            width: 9px;
-            height: 14px;
-            position: absolute;
-            left: 8px;
-        }
+  .top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      
+      .back {
+          width: 9px;
+          height: 14px;
+          position: absolute;
+          left: 8px;
+      }
 
-        .title {
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--black);
-        }
+      .title {
+          font-size: 16px;
+          font-weight: bold;
+          color: var(--black);
+      }
+  }
+
+  .stamp_info {
+      position: relative;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      display: flex;
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--maincolor);
+  
+      .number {
+          position: absolute;
+          right: 12px;
+          font-size: 16px;
+          font-weight: bold;
+          color: var(--maincolor);
+      }
+  }    
+
+  .name-wrapper {
+      display: flex;
+      align-items: center; 
     }
-
-    .stamp_info {
-        position: relative;
-        margin-top: 25px;
-        margin-bottom: 10px;
-        display: flex;
-        font-size: 16px;
-        font-weight: bold;
-        color: var(--maincolor);
     
-        .number {
-            position: absolute;
-            right: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--maincolor);
-        }
-    }    
+    .name {
+      background-color: rgba(255, 255, 255, 0.2); 
+      border-radius: 10px;
+      padding: 3px 8px;  
+      font-size: 22px;  
+      font-weight: bold;
+      color: var(--maincolor); 
+      display: inline-block; 
+    }
+    
+    .name-wrapper span {
+      margin-left: 8px;
+      font-size: 16px; 
+      color: var(--maincolor);
+    }
+    
 
-    .name-wrapper {
-        display: flex;
-        align-items: center; 
+  .info-wrapper {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      position: relative;
+
+      .info-text {
+          display: flex;
+          flex-direction: column; 
+          margin-right: 105px;
+          
+          .info {
+              font-size: 14px;
+              font-weight: 500;
+              color: var(--black);
+          }
       }
-      
-      .name {
-        background-color: rgba(255, 255, 255, 0.2); 
-        border-radius: 10px;
-        padding: 3px 8px;  
-        font-size: 22px;  
-        font-weight: bold;
-        color: var(--maincolor); 
-        display: inline-block; 
+
+      .I {
+          width: 22px; 
+          height: 22px;
+          cursor: pointer;
       }
-      
-      .name-wrapper span {
-        margin-left: 8px;
-        font-size: 16px; 
-        color: var(--maincolor);
+  }
+
+  .bingo_info {
+      position: relative;
+      margin-top: 32px;
+  }
+
+  .location_info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      .location {
+          font-size: 14px;
+          font-weight: bold;
+          color: var(--maincolor);
+          margin-top: 20px;
       }
-      
 
-    .info-wrapper {
-        display: flex;
-        align-items: center;
-        margin-top: 10px;
-        position: relative;
+      .go {
+          width: 14px;
+          height: 10px;
+          margin-top: 17px;
+          margin-left: 8px;
+      }
+  }
 
-        .info-text {
-            display: flex;
-            flex-direction: column; 
-            margin-right: 105px;
-            
-            .info {
-                font-size: 14px;
-                font-weight: 500;
-                color: var(--black);
-            }
-        }
+  .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
 
-        .I {
-            width: 22px; 
-            height: 22px;
-            cursor: pointer;
-        }
+      .popup-content {
+          position: relative;
+          padding: 20px;
+          border-radius: 10px;
+          text-align: center;
+
+          .popup-close {
+              position: absolute;
+              top: 40px;
+              right: 40px;
+              cursor: pointer;
+              
+              img {
+                  width: 16px;
+                  height: 16px;
+              }
+          }
+
+          .popup-image {
+              width: 100%;
+              height: auto;
+          }
+      }
+  }
+
+  .qr-reader {
+      position: relative;
+  }
+
+  //스탬프
+  .stamp {
+      position: absolute;
+    
+      &.stamp-1 {
+        top: 120px;
+        left: 23px;
+        width: 90px;
+      }
+    
+      &.stamp-2 {
+        top: 120px;
+        left: 75px;
+        width: 90px;
+      }
+    
+      &.stamp-3 {
+        top: 120px;
+        right: 25px;
+        width: 90px;
+      }
+    
+      &.stamp-4 {
+        top: 175px;
+        left: 23px;
+        width: 90px;
+      }
+    
+      &.stamp-5 {
+        top: 175px;
+        left: 75px;
+        width: 90px;
+      }
+    
+      &.stamp-6 {
+        top: 175px;
+        right: 25px;
+        width: 90px;
+      }
+    
+      &.stamp-7 {
+        top: 225px;
+        left: 23px;
+        width: 90px;
+      }
+    
+      &.stamp-8 {
+        top: 225px;
+        left: 75px;
+        width: 90px;
+      }
+    
+      &.stamp-9 {
+        top: 225px;
+        right: 25px;
+        width: 90px;
+      }
     }
 
-    .bingo_info {
-        position: relative;
-        margin-top: 50px;
-    }
-
-    .location_info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-
-        .location {
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--maincolor);
-            margin-top: 20px;
-        }
-
-        .go {
-            width: 14px;
-            height: 10px;
-            margin-top: 17px;
-            margin-left: 8px;
-        }
-    }
-
-    .popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-
-        .popup-content {
-            position: relative;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-
-            .popup-close {
-                position: absolute;
-                top: 40px;
-                right: 40px;
-                cursor: pointer;
-                
-                img {
-                    width: 16px;
-                    height: 16px;
-                }
-            }
-
-            .popup-image {
-                width: 100%;
-                height: auto;
-            }
-        }
-    }
-
-    .qr-reader {
-        position: relative;
-    }
-
-    //스탬프
-    .stamp {
-        position: absolute;
-      
-        &.stamp-1 {
-          top: 120px;
-          left: 23px;
-          width: 90px;
-        }
-      
-        &.stamp-2 {
-          top: 120px;
-          left: 75px;
-          width: 90px;
-        }
-      
-        &.stamp-3 {
-          top: 120px;
-          right: 25px;
-          width: 90px;
-        }
-      
-        &.stamp-4 {
-          top: 175px;
-          left: 23px;
-          width: 90px;
-        }
-      
-        &.stamp-5 {
-          top: 175px;
-          left: 75px;
-          width: 90px;
-        }
-      
-        &.stamp-6 {
-          top: 175px;
-          right: 25px;
-          width: 90px;
-        }
-      
-        &.stamp-7 {
-          top: 225px;
-          left: 23px;
-          width: 90px;
-        }
-      
-        &.stamp-8 {
-          top: 225px;
-          left: 75px;
-          width: 90px;
-        }
-      
-        &.stamp-9 {
-          top: 225px;
-          right: 25px;
-          width: 90px;
-        }
+    @keyframes slideOut {
+      0% {
+        transform: translateX(0);
+        opacity: 1;
       }
-
-      @keyframes slideOut {
-        0% {
-          transform: translateX(0);
-          opacity: 1;
-        }
-        100% {
-          transform: translateX(100%);
-          opacity: 0;
-        }
+      100% {
+        transform: translateX(100%);
+        opacity: 0;
       }
-      
-      .SlideOut {
-        animation: slideOut 400ms ease-in-out forwards;
-      }
+    }
+    
+    .SlideOut {
+      animation: slideOut 400ms ease-in-out forwards;
+    }
 }
