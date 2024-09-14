@@ -56,8 +56,8 @@ const App = () => {
                 <Route path='/loading' element={<Loading />} />
                 <Route path='/booth' element={<Booth />} />
 
-                <Route path='/stamp' element={<Stamp />} />
-                <Route path='/stamplogin' element={<StampLogin />} />
+                <Route path="/stamp/:stampNum" element={<Stamp />} />
+                <Route path="/stamp" element={<Stamp />} />
 
             </Routes>
         </BrowserRouter>
