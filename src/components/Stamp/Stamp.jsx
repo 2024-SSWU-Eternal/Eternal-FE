@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate, useParams } from 'react-router-dom'; 
 import Back from '../../assets/img/stamp/back.svg';
 import Bingo from "../../assets/img/stamp/bingo.svg";
 import Go from "../../assets/img/stamp/go.svg";
@@ -15,6 +15,7 @@ const Stamp = () => {
   const [userName, setUserName] = useState(''); 
 
   const navigate = useNavigate(); 
+  const { stampNum } = useParams(); 
 
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
@@ -98,21 +99,17 @@ const Stamp = () => {
         setStudentNum(decodedToken.student_num); 
         fetchStamps(); 
         fetchProfile();
-        simulateStampRegistration();
+        if (stampNum) {
+          registerStamp(stampNum); 
+        }
       } else {
         setError('토큰이 만료되었습니다.');
       }
     } else {
       setError('JWT 토큰이 존재하지 않습니다.');
-      navigate('/login');  // 토큰이 없을 경우 로그인 페이지로 이동
+      navigate('/login'); 
     }
-  }, [navigate]);
-
-  //스탬프 찍히는 것 확인하기 위함 실제로는 지울 것
-  const simulateStampRegistration = async () => {
-    await registerStamp(1); 
-    await registerStamp(2); 
-  };
+  }, [navigate, stampNum]);
 
   const stampedCount = stamps.filter(stamp => stamp.status).length;
   const totalStamps = stamps.length;
