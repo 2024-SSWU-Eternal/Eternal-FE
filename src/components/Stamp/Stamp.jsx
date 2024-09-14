@@ -13,6 +13,7 @@ const Stamp = () => {
   const [error, setError] = useState(null);
   const [studentNum, setStudentNum] = useState('');
   const [userName, setUserName] = useState(''); 
+  const [isSlidingOut, setIsSlidingOut] = useState(false); 
 
   const navigate = useNavigate(); 
   const { stampNum } = useParams(); 
@@ -114,18 +115,28 @@ const Stamp = () => {
   const stampedCount = stamps.filter(stamp => stamp.status).length;
   const totalStamps = stamps.length;
 
+  const handleBackClick = () => {
+    setIsSlidingOut(true); 
+    setTimeout(() => {
+      navigate('/'); 
+    }, 400); 
+  };
+
   const handleLocationClick = () => {
     navigate('/map'); 
   };
 
   return (
-    <div className='Stamp_wrap container'>
+    <div className={`Stamp_wrap container ${isSlidingOut ? 'SlideOut' : ''}`}>
       <div className='top'>
-        <div className="back"><img src={Back} alt="뒤로가기" /></div>
+        <div className="back" onClick={handleBackClick}><img src={Back} alt="뒤로가기" /></div>
         <div className="title">내 빙고판</div>
       </div>
       <div className='stamp_info'>
-        <div className="name">{userName}의 빙고판</div>
+      <div className="name-wrapper">
+        <div className="name">{userName}</div> 
+        <span>의 빙고판</span>
+      </div>
         <div className="number">{stampedCount}/{totalStamps}</div> 
       </div>
 
