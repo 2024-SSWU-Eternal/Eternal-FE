@@ -42,6 +42,28 @@
         }
     }    
 
+    .name-wrapper {
+        display: flex;
+        align-items: center; 
+      }
+      
+      .name {
+        background-color: rgba(255, 255, 255, 0.2); 
+        border-radius: 10px;
+        padding: 3px 8px;  
+        font-size: 22px;  
+        font-weight: bold;
+        color: var(--maincolor); 
+        display: inline-block; 
+      }
+      
+      .name-wrapper span {
+        margin-left: 8px;
+        font-size: 16px; 
+        color: var(--maincolor);
+      }
+      
+
     .info-wrapper {
         display: flex;
         align-items: center;
@@ -192,5 +214,19 @@
           width: 90px;
         }
       }
+
+      @keyframes slideOut {
+        0% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+      }
       
+      .SlideOut {
+        animation: slideOut 400ms ease-in-out forwards;
+      }
 }
