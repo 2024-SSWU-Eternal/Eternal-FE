@@ -37,31 +37,39 @@ const AnnonceWrite = () => {
         }
     }, [])
 
-    const onWrite = () => {
+    const onWrite = async () => {
         if (!(title && content)) {
             alert('제목과 내용을 입력해주세요!');
             return;
         }
-        
-        console.log(file);
 
-        axios.post(`${URL}/notice/create`, {
-            "title": title,
-            "content": content,
-            "userId": 'sswulion',
-            "images": file
-        })
-            .then((res) => {
-                console.log(res.status);
-                if(res.status === 200){
-                    alert('글 작성에 성공하였습니다.');
-                    navigation('/announce/detail/manager')
-                }
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('content', content);
+        formData.append('userId', 'sswulion');
+        if (file) {
+            formData.append('images', file);
+        }
+
+        try {
+            const response = await fetch(`${URL}/notices/create`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                alert('공지사항이 성공적으로 등록되었습니다.');
+                navigation('/announce/manager');
+            } else {
+                alert('공지사항 등록에 실패했습니다.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('서버에 오류가 발생했습니다.');
+        };
+
+    };
+
 
     return (
         <div className='AnnonceWrite_wrap container'>
