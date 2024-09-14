@@ -11,7 +11,8 @@ const Stamp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [stamps, setStamps] = useState([]);
   const [error, setError] = useState(null);
-  const [studentNum, setStudentNum] = useState(''); 
+  const [studentNum, setStudentNum] = useState('');
+  const [userName, setUserName] = useState(''); 
 
   const navigate = useNavigate(); 
 
@@ -60,6 +61,27 @@ const Stamp = () => {
     }
   };
 
+  const fetchProfile = async () => {
+    try {
+      const response = await fetch('https://www.eternal-server.store/profile', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUserName(data.name); 
+      } else {
+        setError('사용자 이름을 불러올 수 없습니다.');
+      }
+    } catch {
+      setError('네트워크 오류가 발생했습니다.');
+    }
+  };
+
   useEffect(() => {
     const token = localStorage.getItem('jwtToken');
     if (token) {
@@ -75,6 +97,7 @@ const Stamp = () => {
       if (decodedToken.exp && decodedToken.exp >= currentTime) {
         setStudentNum(decodedToken.student_num); 
         fetchStamps(); 
+        fetchProfile();
         simulateStampRegistration();
       } else {
         setError('토큰이 만료되었습니다.');
@@ -105,7 +128,7 @@ const Stamp = () => {
         <div className="title">내 빙고판</div>
       </div>
       <div className='stamp_info'>
-        <div className="name">{studentNum}의 빙고판</div>
+        <div className="name">{userName}의 빙고판</div>
         <div className="number">{stampedCount}/{totalStamps}</div> 
       </div>
 
