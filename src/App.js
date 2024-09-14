@@ -18,6 +18,7 @@ import Making from './components/ETC/Making'
 import Loading from './components/Loading/Loading'
 import FoodInfo from './components/FoodInfo/FoodInfo'
 import Reservation from './components/ETC/Reservation'
+import Stamp from './components/Stamp/Stamp'
 
 const App = () => {
     return (
@@ -51,7 +52,8 @@ const App = () => {
                 <Route path='/reservation' element={<Reservation />} />
                 
                 <Route path='/loading' element={<Loading />} />
-            </Routes>
+                <Route path='/stamp' element={<Stamp />} />
+            </Routes> 
         </BrowserRouter>
     )
 }
