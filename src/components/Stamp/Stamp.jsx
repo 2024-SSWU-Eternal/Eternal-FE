@@ -81,8 +81,9 @@ const Stamp = () => {
       }
     } else {
       setError('JWT 토큰이 존재하지 않습니다.');
+      navigate('/login');  // 토큰이 없을 경우 로그인 페이지로 이동
     }
-  }, []);
+  }, [navigate]);
 
   //스탬프 찍히는 것 확인하기 위함 실제로는 지울 것
   const simulateStampRegistration = async () => {
