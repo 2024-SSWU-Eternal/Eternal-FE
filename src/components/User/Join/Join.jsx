@@ -4,21 +4,13 @@ import TermsWrap from './Terms/TermsWrap';
 
 const Join = () => {
     const [agree, setAgree] = useState(false);
-    const [isSlideOut, setIsSlideOut] = useState(false)
-
-    const handleSlideOut = () => { 
-        setIsSlideOut(true)
-        setTimeout(() => {
-            setIsSlideOut(false)
-        }, 400)
-    }
 
     return (
-        <div className={`Join_wrap container ${isSlideOut ? 'slide-out-left' : ''}`}>
+        <div className='Join_wrap container'>
             {agree ? (
                 <JoinForm setAgree={setAgree}/>
             ) : (
-                <TermsWrap setAgree={setAgree} handleSlideOut={handleSlideOut} />
+                <TermsWrap setAgree={setAgree} />
             )}
         </div>
     )

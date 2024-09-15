@@ -1,0 +1,42 @@
+/* 페이지 앞으로 이동 (우측에서 좌측으로) */
+.slide-next-enter {
+  transform: translateX(100%);
+}
+
+.slide-next-enter-active {
+  transform: translateX(0);
+  transition: transform 400ms ease-in-out;
+}
+
+.slide-next-exit {
+  transform: translateX(0);
+}
+
+.slide-next-exit-active {
+  transform: translateX(-100%);
+  transition: transform 400ms ease-in-out;
+}
+
+/* 뒤로 이동 (현재 페이지는 우측으로 밀리고, 새로운 페이지는 점점 나타남) */
+.fade-in-enter {
+  opacity: 0;
+}
+
+.fade-in-enter-active {
+  opacity: 1;
+  transition: opacity 400ms ease-in-out;
+}
+
+.fade-in-exit {
+  transform: translateX(0);
+}
+
+.fade-in-exit-active {
+  transform: translateX(100%);
+  transition: transform 400ms ease-in-out;
+}
+
+.transition-wrapper {
+  position: relative;
+  width: 100vw;
+}

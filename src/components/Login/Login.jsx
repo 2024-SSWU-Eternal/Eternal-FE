@@ -8,6 +8,10 @@ const Login = () => {
 
     const navigate = useNavigate();
 
+    const goToBack = () => {
+        navigate ('/');
+    }
+
     const joinClick = () => {
         navigate ('/join');
     }
@@ -38,26 +42,12 @@ const Login = () => {
     }
 
     const isButtonActive = inputValue.length > 0;
-
-    // 슬라이드 
-
-    const [isSlideOut, setIsSlideOut] = useState(false);
-
-    const handleSlideOut = () => {
-        setIsSlideOut(true)
-        setTimeout(()=>{ 
-            navigate ('/')
-        }, 400)
-    }
     
   return (
-     <div className={`Login_wrap container ${isSlideOut ? 'slide-out-left' : ''}`}>
+     <div className='Login_wrap container'>
 
             <div className='header'>
-                <button 
-                className='back'
-                onClick={handleSlideOut}
-                >
+                <button className='back' onClick={goToBack}>
                     <img src={Back} alt="back button" />
                 </button>
                 <p>로그인</p>

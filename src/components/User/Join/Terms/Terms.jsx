@@ -9,10 +9,7 @@ const Terms = ({ first, setFirst, second, setSecond, third, setThird, all, onAll
     const navigation = useNavigate();
 
     const onBack = () => {
-        handleSlideOut()
-        setTimeout(()=>{ 
-            navigation ('/login')
-        }, 400)
+        navigation ('/login')
     }
 
     return (

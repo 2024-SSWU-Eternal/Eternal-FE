@@ -46,7 +46,7 @@ const TermsWrap = ({ setAgree, handleSlideOut }) => {
                 <Details setDetail={setDetail} />
             ) : (
                 <Terms first={first} setFirst={setFirst} second={second} setSecond={setSecond} third={third} setThird={setThird}
-                    all={all} setDetail={setDetail} onNext={onNext} onAll={onAll} handleSlideOut={handleSlideOut} />
+                    all={all} setDetail={setDetail} onNext={onNext} onAll={onAll} />
             )}
         </div>
     )
