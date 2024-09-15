@@ -46,9 +46,9 @@
         content: "";
         position: absolute;
         left: 0;
-        bottom: -5px; 
+        bottom: -5.5px; 
         width: 100%;
-        border-bottom: 2px solid #b2b2b4; 
+        border-bottom: 1.5px solid #b2b2b4; 
         z-index: 0; 
     }
 
@@ -112,6 +112,7 @@
         }
 
         .now-on-details {
+            width: 100%;
             position: relative;
             z-index: 2;
             display: flex;
@@ -125,11 +126,12 @@
 
         .now-on-time,
         .now-on-name,
-        .now-on-location {                                      
+        .now-on-location {   
+            width: 200px;                                   
             text-align: center;
             flex: 1;
             text-align: center;
-            margin: 0 25px;
+            // margin: 0 25px;
             width: 70px;
             margin-top: -5px;
         }
@@ -152,6 +154,7 @@
             font-size: 14px;
             font-weight: normal;
             color: #7B7B7E;
+            margin-bottom: 5px;
         }
 
         .now-on-none {
@@ -167,7 +170,7 @@
         flex-direction: column;
         align-items: flex-start; 
         width: 90%;
-        margin: 0 auto;
+        margin: 30px auto;
         padding: 20px;
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 12px;
@@ -209,7 +212,13 @@
         text-align: left;
         font-size: 14px;
         color: #272727;
-        font-weight: 600;
+        font-weight: 500;
+
+        .fin-time{
+            font-size: 12px;
+            font-weight: 300;
+            margin-top: 5px;
+        }
     }
     
     .program-item .program-time p {

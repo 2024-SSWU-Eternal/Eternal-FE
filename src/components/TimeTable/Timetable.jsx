@@ -14,10 +14,10 @@ const Timetable = () => {
     useEffect(() => {
         const fetchedPrograms = currentTab === '09-25'
             ? [
-                { id: 1, name: '푸드트럭', location: '수정캠퍼스 잔디밭', time: '11:00 - 22:00' },
-                { id: 2, name: '총학생회 부스', location: '난향관 앞', time: '11:00 - 22:00' },
-                { id: 3, name: '수정네컷', location: '성신관 앞', time: '11:00 - 22:00' },
-                { id: 4, name: '힐링 앤 포토존', location: '수정캠퍼스 잔디밭', time: '11:00 - 22:00' },
+                { id: 1, name: '푸드트럭', location: '수정캠퍼스 잔디밭', time: '1:00 - 22:00' },
+                { id: 2, name: '총학생회 부스', location: '난향관 앞', time: '1:00 - 22:00' },
+                { id: 3, name: '수정네컷', location: '성신관 앞', time: '1:00 - 22:00' },
+                { id: 4, name: '힐링 앤 포토존', location: '수정캠퍼스 잔디밭', time: '1:00 - 22:00' },
                 { id: 5, name: '프로모션 부스', location: '잔디밭 광장', time: '11:00 - 18:00' },
                 { id: 6, name: '학생/체험형 부스', location: '잔디밭 광장', time: '11:00 - 20:00' },
                 { id: 7, name: '수정플래닛 999', location: '잔디밭 광장', time: '19:00 - 20:59' },
@@ -162,12 +162,12 @@ const Timetable = () => {
                                     {program.name === '푸드트럭' ? (
                                         <div className="program-time">
                                             <p>{program.time.split(' - ')[0]}</p> {/* Start time */}
-                                            <p>~{program.time.split(' - ')[1]}</p> {/* End time */}
+                                            <p className='fin-time'>~{program.time.split(' - ')[1]}</p> {/* End time */}
                                         </div>
                                     ) : (
                                         ['학생/체험형 부스', '프로모션 부스'].includes(program.name) ? (
                                             <div className="program-time">
-                                                <p>~{program.time.split(' - ')[1]}</p> {/* Only end time */}
+                                                <p className='fin-time'>~{program.time.split(' - ')[1]}</p> {/* Only end time */}
                                             </div>
                                         ) : (
                                             programIndex === 0 && (
