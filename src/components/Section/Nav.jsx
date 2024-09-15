@@ -19,7 +19,7 @@ const Nav = () => {
 
     useEffect(() => {
         console.log(token)
-        if(token){
+        if (token) {
             setLoginbtn(true);
         } else {
             setLoginbtn(false)
@@ -58,7 +58,7 @@ const Nav = () => {
                             </div>
                         </div>
                         <div className="banner">
-                            <img src={Banner01} alt="" />
+                            <Link to='/booth'><img src={Banner01} alt="" /></Link>
                         </div>
                     </div>
                     <Footer />
@@ -92,7 +92,7 @@ const Nav = () => {
                             </div>
                         </div>
                         <div className="banner">
-                            <img src={Banner01} alt="" />
+                            <Link to='/booth'><img src={Banner01} alt="" /></Link>
                         </div>
                     </motion.div>
                     <Footer />
