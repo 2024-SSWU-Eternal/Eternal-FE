@@ -6,20 +6,36 @@ import Go from "../../assets/img/stamp/go.svg";
 import X from "../../assets/img/stamp/x.svg";
 import I from "../../assets/img/stamp/i.svg";
 import Bingo_Info from "../../assets/img/stamp/Bingo_Info.svg";
+import Alert from "../../assets/img/stamp/Alert.svg";
+import Check from "../../assets/img/stamp/check.svg"; 
 
 const Stamp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [isAlertVisible, setIsAlertVisible] = useState(false); 
   const [stamps, setStamps] = useState([]);
   const [error, setError] = useState(null);
   const [studentNum, setStudentNum] = useState('');
   const [userName, setUserName] = useState(''); 
   const [isSlidingOut, setIsSlidingOut] = useState(false); 
+  const [alertMessage, setAlertMessage] = useState('');
 
   const navigate = useNavigate(); 
   const { stampNum } = useParams(); 
 
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
+  };
+
+  const stampMessages ={
+    1: '"수정대동제 인스타그램 팔로우하기"',
+    2: '"행정부스 방문하기"',
+    3: '"에어수룡이와 사진 찍기"',
+    4: '"공공마켓 즐기기"',
+    5: '"공식 홈페이지 접속하기"',
+    6: '"수정대동제 굿즈 구매하기"',
+    7: '"운정뜰 포토존 즐기기"',
+    8: '"플리마켓 구경하기"',
+    9: '"유형테스트 참여하기"'
   };
 
   const fetchStamps = async () => {
@@ -55,6 +71,7 @@ const Stamp = () => {
 
       if (response.ok) {
         fetchStamps();
+        showAlert(stampNum); 
       } else {
         setError('스탬프 등록에 실패했습니다.');
       }
@@ -82,6 +99,15 @@ const Stamp = () => {
     } catch {
       setError('네트워크 오류가 발생했습니다.');
     }
+  };
+
+  const showAlert = (stampNum) => {
+    setAlertMessage(stampMessages[stampNum] || ''); 
+    setIsAlertVisible(true);
+  };
+
+  const closeAlert = () => {
+    setIsAlertVisible(false);
   };
 
   useEffect(() => {
@@ -157,6 +183,18 @@ const Stamp = () => {
               <img src={X} alt="닫기" />
             </div>
             <img src={Bingo_Info} alt="빙고 정보" className="popup-image" />
+          </div>
+        </div>
+      )}
+
+      {isAlertVisible && (
+        <div className="alert-popup">
+          <div className="alert-content">
+            <img src={Alert} alt="스탬프 알림" className="alert-img" />
+            <div className="alert-message">{alertMessage}</div>
+            <div className="alert-check" onClick={closeAlert}>
+              <img src={Check} alt="확인" className="alert-check-img" />
+            </div>
           </div>
         </div>
       )}
