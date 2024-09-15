@@ -8,8 +8,8 @@ import ongoingImage from '../../assets/img/timetable/icon_ongoingprogram.svg';
 const Timetable = () => {
     const [currentTab, setCurrentTab] = useState('09-25');
     const [programs, setPrograms] = useState([]);
-    const [nowOnPrograms, setNowOnPrograms] = useState([]); // Updated to handle multiple programs
-    const [currentProgramIndex, setCurrentProgramIndex] = useState(0); // Index for rotating through programs
+    const [nowOnPrograms, setNowOnPrograms] = useState([]);
+    const [currentProgramIndex, setCurrentProgramIndex] = useState(0); 
 
     useEffect(() => {
         const fetchedPrograms = currentTab === '09-25'
@@ -18,8 +18,8 @@ const Timetable = () => {
                 { id: 2, name: '총학생회 부스', location: '난향관 앞', time: '11:00 - 22:00' },
                 { id: 3, name: '수정네컷', location: '성신관 앞', time: '11:00 - 22:00' },
                 { id: 4, name: '힐링 앤 포토존', location: '수정캠퍼스 잔디밭', time: '11:00 - 22:00' },
-                { id: 5, name: '학생/체험형 부스', location: '잔디밭 광장', time: '11:00 - 20:00' },
-                { id: 6, name: '프로모션 부스', location: '잔디밭 광장', time: '11:00 - 18:00' },
+                { id: 5, name: '프로모션 부스', location: '잔디밭 광장', time: '11:00 - 18:00' },
+                { id: 6, name: '학생/체험형 부스', location: '잔디밭 광장', time: '11:00 - 20:00' },
                 { id: 7, name: '수정플래닛 999', location: '잔디밭 광장', time: '19:00 - 20:59' },
                 { id: 8, name: '연예인 공연', location: '잔디밭 광장', time: '21:00 - 21:59' },
                 { id: 9, name: '애프터 파티', location: '잔디밭 광장', time: '22:00 - 23:00' },
@@ -40,29 +40,29 @@ const Timetable = () => {
 
         setPrograms(fetchedPrograms);
     }, [currentTab]);
-     // Group programs by start time
+     // 시작그룹만들고
      const groupProgramsByStartTime = (programs) => {
         const grouped = {};
         programs.forEach(program => {
-            const startTime = program.time.split(' ')[0]; // Extract the start time
+            const startTime = program.time.split(' ')[0]; 
             if (!grouped[startTime]) {
                 grouped[startTime] = [];
             }
             grouped[startTime].push(program);
         });
-        return Object.entries(grouped); // Convert object to array for easier mapping
+        return Object.entries(grouped); 
     };
 
-    // Correctly define `groupedPrograms` using the `groupProgramsByStartTime` function
+   
     const groupedPrograms = groupProgramsByStartTime(programs);
-    // Function to rotate through programs with the same time
+    //같은 시간대 하나씩 띄우기
     useEffect(() => {
         if (nowOnPrograms.length > 0) {
             const interval = setInterval(() => {
                 setCurrentProgramIndex((prevIndex) => (prevIndex + 1) % nowOnPrograms.length);
-            }, 3000); // Change every 3 seconds
+            }, 3000); //3초에 한번씩 바뀌게 함
 
-            return () => clearInterval(interval); // Clear interval on unmount
+            return () => clearInterval(interval); 
         }
     }, [nowOnPrograms]);
 
@@ -70,7 +70,7 @@ const Timetable = () => {
         const updateNowOnPrograms = () => {
             const now = new Date();
 
-            // Filter programs that are currently ongoing
+        
             const ongoingPrograms = programs.filter(program => {
                 const [start, end] = program.time.split(' - ').map(time => {
                     const [hours, minutes] = time.split(':');
@@ -178,7 +178,7 @@ const Timetable = () => {
                                         )
                                     )}
                                     <div className="program-details">
-                                        {/* Display ongoingImg if necessary */}
+                                        {/* 이미지 첨부하려고*/}
                                         {(program.name === '푸드트럭' || program.name === '학생/체험형 부스' || program.name === '프로모션 부스' || programIndex === 0) && (
                                             <img src={ongoingImage} alt="ongoingImg" className="ongoing-image" />
                                         )}

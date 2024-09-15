@@ -1,4 +1,4 @@
-/* Target only the shifted programs for alignment */
+/* 총학부터 힐링 포토존 묶음 */
 .shifted-program {
     margin-left: 105px;
     margin-top: -30px;
@@ -165,7 +165,7 @@
     .timetable {
         display: flex;
         flex-direction: column;
-        align-items: flex-start; /* Align to the left */
+        align-items: flex-start; 
         width: 90%;
         margin: 0 auto;
         padding: 20px;
@@ -205,7 +205,7 @@
     .program-time {
         display: flex;
         flex-direction: column;
-        width: 70px; /* Keep the time width consistent */
+        width: 70px; 
         text-align: left;
         font-size: 14px;
         color: #272727;
@@ -213,7 +213,7 @@
     }
     
     .program-item .program-time p {
-        margin: 0; /* Ensure no extra spacing */
+        margin: 0; 
     }
 
     .program-details {
@@ -221,7 +221,7 @@
         align-items: center;
         flex-grow: 1;
         justify-content: flex-start;
-        /* Do not change margin-left for normal items */
+        
     }
 
     .program-details img {
