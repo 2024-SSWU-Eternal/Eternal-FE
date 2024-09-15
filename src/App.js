@@ -60,10 +60,6 @@ const App = () => {
                 <Route path="/stamp" element={<Stamp />} />
                 <Route path='/booth' element={<Booth />} />
                 <Route path='/booth/:id' element={<BoothDetail />} />
-
-                <Route path='/stamp' element={<Stamp />} />
-                <Route path='/stamplogin' element={<StampLogin />} />
-
             </Routes>
         </BrowserRouter>
     )

@@ -32,7 +32,7 @@
         font-size: 16px;
         font-weight: bold;
         color: var(--maincolor);
-
+    
         .number {
             position: absolute;
             right: 12px;
@@ -40,7 +40,29 @@
             font-weight: bold;
             color: var(--maincolor);
         }
-    }
+    }    
+
+    .name-wrapper {
+        display: flex;
+        align-items: center; 
+      }
+      
+      .name {
+        background-color: rgba(255, 255, 255, 0.2); 
+        border-radius: 10px;
+        padding: 3px 8px;  
+        font-size: 22px;  
+        font-weight: bold;
+        color: var(--maincolor); 
+        display: inline-block; 
+      }
+      
+      .name-wrapper span {
+        margin-left: 8px;
+        font-size: 16px; 
+        color: var(--maincolor);
+      }
+      
 
     .name-wrapper {
         display: flex;
