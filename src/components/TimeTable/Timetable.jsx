@@ -24,7 +24,7 @@ const Timetable = () => {
                 { id: 6, name: '학생/체험형 부스', location: '잔디밭 광장', time: '11:00 - 20:00' },
                 { id: 7, name: '수정플래닛 999', location: '잔디밭 광장', time: '19:00 - 20:59' },
                 { id: 8, name: '연예인 공연', location: '잔디밭 광장', time: '21:00 - 21:59' },
-                { id: 9, name: '애프터 파티', location: '잔디밭 광장', time: '22:00 - 24:00' },
+                { id: 9, name: '애프터 파티', location: '잔디밭 광장', time: '22:00 - 23:00' },
             ]
             : currentTab === '09-26'
                 ? [
