@@ -170,7 +170,7 @@ const Stamp = () => {
   };
 
   return (
-    <div className={`Stamp_wrap container ${isSlidingOut ? 'SlideOut' : ''}`}>
+    <div className={`Stamp_wrap container`}>
       <div className='top'>
         <div className="back" onClick={handleBackClick}><img src={Back} alt="뒤로가기" /></div>
         <div className="title">내 빙고판</div>

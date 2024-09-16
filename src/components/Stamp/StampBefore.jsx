@@ -14,7 +14,7 @@ const Stampbefore = () => {
   };
 
   return (
-    <div className={`Stampbefore_wrap container ${isSlidingOut ? 'SlideOut' : ''}`}>
+    <div className={`Stampbefore_wrap container`}>
       <div className='top'>
         <div className="back" onClick={handleBackClick}>
           <img src={Back} alt="뒤로가기" />
