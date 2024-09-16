@@ -1,0 +1,105 @@
+.Program_wrap {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../img/timetable/background.png);
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    overflow: hidden;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 25px;
+
+        .back {
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 32px;
+        }
+
+        h4 {
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+
+    
+
+        .swiper-container {
+        position: relative; /* 스와이퍼 컨테이너를 상대적 위치로 설정 */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 60px;
+        }
+
+        .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 20px;
+        position: relative; /* 페이지 넘버를 겹치기 위해 상대 위치 설정 */
+        }
+
+        .pamphlet-page {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        object-fit: contain;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-number {
+        position: absolute; /* 절대 위치 설정으로 이미지 위에 겹침 */
+        bottom: 10px; /* 이미지 하단에 위치 */
+        right: 10px; /* 오른쪽 하단에 위치 */
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        z-index: 10; /* 다른 요소들 위에 표시 */
+        }
+
+        .hidden {
+        opacity: 0;
+        transition: opacity 1s ease-out;
+        }
+
+        .visible {
+        opacity: 1;
+        transition: opacity 1s ease-in;
+        }
+
+        .swiper-pagination-bullet {
+        background-color: #5C4795;
+        width: 12px;
+        height: 12px;
+        opacity: 0.7;
+        margin: 0 6px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #fff;
+            opacity: 1;
+        }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #5C4795;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
