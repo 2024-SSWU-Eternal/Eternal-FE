@@ -186,6 +186,15 @@
         background-repeat: no-repeat;
     }
 
+    .vertical-line {
+        position: absolute;
+        top: 50px;
+        bottom: 0;
+        left: 117px; /* 원하는 위치에 맞게 조정 */
+        width: 0; /* 너비를 0으로 설정하고, 대신 border로 처리 */
+        border-left: 1px dashed #C7C2DE; /* 점선 스타일의 세로선 */
+    }
+
     .timetable::-webkit-scrollbar {
         display: none;
     }
@@ -234,7 +243,7 @@
         
     }
     
-
+    
     .program-details img {
         margin-right: 10px;
     }

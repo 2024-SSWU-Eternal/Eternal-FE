@@ -160,6 +160,8 @@ const Timetable = () => {
             </motion.div>
 
             <div className="timetable">
+                <div className="vertical-line"></div>
+
                 {groupedPrograms.map(([startTime, group], index) => (
                     <div key={index} className="grouped-programs">
                         <div className="program-group">
@@ -167,8 +169,8 @@ const Timetable = () => {
                                 <motion.div
                                     key={program.id}
                                     className={`program-item ${['총학생회 부스', '수정네컷', '힐링 앤 포토존'].includes(program.name)
-                                            ? 'shifted-program'
-                                            : ''
+                                        ? 'shifted-program'
+                                        : ''
                                         }`}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: visiblePrograms.includes(program) ? 1 : 0, y: visiblePrograms.includes(program) ? 0 : 20 }}
@@ -188,10 +190,14 @@ const Timetable = () => {
                                             <p>{startTime}</p>
                                         </div>
                                     )}
+
                                     <div className="program-details">
+
                                         {(['푸드트럭', '학생/체험형 부스', '프로모션 부스'].includes(program.name) || programIndex === 0) && (
                                             <img src={ongoingImage} alt="ongoingImg" className="ongoing-image" />
                                         )}
+
+
                                         <div className="event-info">
                                             <p className="program-name">{program.name}</p>
                                             <p className="program-location">{program.location}</p>
