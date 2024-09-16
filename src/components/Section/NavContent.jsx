@@ -11,7 +11,10 @@ const NavContent = ({ onLogout, loginbtn }) => {
         <>
             <div className='Nav_wrap'>
                 {loginbtn ? (
-                    <div className='login' onClick={() => { onLogout(); }}>로그아웃</div>
+                    <div className='yes_login'>
+                        <Link to='/stamp/1'>내 빙고판</Link>
+                        <div className='logout' onClick={() => { onLogout(); }}>로그아웃</div>
+                    </div>
                 ) : (
                     <Link to='/login' className='login'>로그인</Link>
                 )}

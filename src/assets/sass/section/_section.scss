@@ -93,12 +93,42 @@
         position: relative;
         padding-bottom: 40px;
 
+        .yes_login {
+            top: 50px;
+            right: 35px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            z-index: 20;
+
+            >a {
+                width: 75px;
+                height: 32px;
+                margin-right: 10px;
+                background-color: var(--maincolor);
+                border-radius: 43px;
+                color: var(--white);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 100 !important;
+                font-size: 14px;
+            }
+
+            .logout {
+                cursor: pointer;
+                color: var(--maincolor);
+                font-size: 14px;
+            }
+        }
+
         .login {
             position: absolute;
             top: 50px;
             right: 35px;
             color: var(--maincolor);
             z-index: 2;
+            font-size: 14px;
         }
 
         .img_box {

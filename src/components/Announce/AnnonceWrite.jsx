@@ -48,7 +48,6 @@ const AnnonceWrite = () => {
     }, [params]);
 
     useEffect(() => {
-        // data가 업데이트된 후 title과 content 상태를 설정
         if (data.title !== undefined) {
             setTitle(data.title || '');
         }
@@ -88,7 +87,12 @@ const AnnonceWrite = () => {
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('서버에 오류가 발생했습니다.');
+
+            if(error.status === 413){
+                alert('사진의 용량이 너무 큽니다.');
+            } else {
+                alert('서버에 오류가 발생했습니다.');
+            }
         }
     };
 

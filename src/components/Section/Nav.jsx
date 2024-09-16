@@ -10,10 +10,8 @@ const Nav = () => {
     const [loginbtn, setLoginbtn] = useState(false);
     const token = localStorage.getItem('jwtToken')
     const isLoad = localStorage.getItem('loading');
-    const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(token)
         if (token) {
             setLoginbtn(true);
         } else {
@@ -23,12 +21,13 @@ const Nav = () => {
 
     const onLogout = () => {
         localStorage.clear();
+        window.location.reload();
     }
 
     return (
         <>
             {isLoad ? (
-                <NavContent onLogout={onLogout}  loginbtn={loginbtn}/>
+                <NavContent onLogout={onLogout} loginbtn={loginbtn} />
             ) : (
                 <>
                     <motion.div
@@ -36,12 +35,7 @@ const Nav = () => {
                         animate={{ opacity: 1, zIndex: 10 }}
                         transition={{ duration: 1, delay: 4.8 }}
                         className='Nav_wrap'>
-                        {loginbtn ? (
-                            <div className='login' onClick={() => { onLogout(); }}>로그아웃</div>
-                        ) : (
-                            <Link to='/login' className='login'>로그인</Link>
-                        )}
-                        <NavContent onLogout={onLogout} loginbtn={loginbtn}/>
+                        <NavContent onLogout={onLogout} loginbtn={loginbtn} />
                     </motion.div>
                 </>
             )}
