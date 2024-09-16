@@ -20,7 +20,6 @@ import FoodInfo from './components/FoodInfo/FoodInfo'
 import Reservation from './components/ETC/Reservation'
 import Booth from './components/Booth/Booth'
 import Stamp from './components/Stamp/Stamp'
-import StampLogin from './components/Stamp/StampLogin'
 
 const App = () => {
     return (
