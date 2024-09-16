@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/Test/back.svg'
 import AllText from './js/text'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Testing = () => {
     const [get, setGet] = useState([]);
@@ -30,10 +31,24 @@ const Testing = () => {
         }
     }
 
-    const onEnding = () => {
+    const onEnding = async () => {
         const Number = ['언덕룡', '여유룡', '투어룡', '실속룡', '타투룡', '독서룡', '가수룡', '게임룡']
+        const mostFrequentResult = findMostFrequent();
+        const resultType = Number[mostFrequentResult - 1];
 
-        navigation(`/testresult/${Number[findMostFrequent() - 1]}`)
+        try {
+            const response = await axios.post('https://www.eternal-server.store/test', {
+                result: {
+                    type: resultType,
+                    score: mostFrequentResult
+                }
+            });
+            console.log('API Response:', response.data);
+
+            navigation(`/testresult/${resultType}`);
+        } catch (error) {
+            console.error('API 요청 에러:', error);
+        }
     }
 
     const findMostFrequent = () => {
