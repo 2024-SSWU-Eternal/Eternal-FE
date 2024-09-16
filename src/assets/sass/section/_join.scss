@@ -2,6 +2,7 @@
     padding: 60px 25px 20px 25px;
     overflow: hidden;
     color: var(--black);
+    position: relative;
 
     >div {
         position: relative;
@@ -195,10 +196,23 @@
                 input {
                     width: 147px;
                 }
+
+                input[type="number"]::-webkit-outer-spin-button,
+                input[type="number"]::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                input[type="number"] {
+                    -moz-appearance: textfield;
+                }
             }
 
             .border {
                 border-bottom: 1px solid var(--maincolor) !important;
+            }
+
+            .red {
+                border-bottom: 1px solid #FF4A4A !important;
             }
         }
 
@@ -220,6 +234,43 @@
 
         .full {
             background-color: var(--maincolor);
+        }
+    }
+
+    .popup_wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #00000060;
+        width: inherit;
+        height: inherit;
+
+        .pop {
+            width: 275px;
+            height: 265px;
+            background-color: var(--white);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            >img {
+                width: 86px;
+                margin-bottom: 26px;
+            }
+
+            h3 {
+                margin-bottom: 20px;
+                font-weight: 700;
+            }
+
+            button {
+                width: 243px;
+                height: 48px;
+                background-color: var(--gray100);
+                border-radius: 10px;
+            }
         }
     }
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/announce/back.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 import Imgbtn from '../../assets/img/announce/img_btn.svg';
-import axios from 'axios';
 
 const AnnonceWrite = () => {
     const URL = 'https://www.eternal-server.store';
