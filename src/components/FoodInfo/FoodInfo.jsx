@@ -27,7 +27,7 @@ const FoodInfo = () => {
   const back = () => {
     setIsExiting(true); 
     setTimeout(() => {
-      navigation('/'); 
+      navigation(-1); 
     }, 400); 
   };
 
