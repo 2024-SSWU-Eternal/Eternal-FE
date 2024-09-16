@@ -73,7 +73,8 @@ const Testing = () => {
             <div>
                 <div className="header">
                     <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
-                    <div className="bar"></div>
+                    <progress max="100" value={(questionindex / 13) * 100} className="bar"></progress>
+                    
                 </div>
                 <div className="main">
                     <h2>Q{questionindex + 1}.</h2>

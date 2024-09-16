@@ -20,7 +20,6 @@ import FoodInfo from './components/FoodInfo/FoodInfo'
 import Reservation from './components/ETC/Reservation'
 
 const App = () => {
-    const location = useLocation();
 
     return (
         <BrowserRouter>
@@ -54,7 +53,7 @@ const App = () => {
                 
                 <Route path='/loading' element={<Loading />} />
             </Routes>
-        </RouteTransition>
+        </BrowserRouter>
     );
 };
 
