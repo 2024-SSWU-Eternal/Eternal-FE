@@ -32,7 +32,7 @@ const App = () => {
                 <Route path='/announce/:manager' element={<Announe />} />
                 <Route path='/announce/:detail/:manager' element={<AnnonceDetail />} />
                 <Route path='/announce/write' element={<AnnonceWrite />} />
-                <Route path='/announce/write/:modify' element={<AnnonceWrite />} />
+                <Route path='/announce/write/:modify/:board' element={<AnnonceWrite />} />
 
                 <Route path='/foodinfo' element={<FoodInfo />} />
 

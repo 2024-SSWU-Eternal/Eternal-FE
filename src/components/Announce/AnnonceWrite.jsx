@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/announce/back.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 import Imgbtn from '../../assets/img/announce/img_btn.svg';
+import axios from 'axios';
 
 const AnnonceWrite = () => {
     const URL = 'https://www.eternal-server.store';
@@ -11,8 +12,8 @@ const AnnonceWrite = () => {
     const [btntext, setBtnText] = useState('등록');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [file, setFile] = useState('');
-    const [fileName, setFileName] = useState('');
+    const [files, setFiles] = useState([]);
+    const [fileNames, setFileNames] = useState([]);
     const [all, setAll] = useState(false);
     const navigation = useNavigate();
     const params = useParams();
@@ -34,46 +35,48 @@ const AnnonceWrite = () => {
             setSection('공지사항 수정')
             setBtnText('수정')
         }
-    }, [])
+    }, []);
 
     const onWrite = async () => {
         if (!(title && content)) {
             alert('제목과 내용을 입력해주세요!');
             return;
         }
-
+    
         const formData = new FormData();
         formData.append('title', title);
         formData.append('content', content);
         formData.append('userId', 'sswulion');
-        if (file) {
-            formData.append('images', file);
-        }
-
+        files.forEach(file => formData.append('images', file));
+    
+        const endpoint = params.modify === 'modify' 
+            ? `${URL}/notices/${params.board}` 
+            : `${URL}/notices/create`;
+    
+        const method = params.modify === 'modify' ? axios.put : axios.post;
+    
         try {
-            const response = await fetch(`${URL}/notices/create`, {
-                method: 'POST',
-                body: formData,
+            const response = await method(endpoint, formData, {
+                headers: { 'Content-Type': 'multipart/form-data' }
             });
-
-            if (response.ok) {
-                alert('공지사항이 성공적으로 등록되었습니다.');
+    
+            if (response.status === 200) {
+                alert(params.modify === 'modify' ? '공지사항을 성공적으로 수정했습니다.' : '공지사항이 성공적으로 등록되었습니다.');
                 navigation('/announce/manager');
             } else {
-                alert('공지사항 등록에 실패했습니다.');
+                alert(params.modify === 'modify' ? '공지사항 수정에 실패했습니다.' : '공지사항 등록에 실패했습니다.');
             }
         } catch (error) {
             console.error('Error:', error);
             alert('서버에 오류가 발생했습니다.');
-        };
-
+        }
     };
-
+    
 
     return (
         <div className='AnnonceWrite_wrap container'>
             <div className="header">
-                <button className="back" onClick={() => { onBack() }}><img src={Back} alt="back button" /></button>
+                <button className="back" onClick={onBack}><img src={Back} alt="back button" /></button>
                 <h4>{section}</h4>
             </div>
             <div className="main">
@@ -81,10 +84,10 @@ const AnnonceWrite = () => {
                     <p>제목</p>
                     <input
                         value={title}
-                        onChange={(e) => { setTitle(e.target.value) }}
+                        onChange={(e) => setTitle(e.target.value)}
                         className={click === 'title' ? 'border' : ''}
                         type="text"
-                        onClick={() => { setClick('title') }}
+                        onClick={() => setClick('title')}
                     />
                     <p className='count'>{title.length}/1,500</p>
                 </div>
@@ -92,11 +95,11 @@ const AnnonceWrite = () => {
                     <p>내용</p>
                     <textarea
                         value={content}
-                        onChange={(e) => { setContent(e.target.value) }}
+                        onChange={(e) => setContent(e.target.value)}
                         className={click === 'content' ? 'border' : ''}
                         name="content"
                         id="content"
-                        onClick={() => { setClick('content') }}
+                        onClick={() => setClick('content')}
                     ></textarea>
                     <p className='count'>{content.length}/1,500</p>
                 </div>
@@ -105,19 +108,26 @@ const AnnonceWrite = () => {
                     <input
                         type="file"
                         id="input_img"
+                        multiple
                         style={{ display: 'none' }}
                         onChange={(e) => {
-                            setFile(e.target.files[0]);
-                            setFileName(e.target.files[0].name);
+                            setFiles(prevFiles => [
+                                ...prevFiles,
+                                ...[...e.target.files]
+                            ]);
+                            setFileNames(prevFileNames => [
+                                ...prevFileNames,
+                                ...[...e.target.files].map(file => file.name)
+                            ]);
                         }}
                     />
                     <label htmlFor="input_img">
                         <img src={Imgbtn} alt="input img button" style={{ cursor: 'pointer' }} />
                     </label>
-                    <p className="imgName">{fileName}</p>
+                    <p className="imgName">{fileNames.join(', ')}</p>
                 </div>
             </div>
-            <button className={all ? 'full' : ''} onClick={() => { onWrite() }}>{btntext}</button>
+            <button className={all ? 'full' : ''} onClick={onWrite}>{btntext}</button>
         </div>
     );
 };

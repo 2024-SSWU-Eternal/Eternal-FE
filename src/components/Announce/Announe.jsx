@@ -25,9 +25,8 @@ const Announe = () => {
     useEffect(() => {
         axios.get(`${URL}/notices`)
             .then((res) => {
-                if(res.status === 200){
+                if (res.status === 200) {
                     setData(res.data);
-                    console.log(res.data)
                 }
             })
             .catch((err) => {
@@ -47,6 +46,11 @@ const Announe = () => {
         navigation('/');
     };
 
+    const onLogout = () => {
+        alert('로그아웃 되었습니다.');
+        navigation('/')
+    }
+
     const containerVariants = {
         hidden: { opacity: 1 },
         show: {
@@ -65,8 +69,13 @@ const Announe = () => {
     return (
         <div className="Announe_wrap container">
             <div className="header">
-                <button className="back" onClick={() => { onBack() }}><img src={Back} alt="back button" /></button>
+                {params.manager === 'manager' ? (<></>):(
+                    <button className="back" onClick={() => { onBack() }}><img src={Back} alt="back button" /></button>
+                )}
                 <h4>공지사항</h4>
+                {params.manager === 'manager' ? (
+                    <button className='logout' onClick={() => { onLogout() }}>로그아웃</button>
+                ) : (<></>)}
             </div>
             <div className="main">
                 <div className="banner">배너</div>
@@ -83,7 +92,11 @@ const Announe = () => {
                             variants={itemVariants}
                             onClick={() => { onDetail(data.noticeId); }}
                         >
-                            <img src={data.images} alt="temporary img" />
+                            {data.images[0] ? (
+                                <img src={data.images[0]} alt="temporary img" />
+                            ) : (
+                                <img src={Temporary} alt='Temporary img' />
+                            )}
                             <div>
                                 <div className="top">
                                     <h4>{data.title}</h4>

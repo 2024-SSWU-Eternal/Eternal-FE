@@ -2,14 +2,19 @@ import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/announce/back.svg';
 import Del from '../../assets/img/announce/delete.svg';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import axios from 'axios';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const AnnonceDetail = () => {
     const URL = 'https://www.eternal-server.store';
 
     const navigation = useNavigate();
     const [manage, setManage] = useState(false);
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+    const [imgdata, setImgData] = useState([])
     const [pop, setPop] = useState(false)
     const params = useParams();
 
@@ -26,7 +31,7 @@ const AnnonceDetail = () => {
             .then((res) => {
                 if (res.status === 200) {
                     setData(res.data);
-                    console.log(res.data);
+                    setImgData(res.data.images)
                 }
             })
             .catch((err) => {
@@ -43,13 +48,16 @@ const AnnonceDetail = () => {
     }
 
     const onModify = () => {
-        navigation('/announce/write/modify')
+        navigation(`/announce/write/modify/${params.detail}`)
     }
 
     const onDelete = () => {
         axios.delete(`${URL}/notices/${params.detail}`)
             .then((res) => {
-                console.log(res.status)
+                if(res.status===200){
+                    alert('삭제되었습니다.');
+                    navigation(-1)
+                }
             })
             .catch((err) => {
                 console.log(err);
@@ -77,9 +85,21 @@ const AnnonceDetail = () => {
                 <h4>공지사항</h4>
             </div>
             <div className="main">
-                <div className="img_box">
-                    <img src={data.images} alt="" />
-                </div>
+                {imgdata[0] ? (
+                    <div className="img_box">
+                        <Swiper
+                            pagination={true} modules={[Pagination]} className="img_box"
+                        >
+                            {imgdata.map((img, key) => (
+                                <SwiperSlide key={key}>
+                                    <img src={img} alt="" />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                ) : (
+                    <></>
+                )}
                 <div className="text_box">
                     <h3>{data.title}</h3>
                     <p>{data.content}</p>
