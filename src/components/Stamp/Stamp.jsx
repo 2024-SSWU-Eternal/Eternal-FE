@@ -14,7 +14,7 @@ import Button from "../../assets/img/stamp/Button.svg";
 const Stamp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false); 
-  const [isLocationPopupVisible, setIsLocationPopupVisible] = useState(false); // 여기에 상태 변수 추가
+  const [isLocationPopupVisible, setIsLocationPopupVisible] = useState(false);
   const [stamps, setStamps] = useState([]);
   const [error, setError] = useState(null);
   const [studentNum, setStudentNum] = useState('');
@@ -32,7 +32,7 @@ const Stamp = () => {
   };
 
   const toggleLocationPopup = () => {
-    setIsLocationPopupVisible(!isLocationPopupVisible); // 상태 업데이트 함수로 변경
+    setIsLocationPopupVisible(!isLocationPopupVisible); 
   };
 
   const stampMessages = {
