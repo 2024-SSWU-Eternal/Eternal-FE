@@ -36,8 +36,7 @@ const Testing = () => {
         const mostFrequentResult = findMostFrequent();
         const resultType = Number[mostFrequentResult - 1];
 
-        try {
-            const response = await axios.post('https://www.eternal-server.store/test', {
+        const response = await axios.post('https://www.eternal-server.store/test', {
                 result: {
                     type: resultType,
                     score: mostFrequentResult
@@ -46,9 +45,6 @@ const Testing = () => {
             console.log('API Response:', response.data);
 
             navigation(`/testresult/${resultType}`);
-        } catch (error) {
-            console.error('API 요청 에러:', error);
-        }
     }
 
     const findMostFrequent = () => {

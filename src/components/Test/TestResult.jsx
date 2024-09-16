@@ -54,15 +54,11 @@ const TestResult = ({ content, params }) => {
 
     useEffect(() => {
         const fetchPercentageData = async () => {
-            try {
-                const response = await axios.get('https://www.eternal-server.store/test');
-                const { results } = response.data;
-                const result = results.find((item) => item.type === params.ending);
-                if (result) {
-                    setPercentage(result.percentage);
-                }
-            } catch (error) {
-                console.error('Failed to fetch percentage data:', error);
+            const response = await axios.get('https://www.eternal-server.store/test');
+            const { results } = response.data;
+            const result = results.find((item) => item.type === params.ending);
+            if (result) {
+                setPercentage(result.percentage);
             }
         };
 
