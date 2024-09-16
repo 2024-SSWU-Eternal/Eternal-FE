@@ -90,7 +90,7 @@ const BoothDetail = () => {
         {
             id: 8,
             name: 'tomorrow is__',
-            date: [3, 6],
+            date: [1, 6],
             image: require('../../assets/img/booth/tomorrow is.avif'),
             location: 'F-6',
             filter: '학생 부스',
@@ -117,8 +117,11 @@ const BoothDetail = () => {
             image: require('../../assets/img/booth/Thirsty Soul.avif'),
             location: 'F-1',
             filter: '학생 부스',
-            description: ["혹시 귀여운 거 좋아하세요? 한땀한땀 수제 오므라이스 키링부터 진주 담은 은조개 목걸이, 오밀조밀 뱃지까지! 금속공예 3학년들이 개성과 애정을 담아 직접 만든 제품들을 만나보세요! "],
-            item: ["목걸이,뱃지,키링,파우치"],
+            description: ["'Please give me more rock...' ",
+
+                "목마른 영혼들이 수정대동제 <Eternal>에 찾아왔다! "],
+            item: ["티셔츠, 타투스티커, 밀크글라스"],
+
         },
         {
             id: 11,
@@ -127,10 +130,9 @@ const BoothDetail = () => {
             image: require('../../assets/img/booth/몽키스패너.avif'),
             location: 'E-7',
             filter: '학생 부스',
-            description: ["'Please give me more rock...' ",
+            description: ["혹시 귀여운 거 좋아하세요? 한땀한땀 수제 오므라이스 키링부터 진주 담은 은조개 목걸이, 오밀조밀 뱃지까지! 금속공예 3학년들이 개성과 애정을 담아 직접 만든 제품들을 만나보세요! "],
+            item: ["목걸이,뱃지,키링,파우치"],
 
-                "목마른 영혼들이 수정대동제 <Eternal>에 찾아왔다! "],
-            item: ["티셔츠, 타투스티커, 밀크글라스"],
         },
         {
             id: 12,
@@ -179,8 +181,10 @@ const BoothDetail = () => {
             image: require('../../assets/img/booth/융보공.avif'),
             location: 'E-5',
             filter: '학생 부스',
-            description: " ",
-            item: " ",
+            description: ["안녕하세요, 여러분! 암호와 비밀의 세계에 오신 것을 환영합니다. 저희는 암호 퀴즈를 진행하는 부스 융보공 입니다. 여기는 여러분의 문제 해결 능력과 논리적 사고를 시험할 수 있는 다양한 암호 퀴즈들이 준비되어 있습니다.",
+
+                "성공적인 퀴즈 풀이를 기원하며, 많은 참여 부탁드립니다!  "],
+            item: "  ",
         },
         {
             id: 17,
@@ -199,8 +203,8 @@ const BoothDetail = () => {
             image: require('../../assets/img/booth/돌잔치.avif'),
             location: 'E-10',
             filter: '학생 부스',
-            description: " ",
-            item: " ",
+            description: ["  돌들의 잔치에 여러분을 초대합니다! 락스타 티셔츠와 반창고 그리고 다양한 굿즈들까지! 여러분이 찾던 라인업으로 채워진 락페스티벌에 함께해 주세요! "],
+            item: "티셔츠, 기타 피크, 반창고, 밈스티커, 락스타 키링 등",
         },
         {
             id: 19,
@@ -222,8 +226,8 @@ const BoothDetail = () => {
             image: require('../../assets/img/booth/뜨개팔자 상팔자.avif'),
             location: 'E-4 F-6',
             filter: '학생 부스',
-            description: " ",
-            item: " ",
+            description: ["  "],
+            item: "  ",
         },
         {
             id: 21,
@@ -367,7 +371,7 @@ const BoothDetail = () => {
         {
             id: 33,
             name: "제4대 지식서비스공과대학 학생회 '영원'",
-            date: [2, 4],
+            date: [2, 5],
             image: require('../../assets/img/booth/영원.avif'),
             location: 'A-2 A-1',
             filter: '학생 부스',
@@ -380,12 +384,12 @@ const BoothDetail = () => {
         {
             id: 34,
             name: "페이스페인팅 '신비로움 나눠드립니다'",
-            date: [2, 4],
+            date: [2, 5],
             image: require('../../assets/img/booth/페이스페인팅.avif'),
             location: 'A-1 A-2',
             filter: '학생 부스',
             description: ["미술대학 학생회가 준비한 페이스페인팅 부스! 수정대동제에 참여하는 수정이들에게 신비로움을 나눠주기 위해 준비된 부스입니다. 평범한 페이스페인팅이 아닌 수정이들만을 위해 준비된 신비로운 페이스페인팅들이 준비되어있습니다! "],
-            item: " ",
+            item: "페이스페인팅 ",
         },
         {
             id: 35,

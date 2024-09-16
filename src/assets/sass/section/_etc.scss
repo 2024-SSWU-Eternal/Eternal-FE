@@ -1,5 +1,5 @@
 .Sponsor_wrap,
-.Making_wrap, 
+.Making_wrap,
 .Reservation_wrap {
     display: flex;
     flex-direction: column;
@@ -227,5 +227,29 @@
         background-color: var(--maincolor);
         border-radius: 10px;
         color: var(--white);
+    }
+}
+
+.banner_wrap {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .swipe {
+        border-radius: 6px;
+        position: relative;
+        height: 75px;
+        display: flex;
+        width: 345px;
+
+        img {
+            object-fit: fill;
+            height: 75px;
+            border-radius: 6px;
+        }
+
+
     }
 }

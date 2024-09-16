@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import back from '../../assets/img/booth/back.png';
 import filter from '../../assets/img/booth/filter.png';
-import banner from '../../assets/img/booth/banner.png';
 import searchbg from '../../assets/img/booth/searchbg.png';
 import search from '../../assets/img/booth/search.svg';
 import BoothList from './BoothList';
 import { useNavigate } from 'react-router-dom';
+import Banner from '../ETC/Banner';
 
 const booths = [
     {
@@ -324,7 +324,7 @@ const Booth = () => {
             </div>
 
             <div className="banner">
-                <img src={banner} alt="banner" className="banner-img" />
+               <Banner />
             </div>
 
             <div className="booth-search">

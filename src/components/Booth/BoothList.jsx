@@ -65,7 +65,7 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
         {
             id: 8,
             name: 'tomorrow is__',
-            date: [3, 6],
+            date: [1, 6],
             image: require('../../assets/img/booth/tomorrow is.avif'),
             location: 'F-6',
             filter:'학생 부스',
@@ -264,7 +264,7 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
         {
             id: 33,
             name: "제4대 지식서비스공과대학 학생회 '영원'",
-            date: [2, 4],
+            date: [2, 5],
             image: require('../../assets/img/booth/영원.avif'),
             location: 'A-2 A-1',
             filter:'학생 부스',
@@ -272,7 +272,7 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
         {
             id: 34,
             name: "페이스페인팅 '신비로움 나눠드립니다'",
-            date: [2, 4],
+            date: [2, 5],
             image: require('../../assets/img/booth/페이스페인팅.avif'),
             location: 'A-1 A-2',
             filter:'학생 부스',
