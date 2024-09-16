@@ -32,7 +32,7 @@ const Manger = () => {
         }
 
         //   "username": "sswulion",
-        //   "password": "lion@!!"
+        //   "password": "lion@!! "
 
         axios.post(`${URL}/manager/login`, {
             "username": userId,
