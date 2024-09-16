@@ -263,7 +263,7 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
         },
         {
             id: 33,
-            name: "제4대 지식서비스공과대학 학생회 '영원'",
+            name: "제4대 지식서비스 공과대학 학생회 \n'영원'",
             date: [2, 5],
             image: require('../../assets/img/booth/영원.avif'),
             location: 'A-2 A-1',
@@ -271,7 +271,7 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
         },
         {
             id: 34,
-            name: "페이스페인팅 '신비로움 나눠드립니다'",
+            name: "페이스페인팅 \n'신비로움 \n나눠드립니다'",
             date: [2, 5],
             image: require('../../assets/img/booth/페이스페인팅.avif'),
             location: 'A-1 A-2',
@@ -287,7 +287,7 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
         },
         {
             id: 36,
-            name: "우리는 모두 연결되어 있다",
+            name: "우리는 모두 연결되어 \n있다",
             date: [6],
             image: require('../../assets/img/booth/우리는 모두 연결되어 있다.avif'),
             location: 'E-8',
