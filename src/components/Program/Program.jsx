@@ -59,7 +59,7 @@ const Program = () => {
         className={`img-info ${imgInfoVisible ? 'visible' : 'hidden'}`}
         onClick={handleImgInfoClick}
       >
-        <div className="page-number">{currentPage}/6</div>
+        
       </div>
     </div>
   );
