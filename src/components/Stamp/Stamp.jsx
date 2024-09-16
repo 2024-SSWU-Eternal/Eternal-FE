@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'; 
 import Back from '../../assets/img/stamp/back.svg';
-import Bingo from "../../assets/img/stamp/stampbingo.svg";
+import Bingo from "../../assets/img/stamp/stampbingo.png";
 import Go from "../../assets/img/stamp/go.svg";
 import X from "../../assets/img/stamp/x.svg";
 import I from "../../assets/img/stamp/i.svg";
