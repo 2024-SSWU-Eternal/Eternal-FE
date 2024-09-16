@@ -75,6 +75,17 @@ const Timetable = () => {
         displayProgramsSequentially();
     }, [groupedPrograms]);
 
+    //같은 시간대 하나씩 띄우기
+    useEffect(() => {
+        if (nowOnPrograms.length > 0) {
+            const interval = setInterval(() => {
+                setCurrentProgramIndex((prevIndex) => (prevIndex + 1) % nowOnPrograms.length);
+            }, 3000); //3초에 한번씩 바뀌게 함
+
+            return () => clearInterval(interval);
+        }
+    }, [nowOnPrograms]);
+
     useEffect(() => {
         const updateNowOnPrograms = () => {
             const now = new Date();
@@ -155,11 +166,10 @@ const Timetable = () => {
                             {group.map((program, programIndex) => (
                                 <motion.div
                                     key={program.id}
-                                    className={`program-item ${
-                                        ['총학생회 부스', '수정네컷', '힐링 앤 포토존'].includes(program.name)
+                                    className={`program-item ${['총학생회 부스', '수정네컷', '힐링 앤 포토존'].includes(program.name)
                                             ? 'shifted-program'
                                             : ''
-                                    }`}
+                                        }`}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: visiblePrograms.includes(program) ? 1 : 0, y: visiblePrograms.includes(program) ? 0 : 20 }}
                                     transition={{ duration: 0.3 }}

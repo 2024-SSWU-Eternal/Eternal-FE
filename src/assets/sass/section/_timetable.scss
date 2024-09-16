@@ -230,17 +230,22 @@
         align-items: center;
         flex-grow: 1;
         justify-content: flex-start;
+
         
     }
+    
 
     .program-details img {
         margin-right: 10px;
     }
 
+
+
     .event-info {
         display: flex;
         flex-direction: column;
     }
+
 
     .program-name {
         font-size: 16px;
@@ -259,6 +264,8 @@
         height: 25px;
         margin-top: -20px;
     }
+
+
 
     .program-time,
     .program-details {
