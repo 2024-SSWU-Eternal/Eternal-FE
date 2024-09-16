@@ -242,7 +242,9 @@
         position: relative;
         height: 75px;
         display: flex;
-        width: 345px;
+        width: 100%;
+        min-width: 345px;
+        max-width: 350px;
 
         img {
             object-fit: fill;
