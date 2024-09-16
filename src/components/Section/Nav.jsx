@@ -12,7 +12,7 @@ import { clearTokens } from '../../store/authSlice';
 
 const Nav = () => {
     const [loginbtn, setLoginbtn] = useState(false);
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('jwtToken')
     const isLoad = localStorage.getItem('loading');
     const accessToken = useSelector((state) => state.auth.accessToken);
     const dispatch = useDispatch();
@@ -48,12 +48,15 @@ const Nav = () => {
                             <img className='Logo' src={Logo} alt="logo" />
                         </div>
                         <div className="nav_box">
-                            <div className="box">
-                                <Link to='/announce/normal' className="announce">공지사항</Link>
+                            <div className="top">
                                 <Link to='/timetable' className="time">타임테이블</Link>
-                                <Link to='/program' className="program">프로그램 소개</Link>
-                                <Link to='/reservation' className="goods">굿즈 예약</Link>
                                 <Link to='/stamp' className="map">축제 배치도</Link>
+                                <Link to='/test' className="test">부스/푸드트럭 정보</Link>
+                            </div>
+                            <div className="bottom">
+                                <Link to='/announce/normal' className="announce">공지사항</Link>
+                                <Link to='/program' className="program">팜플렛</Link>
+                                <Link to='/reservation' className="goods">굿즈 예약</Link>
                                 <Link to='/test' className="test">유형 테스트</Link>
                             </div>
                         </div>
