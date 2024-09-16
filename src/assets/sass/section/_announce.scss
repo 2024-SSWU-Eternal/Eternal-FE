@@ -79,6 +79,10 @@
                             width: calc(100% - 85px);
                             font-weight: 500;
                             color: var(--maincolor);
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            max-width: 17ch;
                         }
 
                         p {

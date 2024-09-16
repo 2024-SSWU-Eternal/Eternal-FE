@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Back from '../../assets/img/announce/back.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 import Imgbtn from '../../assets/img/announce/img_btn.svg';
@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const AnnonceWrite = () => {
     const URL = 'https://www.eternal-server.store';
-
+    const [data, setData] = useState({}); // 초기 상태를 빈 객체로 설정
     const [click, setClick] = useState('');
     const [section, setSection] = useState('공지사항 등록');
     const [btntext, setBtnText] = useState('등록');
@@ -32,34 +32,54 @@ const AnnonceWrite = () => {
 
     useEffect(() => {
         if (params.modify === 'modify') {
-            setSection('공지사항 수정')
-            setBtnText('수정')
+            setSection('공지사항 수정');
+            setBtnText('수정');
+
+            axios.get(`${URL}/notices/${params.board}`)
+                .then((res) => {
+                    if (res.status === 200) {
+                        setData(res.data);
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
-    }, []);
+    }, [params]);
+
+    useEffect(() => {
+        // data가 업데이트된 후 title과 content 상태를 설정
+        if (data.title !== undefined) {
+            setTitle(data.title || '');
+        }
+        if (data.content !== undefined) {
+            setContent(data.content || '');
+        }
+    }, [data]);
 
     const onWrite = async () => {
         if (!(title && content)) {
             alert('제목과 내용을 입력해주세요!');
             return;
         }
-    
+
         const formData = new FormData();
         formData.append('title', title);
         formData.append('content', content);
         formData.append('userId', 'sswulion');
         files.forEach(file => formData.append('images', file));
-    
-        const endpoint = params.modify === 'modify' 
-            ? `${URL}/notices/${params.board}` 
+
+        const endpoint = params.modify === 'modify'
+            ? `${URL}/notices/${params.board}`
             : `${URL}/notices/create`;
-    
+
         const method = params.modify === 'modify' ? axios.put : axios.post;
-    
+
         try {
             const response = await method(endpoint, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
-    
+
             if (response.status === 200) {
                 alert(params.modify === 'modify' ? '공지사항을 성공적으로 수정했습니다.' : '공지사항이 성공적으로 등록되었습니다.');
                 navigation('/announce/manager');
@@ -71,7 +91,6 @@ const AnnonceWrite = () => {
             alert('서버에 오류가 발생했습니다.');
         }
     };
-    
 
     return (
         <div className='AnnonceWrite_wrap container'>
