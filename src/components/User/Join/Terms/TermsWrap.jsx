@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Terms from './Terms'
 import Details from './Details'
 
-const TermsWrap = ({ setAgree, handleSlideOut }) => {
+const TermsWrap = ({ setAgree }) => {
     const [all, setAll] = useState(false)
     const [first, setFirst] = useState(false);
     const [second, setSecond] = useState(false);

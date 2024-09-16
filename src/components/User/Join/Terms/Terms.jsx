@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Back from '../../../../assets/img/join/back.svg'
 import CheckFalse from '../../../../assets/img/join/check_false.svg'
 import CheckTrue from '../../../../assets/img/join/check_true.svg'
 import Detail_Img from '../../../../assets/img/join/detail.svg'
 import { useNavigate } from 'react-router-dom'
 
-const Terms = ({ first, setFirst, second, setSecond, third, setThird, all, onAll, onNext, setDetail, handleSlideOut }) => {
+const Terms = ({ first, setFirst, second, setSecond, third, setThird, all, onAll, onNext, setDetail }) => {
     const navigation = useNavigate();
 
     const onBack = () => {
-        navigation ('/login')
+        navigation('/login')
     }
 
     return (
