@@ -28,7 +28,7 @@ const NavContent = ({ onLogout, loginbtn }) => {
                     <div className="top">
                         <Link to='/timetable' className="time">타임테이블</Link>
                         <Link to='/stamp' className="map">축제 배치도</Link>
-                        <Link to='/booth' className="test">부스/푸드트럭 정보</Link>
+                        <Link to='/booth' className="test">부스/푸드트럭<br /> 정보</Link>
                     </div>
                     <div className="bottom">
                         <Link to='/announce/normal' className="announce">공지사항</Link>
