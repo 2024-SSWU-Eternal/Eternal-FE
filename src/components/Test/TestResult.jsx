@@ -9,10 +9,12 @@ import Test06 from '../../assets/img/Test/test06.svg'
 import Test07 from '../../assets/img/Test/test07.png'
 import Test08 from '../../assets/img/Test/test08.svg'
 import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const TestResult = ({ content, params }) => {
     const [Img, setImg] = useState(Test01);
     const navigation = useNavigate()
+    const [percentage, setPercentage] = useState(null)
 
     const onBack = () => {
         navigation(-1);
@@ -49,6 +51,20 @@ const TestResult = ({ content, params }) => {
         }
     }, [content, params])
 
+
+    useEffect(() => {
+        const fetchPercentageData = async () => {
+            const response = await axios.get('https://www.eternal-server.store/test');
+            const { results } = response.data;
+            const result = results.find((item) => item.type === params.ending);
+            if (result) {
+                setPercentage(result.percentage);
+            }
+        };
+
+        fetchPercentageData();
+    }, [params.ending]);
+
     return (
         <div className='TestResult_wrap'>
             <div className="header">
@@ -61,7 +77,7 @@ const TestResult = ({ content, params }) => {
                     <div className="top">
                         <h1>{content.title}</h1>
                         <p className='desc'>{content.subtitle}</p>
-                        <p className='percent'>전체 사용자 중 10.7%가 이 유형이에요!</p>
+                        <p className='percent'>전체 사용자 중 {percentage}%가 이 유형이에요!</p>
                     </div>
                     <div className="bottom">
                         <h2>{content.desctitle}</h2>

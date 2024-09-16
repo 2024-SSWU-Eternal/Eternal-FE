@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/Test/back.svg'
 import AllText from './js/text'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Testing = () => {
     const [get, setGet] = useState([]);
@@ -30,10 +31,20 @@ const Testing = () => {
         }
     }
 
-    const onEnding = () => {
+    const onEnding = async () => {
         const Number = ['언덕룡', '여유룡', '투어룡', '실속룡', '타투룡', '독서룡', '가수룡', '게임룡']
+        const mostFrequentResult = findMostFrequent();
+        const resultType = Number[mostFrequentResult - 1];
 
-        navigation(`/testresult/${Number[findMostFrequent() - 1]}`)
+        const response = await axios.post('https://www.eternal-server.store/test', {
+                result: {
+                    type: resultType,
+                    score: mostFrequentResult
+                }
+            });
+            console.log('API Response:', response.data);
+
+            navigation(`/testresult/${resultType}`);
     }
 
     const findMostFrequent = () => {
@@ -73,7 +84,8 @@ const Testing = () => {
             <div>
                 <div className="header">
                     <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
-                    <div className="bar"></div>
+                    <progress max="100" value={(questionindex / 13) * 100} className="bar"></progress>
+                    
                 </div>
                 <div className="main">
                     <h2>Q{questionindex + 1}.</h2>
