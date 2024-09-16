@@ -1,10 +1,10 @@
 import React from 'react'
-import Banner01 from '../../assets/img/main/banner01.png'
 import HourGlass from '../../assets/img/main/hourglass.png';
 import Logo from '../../assets/img/main/Logo.png';
 import Glow02 from '../../assets/img/main/glow02.png';
 import Light from '../../assets/img/main/light02.png';
 import { Link } from 'react-router-dom';
+import Banner from '../ETC/Banner';
 
 const NavContent = ({ onLogout, loginbtn }) => {
     return (
@@ -38,7 +38,7 @@ const NavContent = ({ onLogout, loginbtn }) => {
                     </div>
                 </div>
                 <div className="banner">
-                    <Link to='/booth'><img src={Banner01} alt="" /></Link>
+                    <Banner />
                 </div>
             </div>
         </>
