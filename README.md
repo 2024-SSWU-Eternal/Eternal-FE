@@ -43,3 +43,24 @@
 ## 프로젝트 소개
 
 본 사이트는 2024년 성신여자대학교 축제 "수정대동제 Eternal"를 위한 홈페이지입니다. 성신여자대학교 제36대 총학생회 '여일하게'와 성신여자대학교 멋쟁이사자처럼 12기 대동제 TFT팀의 협업으로 제작된 홈페이지입니다.
+
+<br/>
+
+## 기술 스택 🛠️
+
+### Environment
+[![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078d4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)](https://code.visualstudio.com/)
+[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
+
+### Config
+[![NPM](https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+
+### Development
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://www.javascript.com/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+
+### Communication
+[![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://www.notion.so/)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/)
+
