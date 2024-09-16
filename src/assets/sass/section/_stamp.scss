@@ -29,6 +29,7 @@
         position: relative;
         margin-top: 25px;
         margin-bottom: 10px;
+        margin-left: 7px;
         display: flex;
         font-size: 16px;
         font-weight: bold;
@@ -36,7 +37,7 @@
     
         .number {
             position: absolute;
-            right: 12px;
+            right: 6px;
             font-size: 16px;
             font-weight: bold;
             color: var(--maincolor);
@@ -92,6 +93,7 @@
         align-items: center;
         margin-top: 10px;
         position: relative;
+        margin-left: 7px;
 
         .info-text {
             display: flex;
@@ -108,13 +110,14 @@
         .I {
             width: 22px;
             height: 22px;
+            margin-left: 25px;
             cursor: pointer;
         }
     }
 
     .bingo_info {
         position: relative;
-        margin-top: 32px;
+        margin-top: 50px;
     }
 
     .location_info {
@@ -127,13 +130,13 @@
             font-size: 14px;
             font-weight: bold;
             color: var(--maincolor);
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .go {
             width: 14px;
             height: 10px;
-            margin-top: 17px;
+            margin-top: 27px;
             margin-left: 8px;
         }
     }
@@ -172,6 +175,13 @@
                 width: 100%;
                 height: auto;
             }
+
+            .popup-button {
+                position: absolute;
+                width: 305px;
+                bottom: 45px;
+                left: 40px;
+              }
         }
     }
 
@@ -184,57 +194,57 @@
         position: absolute;
 
         &.stamp-1 {
-            top: 120px;
-            left: 23px;
-            width: 90px;
+            top: 130px;
+            left: 26px;
+            width: 95px;
         }
 
         &.stamp-2 {
-            top: 120px;
-            left: 75px;
-            width: 90px;
+            top: 132px;
+            left: 81px;
+            width: 95px;
         }
 
         &.stamp-3 {
-            top: 120px;
-            right: 25px;
-            width: 90px;
+            top: 132px;
+            right: 26px;
+            width: 95px;
         }
 
         &.stamp-4 {
-            top: 175px;
-            left: 23px;
-            width: 90px;
+            top: 187px;
+            left: 26px;
+            width: 95px;
         }
 
         &.stamp-5 {
-            top: 175px;
-            left: 75px;
-            width: 90px;
+            top: 187px;
+            left: 81px;
+            width: 95px;
         }
 
         &.stamp-6 {
-            top: 175px;
-            right: 25px;
-            width: 90px;
+            top: 187px;
+            right: 26px;
+            width: 95px;
         }
 
         &.stamp-7 {
-            top: 225px;
-            left: 23px;
-            width: 90px;
+            top: 243px;
+            left: 26px;
+            width: 95px;
         }
 
         &.stamp-8 {
-            top: 225px;
-            left: 75px;
-            width: 90px;
+            top: 243px;
+            left: 81px;
+            width: 95px;
         }
 
         &.stamp-9 {
-            top: 225px;
-            right: 25px;
-            width: 90px;
+            top: 243px;
+            right: 26px;
+            width: 95px;
         }
     }
 
@@ -379,4 +389,49 @@
             }
         }
     }
-}
+      }
+
+      .alert-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.35);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      
+        .alert-content {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+      
+          .alert-img {
+            width: 345px;
+            height: 429px;
+          }
+      
+          .alert-message {
+            position: absolute;
+            bottom: 105px;
+            color: var(--black);
+            text-align: center;
+            font-size: 16px;
+          }
+      
+          .alert-check {
+            position: absolute;
+            bottom: 30px;
+            cursor: pointer;
+      
+            .alert-check-img {
+              width: 305px;
+              height: 48px;
+            }
+          }
+        }         
+      }
