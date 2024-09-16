@@ -14,7 +14,7 @@ import Button from "../../assets/img/stamp/Button.svg";
 const Stamp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false); 
-  const [isLocationPopupVisible, setIsLocationPopupVisible] = useState(false);
+  const [isLocationPopupVisible, setIsLocationPopupVisible] = useState(false); // 여기에 상태 변수 추가
   const [stamps, setStamps] = useState([]);
   const [error, setError] = useState(null);
   const [studentNum, setStudentNum] = useState('');
@@ -32,7 +32,7 @@ const Stamp = () => {
   };
 
   const toggleLocationPopup = () => {
-    setIsLocationPopupVisible(!isLocationPopupVisible); 
+    setIsLocationPopupVisible(!isLocationPopupVisible); // 상태 업데이트 함수로 변경
   };
 
   const stampMessages = {
@@ -216,9 +216,25 @@ const Stamp = () => {
         </div>
       )}
 
-      <div className='bingo'>
-        <div className="bingo_info"><img src={Bingo} alt="빙고판" /></div>
+      <div className="bingo">
+      <div className="bingo_info">
+        <img src={Bingo} alt="빙고판" />
+        <div className="stamps-list">
+          {stamps.map((stamp) => (
+          <div key={stamp.stampId} className={`stamp stamp-${stamp.stampId} ${stamp.status ? 'set' : 'not-set'}`}>
+            {stamp.status && (
+              <img
+                src={stamp.stampImg}
+                alt={`스탬프 ${stamp.stampId}`}
+                className={`stamp stamp-${stamp.stampId}`}
+              />
+            )}
+          </div>
+        ))}
+        </div>
       </div>
+      </div>
+
 
       <div className='location_info' onClick={toggleLocationPopup}> 
         <div className='location'>QR코드 위치 확인하기</div>
@@ -239,19 +255,6 @@ const Stamp = () => {
 
       {error && <div className="error-message">{error}</div>}
 
-      <div className="stamps-list">
-        {stamps.map(stamp => (
-          <div key={stamp.stampId} className={`stamp stamp-${stamp.stampId} ${stamp.status ? 'set' : 'not-set'}`}>
-            {stamp.status && (
-              <img 
-                src={stamp.stampImg} 
-                alt={`스탬프 ${stamp.stampId}`} 
-                className={`stamp stamp-${stamp.stampId}`} 
-              />
-            )}
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
