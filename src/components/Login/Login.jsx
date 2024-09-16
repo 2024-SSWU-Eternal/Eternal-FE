@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Back from '../../assets/img/login/back.svg'
 import Logo from '../../assets/img/login/logo_main.svg'
 import Eye from '../../assets/img/login/eyeicon.svg'
+import Error from '../../assets/img/join/error.svg'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setTokens } from '../../store/authSlice'
@@ -11,13 +12,26 @@ const Login = () => {
     const URL = 'https://www.eternal-server.store'
     const [email, setEmain] = useState('')
     const [inputValue, setInputValue] = useState('');
+    const [full, setFull] = useState(false);
+    const [popup, setPopup] = useState(false);
     const dispatch = useDispatch();
-
     const navigate = useNavigate();
+
+    const goToBack = () => {
+        navigate('/');
+    }
 
     const joinClick = () => {
         navigate('/join');
     }
+
+    useEffect(() => {
+        if (inputValue !== '' && email !== '') {
+            setFull(true);
+        } else {
+            setFull(false)
+        }
+    }, [inputValue, email])
 
     /* 비밀번호 보기/숨기기 함수 */
 
@@ -39,19 +53,7 @@ const Login = () => {
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     }
-
     const isButtonActive = inputValue.length > 0;
-
-    /* 슬라이드 */
-
-    const [isSlideOut, setIsSlideOut] = useState(false);
-
-    const handleSlideOut = () => {
-        setIsSlideOut(true);
-        setTimeout(() => {
-            navigate('/');
-        }, 400)
-    }
 
     const onLogin = () => {
         axios.post(`${URL}/user/login`,
@@ -61,7 +63,7 @@ const Login = () => {
             }
         )
             .then((res) => {
-                if(res.status ===200){
+                if (res.status === 200) {
                     const accessToken = res.data.token;
                     const roles = res.data.roles;
                     dispatch(setTokens({ accessToken, roles }));
@@ -72,7 +74,10 @@ const Login = () => {
             })
             .catch((err) => {
                 console.log(err)
-            })
+                if (err.status === 401) {
+                    setPopup(true);
+                }
+            });
     }
 
     return (
@@ -80,10 +85,7 @@ const Login = () => {
         <div className='Login_wrap container'>
 
             <div className='header'>
-                <button
-                    className={`back ${isSlideOut ? 'slide-out-left' : ''}`}
-                    onClick={handleSlideOut}
-                >
+                <button className='back' onClick={() => { goToBack() }}>
                     <img src={Back} alt="back button" />
                 </button>
                 <p>로그인</p>
@@ -119,7 +121,7 @@ const Login = () => {
                 </div>
 
                 <button
-                    className={`submit-button ${isButtonActive ? 'active' : ''}`}
+                    className={`submit-button ${full ? 'active' : ''}`}
                     disabled={!isButtonActive}
                     onClick={() => { onLogin() }}
                 >
@@ -131,6 +133,18 @@ const Login = () => {
                     <p className='join' onClick={joinClick}>회원가입하러 가기</p>
                 </div>
             </div>
+
+            {popup ? (
+                <div className="popup_wrap">
+                    <div className="pop">
+                        <img src={Error} alt="error img" />
+                        <h3>존재하지 않는 정보입니다</h3>
+                        <button onClick={() => { setPopup(false) }}>확인</button>
+                    </div>
+                </div>
+            ) : (
+                <></>
+            )}
         </div>
     )
 }

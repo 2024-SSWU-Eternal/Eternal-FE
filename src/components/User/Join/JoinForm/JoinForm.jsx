@@ -11,9 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const JoinForm = ({ setAgree }) => {
     const URL = 'https://www.eternal-server.store';
-
     const navigation = useNavigate();
-
     const [click, setClick] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');

@@ -20,7 +20,6 @@ import FoodInfo from './components/FoodInfo/FoodInfo'
 import Reservation from './components/ETC/Reservation'
 import Stamp from './components/Stamp/Stamp'
 import Booth from './components/Booth/Booth'
-import StampLogin from './components/Stamp/StampLogin'
 import BoothDetail from './components/Booth/BoothDetail'
 
 const App = () => {
@@ -62,7 +61,7 @@ const App = () => {
                 <Route path='/booth/:id' element={<BoothDetail />} />
             </Routes>
         </BrowserRouter>
-    )
-}
+    );
+};
 
-export default App
+export default App;

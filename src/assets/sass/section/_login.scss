@@ -10,21 +10,6 @@
         position: relative;
         margin-bottom: 35px;
 
-        .slide-out-left {
-            animation: slideOutLeft 400ms ease-in-out forwards;
-          }
-          
-          @keyframes slideOutLeft {
-            from {
-              transform: translateX(0);
-              opacity: 1;
-            }
-            to {
-              transform: translateX(-100%);
-              opacity: 0;
-            }
-          }
-
         .back {
             position: absolute;
             left: 0px;
@@ -133,8 +118,7 @@
             font-weight: bold;
             margin-top: 24px;
             border-radius: 10px;
-
-            transition: border-bottom 400ms ease-in;
+            transition: all 400ms ease-in;
 
             &.active {
                 background-color: var(--maincolor);
@@ -166,6 +150,43 @@
         }
 
 
+    }
+
+    .popup_wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #00000060;
+        width: inherit;
+        height: inherit;
+
+        .pop {
+            width: 275px;
+            height: 265px;
+            background-color: var(--white);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            >img {
+                width: 86px;
+                margin-bottom: 26px;
+            }
+
+            h3 {
+                margin-bottom: 20px;
+                font-weight: 700;
+            }
+
+            button {
+                width: 243px;
+                height: 48px;
+                background-color: var(--gray100);
+                border-radius: 10px;
+            }
+        }
     }
 }
 

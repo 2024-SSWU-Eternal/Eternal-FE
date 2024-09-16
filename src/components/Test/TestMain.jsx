@@ -3,11 +3,14 @@ import Back from '../../assets/img/Test/back.svg'
 import Cute01 from '../../assets/img/Test/cute_01.svg'
 import { useNavigate } from 'react-router-dom';
 
-const TestMain = ({ setStory }) => {
+const TestMain = ({ setStory, handleSlideOut }) => {
     const navigation = useNavigate();
 
     const onBack = () => {
-        navigation(-1)
+        handleSlideOut()
+        setTimeout(() => {
+            navigation(-1)
+        }, 400)
     }
 
     return (
