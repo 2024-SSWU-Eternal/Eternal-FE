@@ -82,7 +82,9 @@ const JoinForm = ({ setAgree }) => {
             }
         })
             .then((res) => {
-                console.log(res);
+                if (res.status === 200) {
+                    alert('인증 성공');
+                }
             })
             .catch((err) => {
                 console.log(err)
@@ -106,7 +108,6 @@ const JoinForm = ({ setAgree }) => {
                 console.log(err);
             })
     }
-
 
     useEffect(() => {
         if (step === 4) {
