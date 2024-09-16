@@ -32,7 +32,6 @@ const Terms = ({ first, setFirst, second, setSecond, third, setThird, all, onAll
                         <button className='check' onClick={() => { setFirst(!first) }}><img src={first ? CheckTrue : CheckFalse} alt="checkbox" /></button>
                         <p>만 14세 이상 확인(필수)</p>
                     </div>
-                    <button className='detail' onClick={() => { setDetail(true) }}><img src={Detail_Img} alt="checkbox" /></button>
                 </div>
                 <div className="box">
                     <div>
@@ -46,7 +45,6 @@ const Terms = ({ first, setFirst, second, setSecond, third, setThird, all, onAll
                         <button className='check' onClick={() => { setThird(!third) }}><img src={third ? CheckTrue : CheckFalse} alt="checkbox" /></button>
                         <p>위치기반 서비스 이용약관 동의(필수)</p>
                     </div>
-                    <button className='detail' onClick={() => { setDetail(true) }}><img src={Detail_Img} alt="checkbox" /></button>
                 </div>
             </div>
             <button onClick={() => { onNext() }} className={all ? "full" : ""}>동의</button>
