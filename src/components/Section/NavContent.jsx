@@ -7,7 +7,7 @@ import Light from '../../assets/img/main/light02.png';
 import Banner from '../ETC/Banner';
 
 const NavContent = ({ onLogout, loginbtn }) => {
-    const [linkPath, setLinkPath] = useState('/stampbefore');
+    const [linkPath, setLinkPath] = useState('/stamp/5');
 
     useEffect(() => {
         const currentDate = new Date();
