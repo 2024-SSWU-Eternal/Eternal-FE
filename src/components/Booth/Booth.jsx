@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import back from '../../assets/img/booth/back.png';
-import filter from '../../assets/img/booth/filter.png';
+import filter from '../../assets/img/booth/filter.svg';
 import searchbg from '../../assets/img/booth/searchbg.png';
 import search from '../../assets/img/booth/search.svg';
 import BoothList from './BoothList';
