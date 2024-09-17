@@ -213,6 +213,11 @@
             .red {
                 border-bottom: 1px solid #FF4A4A !important;
             }
+
+            .invalid {
+                margin-bottom: 5px;
+                border-bottom: 2px solid #FF4A4A !important;
+            }
         }
 
         >button {
@@ -272,6 +277,8 @@
             }
         }
     }
+
+    
 }
 
 .full {

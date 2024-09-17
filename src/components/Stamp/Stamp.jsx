@@ -188,8 +188,6 @@ const Stamp = () => {
       </div>
       </div>
 
-
-
       <div className="info-wrapper">
         <div className="info-text">
           <div className="info">스탬프 투어를 통해 빙고판을 완성하고</div>

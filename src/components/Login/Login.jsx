@@ -15,9 +15,10 @@ const Login = () => {
     const [inputValue, setInputValue] = useState('');
     const [full, setFull] = useState(false);
     const [popup, setPopup] = useState(false);
+    const [popupMsg, setPopupMsg] = useState('존재하지 않는 정보입니다')
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [loading,setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const goToBack = () => {
         navigate('/');
@@ -52,12 +53,33 @@ const Login = () => {
         })
     }
 
+    const [isValid, setIsValid] = useState(false);
+
+    const validatePassword = (password) => {
+        if (password.length < 8) {
+            return false;
+        }
+        const hasLetter = /[a-zA-Z]/.test(password);
+        const hasNumber = /[0-9]/.test(password);
+        return hasLetter && hasNumber;
+    };
+    useEffect(() => {
+        setIsValid(validatePassword(inputValue));
+    }, [inputValue]);
+
+    // input값 변경 핸들러
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
-    }
+    };
     const isButtonActive = inputValue.length > 0;
 
     const onLogin = () => {
+        if (!(isValid)) {
+            setPopup(true);
+            setPopupMsg('비밀번호 조건을 확인해주세요!')
+            return
+        }
+
         setLoading(true);
         axios.post(`${URL}/user/login`,
             {
@@ -71,7 +93,6 @@ const Login = () => {
                     const roles = res.data.roles;
                     dispatch(setTokens({ accessToken, roles }));
                     localStorage.setItem('jwtToken', res.data.token); //스탬프 연동을 위해 토큰 변경
-                    console.log('저장된 JWT 토큰:', localStorage.getItem('jwtToken'));
                     navigate('/')
                 }
             })
@@ -96,7 +117,6 @@ const Login = () => {
                 </button>
                 <p>로그인</p>
             </div>
-
             <div className='main'>
                 <img src={Logo} alt='로고' />
                 <div className='email'>
@@ -144,7 +164,7 @@ const Login = () => {
                 <div className="popup_wrap">
                     <div className="pop">
                         <img src={Error} alt="error img" />
-                        <h3>존재하지 않는 정보입니다</h3>
+                        <h3>{popupMsg}</h3>
                         <button onClick={() => { setPopup(false) }}>확인</button>
                     </div>
                 </div>
