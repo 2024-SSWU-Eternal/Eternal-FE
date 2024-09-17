@@ -4,12 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Back from '../../assets/img/program/back.svg';
-import map1 from '../../assets/img/program/1.svg';
-import map2 from '../../assets/img/program/2.svg';
-import map3 from '../../assets/img/program/3.svg';
-import map4 from '../../assets/img/program/4.svg';
-import map5 from '../../assets/img/program/5.svg';
-import map6 from '../../assets/img/program/6.svg';
+import map1 from '../../assets/img/program/1.avif';
+import map2 from '../../assets/img/program/2.avif';
+import map3 from '../../assets/img/program/3.avif';
+import map4 from '../../assets/img/program/4.avif';
+import map5 from '../../assets/img/program/5.avif';
+import map6 from '../../assets/img/program/6.avif';
 
 const Program = () => {
   const [currentPage, setCurrentPage] = useState(1);
