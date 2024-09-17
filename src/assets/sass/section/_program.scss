@@ -1,3 +1,4 @@
+
 .Program_wrap {
     background-size: cover;
     background-repeat: no-repeat;
@@ -54,9 +55,8 @@
 
   .pamphlet-page {
     width: 100%;
-    height: auto;
+    height: 700px;
     border-radius: 12px;
-    object-fit: contain;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 
@@ -103,7 +103,7 @@
 /* Responsive design adjustments for smaller screens */
 @media screen and (max-width: 420px) {
   .Program_wrap {
-    padding-top: 40px;
+    padding-top: 60px;
     padding-bottom: 40px;
   }
 
