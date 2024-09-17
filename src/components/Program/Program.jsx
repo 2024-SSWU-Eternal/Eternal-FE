@@ -13,8 +13,7 @@ import map6 from '../../assets/img/program/6.svg';
 
 const Program = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [imgInfoVisible, setImgInfoVisible] = useState(true);
-  const [pageNumberVisible, setPageNumberVisible] = useState(true); // 페이지 넘버 표시 상태
+  const [pageNumberVisible, setPageNumberVisible] = useState(true); // 페이지 넘버 표시 상태 초기화
   const pages = [map1, map2, map3, map4, map5, map6];
   const navigate = useNavigate();
 
@@ -24,18 +23,19 @@ const Program = () => {
 
   const handleSlideChange = (swiper) => {
     setCurrentPage(swiper.activeIndex + 1);
-    setPageNumberVisible(true);
+    setPageNumberVisible(true); // 슬라이드 변경 시 페이지 번호 다시 보이게 설정
     setTimeout(() => {
-      setPageNumberVisible(false);
-    }, 2000); // 3초 후 사라지게 함
+      setPageNumberVisible(false); // 2초 후 페이지 번호 숨기기
+    }, 2000);
   };
 
-  const handleImgInfoClick = () => {
-    setImgInfoVisible(true);
-    setTimeout(() => {
-      setImgInfoVisible(false);
-    }, 3000);
-  };
+  useEffect(() => {
+    // 컴포넌트가 마운트될 때 2초 후에 페이지 번호 숨기기
+    const timer = setTimeout(() => {
+      setPageNumberVisible(false);
+    }, 2000);
+    return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 제거
+  }, []);
 
   return (
     <div className="Program_wrap container">
@@ -62,10 +62,6 @@ const Program = () => {
         ))}
       </Swiper>
 
-      <div
-        className={`img-info ${imgInfoVisible ? 'visible' : 'hidden'}`}
-        onClick={handleImgInfoClick}
-      ></div>
     </div>
   );
 };
