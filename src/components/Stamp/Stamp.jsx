@@ -10,19 +10,6 @@ import Alert from "../../assets/img/stamp/Alert.svg";
 import Check from "../../assets/img/stamp/check.svg";
 import Locate from "../../assets/img/stamp/Locate.svg";
 import Button from "../../assets/img/stamp/Button.svg";
-import Loading from '../Loading/Loading';
-
-const stampMapping = {
-  1: '020206',
-  2: '960507',
-  3: '021014',
-  4: '040131',
-  5: '030616',
-  6: '021224',
-  7: '030406',
-  8: '851223',
-  9: '241102'
-};
 
 const Stamp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -34,9 +21,9 @@ const Stamp = () => {
   const [userName, setUserName] = useState(''); 
   const [isSlidingOut, setIsSlidingOut] = useState(false); 
   const [alertMessage, setAlertMessage] = useState('');
-  const [loading, setLoading] = useState(false);
   
   const previousStamps = useRef([]); 
+  
   const navigate = useNavigate(); 
   const { stampNum } = useParams(); 
 
@@ -61,7 +48,6 @@ const Stamp = () => {
   };
 
   const fetchStamps = async () => {
-    setLoading(true);
     try {
       const response = await fetch('https://www.eternal-server.store/user/stamps', {
         method: 'GET',
@@ -74,6 +60,7 @@ const Stamp = () => {
       if (response.ok) {
         const data = await response.json();
         checkForNewStamp(data);
+        
         previousStamps.current = data;
         setStamps(data); 
       } else {
@@ -81,13 +68,10 @@ const Stamp = () => {
       }
     } catch {
       setError('네트워크 오류가 발생했습니다.');
-    } finally {
-      setLoading(false);
     }
   };
 
   const registerStamp = async (stampNum) => {
-    setLoading(true);
     try {
       const response = await fetch(`https://www.eternal-server.store/user/stamp/${stampNum}`, {
         method: 'POST',
@@ -104,13 +88,10 @@ const Stamp = () => {
       }
     } catch {
       setError('네트워크 오류가 발생했습니다.');
-    } finally {
-      setLoading(false);
     }
   };
 
   const fetchProfile = async () => {
-    setLoading(true);
     try {
       const response = await fetch('https://www.eternal-server.store/profile', {
         method: 'GET',
@@ -128,8 +109,6 @@ const Stamp = () => {
       }
     } catch {
       setError('네트워크 오류가 발생했습니다.');
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -168,12 +147,8 @@ const Stamp = () => {
         setStudentNum(decodedToken.student_num); 
         fetchStamps(); 
         fetchProfile();
-
         if (stampNum) {
-          const realStampNum = Object.keys(stampMapping).find(key => stampMapping[key] === stampNum);
-          if (realStampNum) {
-            registerStamp(realStampNum); 
-          }
+          registerStamp(stampNum); 
         }
       } else {
         setError('토큰이 만료되었습니다.');
@@ -196,7 +171,6 @@ const Stamp = () => {
 
   return (
     <div className={`Stamp_wrap container`}>
-      {loading && <Loading />}
       <div className='top'>
         <div className="back" onClick={handleBackClick}><img src={Back} alt="뒤로가기" /></div>
         <div className="title">내 빙고판</div>
@@ -244,24 +218,25 @@ const Stamp = () => {
         </div>
       )}
 
-      <div className="bingo">
-        <div className="bingo_info">
-          <img src={Bingo} alt="빙고판" />
-          <div className="stamps-list">
-            {stamps.map(stamp => (
-              <div key={stamp.stampId} className={`stamp stamp-${stamp.stampId} ${stamp.status ? 'set' : 'not-set'}`}>
-                {stamp.status && (
-                <img 
-                  src={stamp.stampImg} 
-                  alt={`스탬프 ${stamp.stampId}`} 
-                  className={`stamp stamp-${stamp.stampId}`} 
-                />
-              )}
-            </div>
-          ))}
+    <div className="bingo">
+      <div className="bingo_info">
+        <img src={Bingo} alt="빙고판" />
+        <div className="stamps-list">
+          {stamps.map(stamp => (
+             <div key={stamp.stampId} className={`stamp stamp-${stamp.stampId} ${stamp.status ? 'set' : 'not-set'}`}>
+              {stamp.status && (
+              <img 
+                src={stamp.stampImg} 
+                alt={`스탬프 ${stamp.stampId}`} 
+                className={`stamp stamp-${stamp.stampId}`} 
+              />
+            )}
           </div>
+         ))}
         </div>
       </div>
+    </div>
+
 
       <div className='location_info' onClick={toggleLocationPopup}> 
         <div className='location'>QR코드 위치 확인하기</div>
