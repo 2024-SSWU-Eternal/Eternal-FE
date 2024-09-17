@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import HourGlass from '../../assets/img/main/hourglass.png';
 import Logo from '../../assets/img/main/Logo.png';
 import Glow02 from '../../assets/img/main/glow02.png';
 import Light from '../../assets/img/main/light02.png';
-import { Link } from 'react-router-dom';
 import Banner from '../ETC/Banner';
 
 const NavContent = ({ onLogout, loginbtn }) => {
+    const [linkPath, setLinkPath] = useState('/stamp/5');
+
+    useEffect(() => {
+        const currentDate = new Date();
+        const festivalDate = new Date(currentDate.getFullYear(), 8, 25); 
+
+        if (currentDate >= festivalDate) {
+            setLinkPath('/stamp/5'); 
+        }
+    }, []);
+
     return (
         <>
             <div className='Nav_wrap'>
                 {loginbtn ? (
                     <div className='yes_login'>
-                        <Link to='/stamp/1'>내 빙고판</Link>
+                        <Link to={linkPath}>내 빙고판</Link>
                         <div className='logout' onClick={() => { onLogout(); }}>로그아웃</div>
                     </div>
                 ) : (
@@ -27,8 +38,8 @@ const NavContent = ({ onLogout, loginbtn }) => {
                 <div className="nav_box">
                     <div className="top">
                         <Link to='/timetable' className="time">타임테이블</Link>
-                        <Link to='/stamp' className="map">축제 배치도</Link>
-                        <Link to='/booth' className="test">부스/푸드트럭 정보</Link>
+                        <Link to='/map' className="map">축제 배치도</Link>
+                        <Link to='/booth' className="test">부스/푸드트럭<br /> 정보</Link>
                     </div>
                     <div className="bottom">
                         <Link to='/announce/normal' className="announce">공지사항</Link>
@@ -42,7 +53,7 @@ const NavContent = ({ onLogout, loginbtn }) => {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default NavContent
+export default NavContent;

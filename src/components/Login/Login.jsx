@@ -7,6 +7,7 @@ import Error from '../../assets/img/join/error.svg'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setTokens } from '../../store/authSlice'
+import Loading from '../Loading/Loading';
 
 const Login = () => {
     const URL = 'https://www.eternal-server.store'
@@ -16,6 +17,7 @@ const Login = () => {
     const [popup, setPopup] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [loading,setLoading] = useState(false);
 
     const goToBack = () => {
         navigate('/');
@@ -56,6 +58,7 @@ const Login = () => {
     const isButtonActive = inputValue.length > 0;
 
     const onLogin = () => {
+        setLoading(true);
         axios.post(`${URL}/user/login`,
             {
                 "email": `${email}@sungshin.ac.kr`,
@@ -77,9 +80,15 @@ const Login = () => {
                 if (err.status === 401) {
                     setPopup(true);
                 }
-            });
+            })
+            .finally(() => {
+                setLoading(false);
+            })
     }
 
+    if (loading) {
+        return <Loading />
+    }
     return (
 
         <div className='Login_wrap container'>

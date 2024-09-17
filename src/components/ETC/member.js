@@ -1,19 +1,18 @@
 
-
 export const lionLeader = [
     {
         organization: '멋쟁이사자처럼 12기 대표',
         name: '김현수',
         department: '컴퓨터공학과',
-        desc: '서버 및 QR 스탬프 지도',
-        img: '',
+        desc: ['서버 및 QR 스탬프 지도','백엔드'],
+        img: require('../../assets/img/etc/lion01.avif'),
     },
     {
         organization: '멋쟁이사자처럼 12기 부대표',
         name: '송지연',
         department: '서비스・디자인공학과',
         desc: 'UX/UI 디자인',
-        img: '',
+        img: require('../../assets/img/etc/lion02.avif'),
     },
 ]
 
@@ -22,7 +21,7 @@ export const design = {
     name: '권하영',
     department: '서비스・디자인공학과',
     desc: 'UX/UI 디자인',
-    img: '',
+    img: require('../../assets/img/etc/lion03.avif'),
 }
 
 export const frontEnd = [
@@ -31,49 +30,49 @@ export const frontEnd = [
         name: '박예인',
         department: 'AI융합학부',
         desc: '',
-        img: '',
+        img: require('../../assets/img/etc/lion04.avif'),
     },
     {
         organization: '멋쟁이사자처럼 12기',
         name: '박유채',
         department: '서비스・디자인공학과',
         desc: '',
-        img: '',
+        img: require('../../assets/img/etc/lion05.avif'),
     },
     {
         organization: '멋쟁이사자처럼 12기',
         name: '우지윤',
         department: 'AI융합학부',
         desc: '',
-        img: '',
+        img: require('../../assets/img/etc/lion06.avif'),
     },
     {
         organization: '멋쟁이사자처럼 12기',
         name: '윤나경',
         department: 'AI융합학부',
         desc: '',
-        img: '',
+        img: require('../../assets/img/etc/lion07.avif'),
     },
     {
         organization: '멋쟁이사자처럼 12기',
         name: '이현진',
         department: 'AI융합학부',
         desc: '',
-        img: '',
+        img: require('../../assets/img/etc/lion08.avif'),
     },
     {
         organization: '멋쟁이사자처럼 12기',
         name: '정새영',
         department: '미디어커뮤니케이션학과',
         desc: '',
-        img: '',
+        img: require('../../assets/img/etc/lion09.avif'),
     },
     {
         organization: '멋쟁이사자처럼 12기',
         name: '최수진',
         department: '컴퓨터공학과',
         desc: '',
-        img: '',
+        img: require('../../assets/img/etc/lion10.avif'),
     },
 ]
 
@@ -83,14 +82,14 @@ export const backEnd = [
         name: '서지우',
         department: 'AI융합학부',
         desc: '',
-        img: '',
+        img: require('../../assets/img/etc/lion11.avif'),
     },
     {
         organization: '멋쟁이사자처럼 12기',
         name: '이예령',
         department: '컴퓨터공학과',
         desc: '',
-        img: '',
+        img: require('../../assets/img/etc/lion01.png'),
     }
 ]
 
@@ -118,6 +117,11 @@ export const festivalmemeber = [
         organization: "제 36대 총학생회 ‘여일하게'",
         name: '홍은영',
         department: '정치외교학과'
+    },
+    {
+        organization: "제 36대 총학생회 ‘여일하게'",
+        name: '엄채연',
+        department: '서양화과'
     },
     {
         organization: "제 36대 총학생회 ‘여일하게'",
@@ -258,10 +262,5 @@ export const festivalmemeber = [
         organization: "제 36대 총학생회 ‘여일하게'",
         name: '이솔희',
         department: '디자인과'
-    },
-    {
-        organization: "제 36대 총학생회 ‘여일하게'",
-        name: '',
-        department: ''
     },
 ]

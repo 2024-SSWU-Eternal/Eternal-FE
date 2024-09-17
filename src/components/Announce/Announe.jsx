@@ -5,6 +5,8 @@ import Write from '../../assets/img/announce/write_btn.svg';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import Banner from '../ETC/Banner';
+import Loading from '../Loading/Loading';
 
 const Announe = () => {
     const URL = 'https://www.eternal-server.store';
@@ -13,6 +15,7 @@ const Announe = () => {
     const [manage, setManage] = useState(false);
     const [data, setData] = useState([]);
     const navigation = useNavigate();
+    const [loading,setLoading] = useState(false);
 
     useEffect(() => {
         if (params.manager === 'manager') {
@@ -23,6 +26,7 @@ const Announe = () => {
     }, [params]);
 
     useEffect(() => {
+        setLoading(true);
         axios.get(`${URL}/notices`)
             .then((res) => {
                 if (res.status === 200) {
@@ -31,6 +35,9 @@ const Announe = () => {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
             })
     }, [])
 
@@ -66,6 +73,9 @@ const Announe = () => {
         show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
     };
 
+    if (loading) {
+        return <Loading />
+    }
     return (
         <div className="Announe_wrap container">
             <div className="header">
@@ -78,7 +88,7 @@ const Announe = () => {
                 ) : (<></>)}
             </div>
             <div className="main">
-                <div className="banner">배너</div>
+                <Banner />
                 <motion.div
                     className="announce_list"
                     variants={containerVariants}

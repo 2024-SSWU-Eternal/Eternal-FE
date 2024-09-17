@@ -12,11 +12,16 @@
         position: relative;
         margin-bottom: 30px;
 
+        h4 {
+            font-weight: 600;
+        }
+
         .back {
             left: 0;
             position: absolute;
             width: 24px;
             height: 32px;
+            cursor: pointer;
         }
 
         .bar {
@@ -156,6 +161,18 @@
                             width: 145px;
                             right: -10px;
                             bottom: 0;
+                            max-height: 168px;
+                            object-fit: contain;
+                            mix-blend-mode: luminosity;
+
+
+                        }
+
+                        &:nth-child(6) {
+
+                            img {
+                                right: -17px;
+                            }
                         }
                     }
                 }
@@ -242,9 +259,12 @@
         position: relative;
         height: 75px;
         display: flex;
-        width: 345px;
+        width: 100%;
+        min-width: 345px;
+        max-width: 350px;
 
         img {
+            object-position: center;
             object-fit: fill;
             height: 75px;
             border-radius: 6px;
