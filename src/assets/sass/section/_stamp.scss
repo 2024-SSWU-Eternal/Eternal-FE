@@ -42,7 +42,9 @@
             color: var(--maincolor);
         }
     }    
-
+    .location_info:hover{
+        cursor: pointer;
+    }
     .name-wrapper {
         display: flex;
         align-items: center; 

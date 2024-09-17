@@ -32,7 +32,7 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
         },
         {
             id: 4,
-            name: '성신 최고 上여자 올림픽',
+            name: '성신 최고 上여자 \n올림픽',
             date: [3, 6],
             image: require('../../assets/img/booth/성신최고上여자올림픽.avif'),
             location: 'E-1',

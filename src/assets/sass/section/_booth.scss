@@ -3,9 +3,13 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: relative;
     .wrap{
         width: 345px;
         margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        
     }
     .back-icon {
         width: 7px;
@@ -120,9 +124,8 @@
 
 .booth-list-container {
     position: relative;
-
-    margin-top: 25px;
-    min-height: 550px;
+    margin-top: 20px;
+    min-height: 500px;
     max-height: 550px;
     overflow-y: auto;
     scrollbar-width: none;
@@ -188,7 +191,7 @@
                         font-weight: bold;
                         color: var(--maincolor);
                         flex-grow: 1;
-                        width: 118px;  
+                        width: 115px;  
                         padding: 0 3px;     
                         white-space: pre-wrap;           
                     }
@@ -208,7 +211,7 @@
                     .booth-date{
                         display: flex;
                         align-items: center;
-                        justify-content: center;
+                        justify-content: space-between;
                         font-size: 10px;
                         color: var(--gray500);
                     }
