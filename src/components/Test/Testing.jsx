@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Error from '../../assets/img/join/error.svg'
 import Back from '../../assets/img/Test/back.svg'
 import AllText from './js/text'
 import { useNavigate } from 'react-router-dom'
@@ -11,6 +12,7 @@ const Testing = () => {
     const [questionindex, setQuestionindex] = useState(0);
     const [hear, setHear] = useState('');
     const [ending, setEnding] = useState(false);
+    const [popup, setPopup] = useState(false);
     const navigation = useNavigate();
     const [loading,setLoading] = useState(false);
 
@@ -22,7 +24,7 @@ const Testing = () => {
 
     const onSet = () => {
         if (hear === '') {
-            alert('선택지를 골라주세요!');
+            setPopup(true)
             return;
         }
 
@@ -108,6 +110,17 @@ const Testing = () => {
                 <button className="next full" onClick={() => { onEnding() }}>다음으로</button>
             ) : (
                 <button className="next full" onClick={() => { onSet() }}>다음으로</button>
+            )}
+            {popup ? (
+                <div className="popup_wrap">
+                    <div className="pop">
+                        <img src={Error} alt="error img" />
+                        <h3>선택지를 골라주세요!</h3>
+                        <button onClick={() => { setPopup(false) }}>확인</button>
+                    </div>
+                </div>
+            ) : (
+                <></>
             )}
         </div>
     )
