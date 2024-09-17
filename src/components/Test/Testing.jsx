@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Back from '../../assets/img/Test/back.svg'
+import Back from '../../assets/img/Test/back.avif'
 import AllText from './js/text'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Back from '../../assets/img/Test/back.svg'
+import Back from '../../assets/img/Test/back.avif'
 import { useNavigate } from 'react-router-dom'
-import cute from '../../assets/img/Test/cute_02 2.png'
-import testme from '../../assets/img/Test/testme.png'
+import cute from '../../assets/img/Test/cute_02 2.avif'
+import testme from '../../assets/img/Test/testme.avif'
 
 const TestStory = ({ setStory }) => {
     const navigation = useNavigate();
