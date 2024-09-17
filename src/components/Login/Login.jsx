@@ -107,12 +107,10 @@ const Login = () => {
             })
     }
 
-    if (loading) {
-        return <Loading />
-    }
     return (
 
         <div className='Login_wrap container'>
+            {loading && <Loading />}
             <div className='header'>
                 <button className='back' onClick={() => { goToBack() }}>
                     <img src={Back} alt="back button" />

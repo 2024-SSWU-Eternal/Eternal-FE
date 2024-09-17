@@ -69,12 +69,9 @@ const TestResult = ({ content, params }) => {
         fetchPercentageData();
     }, [params.ending]);
 
-    if (loading) {
-        return <Loading />
-    }
-
     return (
         <div className='TestResult_wrap container'>
+            {loading && <Loading />}
             <div className="header">
                 <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
                 <h4>테스트 결과</h4>
