@@ -1,0 +1,113 @@
+.Map_wrap {
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    touch-action: pan-y;
+    -ms-content-zooming: none; 
+    -ms-touch-action: pan-x pan-y; 
+
+    header {
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .back_btn {
+            width: 24px;
+            height: 32px;
+            position: absolute;
+            left: 24px;
+        }
+
+        .back_btn:hover {
+            cursor: pointer;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--black);
+        }
+    }
+
+    .wrap {
+        position: relative;
+        height: calc(100vh - 180px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        >.stamp-icon {
+            z-index: 10;
+            width: 80px;
+            height: 29px;
+            border-radius: 8px;
+            position: absolute;
+            top: 20px;
+            left: 37px;
+            display: flex;
+            align-items: center;
+            background-color: #ffffff42;
+            justify-content: space-evenly;
+
+            img {
+                width: 17px;
+                height: 17px;
+            }
+
+            p {
+                font-size: 10px;
+                color: var(--purple01);
+                font-weight: 700;
+            }
+        }
+
+        .mapImg {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 180px);
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mapImg::-webkit-scrollbar{
+            display:none;
+          }
+    
+
+        .react-transform-wrapper {
+            width: inherit;
+            height: fit-content !important;
+            overflow: visible;
+            -ms-overflow-style: none;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .tost {
+            position: absolute;
+            margin: 0 auto;
+            bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 259px;
+            height: 33px;
+            border-radius: 4px;
+            background-color: var(--gray700);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 500;
+            box-shadow: 0px 4px 20px #00000015;
+        }
+    }
+
+
+}

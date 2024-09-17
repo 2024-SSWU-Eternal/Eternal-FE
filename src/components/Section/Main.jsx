@@ -8,11 +8,11 @@ import Logo from '../../assets/img/main/Logo.png';
 import Text01 from '../../assets/img/main/text01.svg';
 import Text02 from '../../assets/img/main/text02.svg';
 import Nav from './Nav';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { yesLoad } from '../../store/loadSlice';
 
 const Main = () => {
-    const isLoad = useSelector((state => state.load.isLoading));
+    const isLoad = localStorage.getItem('loading');
     const dispatch = useDispatch();
 
     const glowAnimation = (maskImages, delay) => ({
@@ -33,6 +33,7 @@ const Main = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             dispatch(yesLoad());
+            localStorage.setItem('loading', true)
         }, 6000);
         return () => clearTimeout(timer);
     }, []);

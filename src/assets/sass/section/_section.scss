@@ -93,12 +93,42 @@
         position: relative;
         padding-bottom: 40px;
 
+        .yes_login {
+            top: 50px;
+            right: 35px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            z-index: 20;
+
+            >a {
+                width: 75px;
+                height: 32px;
+                margin-right: 10px;
+                background-color: var(--maincolor);
+                border-radius: 43px;
+                color: var(--white);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 100 !important;
+                font-size: 14px;
+            }
+
+            .logout {
+                cursor: pointer;
+                color: var(--maincolor);
+                font-size: 14px;
+            }
+        }
+
         .login {
             position: absolute;
             top: 50px;
             right: 35px;
             color: var(--maincolor);
             z-index: 2;
+            font-size: 14px;
         }
 
         .img_box {
@@ -143,26 +173,13 @@
             padding: 0px 20px 8px 20px;
             width: 100%;
             display: flex;
+            flex-wrap: wrap;
             color: var(--maincolor);
             font-size: 14px;
             justify-content: space-between;
 
-            .announcement {
-                cursor: pointer;
-                background-position: right bottom;
-                background-repeat: no-repeat;
-                background-image: url(../../img/main/light03.svg);
-                background-size: 60px;
-                font-weight: 600;
-                width: 31%;
-                background-color: #ffffff40;
-                border-radius: 12px;
-                padding: 15px;
-                height: 160px;
-                border: 1px solid #5C479525;
-            }
-
-            .box {
+            .top, .bottom {
+                width: 100%;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
@@ -173,13 +190,25 @@
                     background-repeat: no-repeat;
                     background-image: url(../../img/main/light04.svg);
                     font-weight: 600;
-                    width: 32%;
                     height: 75px;
-                    margin-bottom: 10px;
+                    margin-bottom: 5px;
                     background-color: #ffffff40;
                     border-radius: 12px;
-                    padding: 15px;
-                    border: 1px solid #5C479525;
+                    padding: 12px;
+                    border: 1px solid #5C479550;
+                }
+            }
+
+            .top {
+                >a {
+                    width: 32.5%;
+                }
+            }
+
+            .bottom {
+                >a {
+                    padding: 12px 4px 12px 10px;
+                    width: 24%;
                 }
             }
         }

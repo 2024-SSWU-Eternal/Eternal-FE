@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import Loading from '../Loading/Loading';
 import Back from '../../assets/img/Test/back.avif'
 import Test01 from '../../assets/img/Test/test01.avif'
 import Test02 from '../../assets/img/Test/test02.avif'
@@ -8,13 +11,13 @@ import Test05 from '../../assets/img/Test/test05.avif'
 import Test06 from '../../assets/img/Test/test06.avif'
 import Test07 from '../../assets/img/Test/test07.avif'
 import Test08 from '../../assets/img/Test/test08.avif'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+
 
 const TestResult = ({ content, params }) => {
     const [Img, setImg] = useState(Test01);
     const navigation = useNavigate()
     const [percentage, setPercentage] = useState(null)
+    const [loading,setLoading] = useState(false);
 
     const onBack = () => {
         navigation(-1);
@@ -54,11 +57,13 @@ const TestResult = ({ content, params }) => {
 
     useEffect(() => {
         const fetchPercentageData = async () => {
+            setLoading(true);
             const response = await axios.get('https://www.eternal-server.store/test');
             const { results } = response.data;
             const result = results.find((item) => item.type === params.ending);
             if (result) {
                 setPercentage(result.percentage);
+                setLoading(false);
             }
         };
 
@@ -66,7 +71,8 @@ const TestResult = ({ content, params }) => {
     }, [params.ending]);
 
     return (
-        <div className='TestResult_wrap'>
+        <div className='TestResult_wrap container'>
+            {loading && <Loading />}
             <div className="header">
                 <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
                 <h4>테스트 결과</h4>
@@ -95,6 +101,10 @@ const TestResult = ({ content, params }) => {
                     <p>추천 활동</p>
                     <h3>{content.suggestion}</h3>
                 </div>
+
+            </div>
+            <div className="gostamp">
+                <Link to='/stampbefore'>유형테스트 스탬프 받기</Link>
             </div>
             <div className="button_box">
                 <button className="gomain"><Link to='/'>메인으로</Link></button>

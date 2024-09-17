@@ -1,6 +1,10 @@
 .Login_wrap {
     padding: 60px 25px 20px 25px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
     color: var(--black);
 
     .header{
@@ -9,11 +13,12 @@
         align-items: center;
         position: relative;
         margin-bottom: 35px;
+        width: 100%;
 
         .back {
+            margin-left: 7px;
             position: absolute;
             left: 0px;
-
             transition: transform 400ms ease-in-out, opacity 400ms ease-in-out
         }
         
@@ -26,7 +31,7 @@
 
     .main{
         margin-top: 16px;
-        position: absolute;
+        position: relative;
 
         .email{
             margin-top: 32px;
@@ -118,7 +123,6 @@
             font-weight: bold;
             margin-top: 24px;
             border-radius: 10px;
-
             transition: all 400ms ease-in;
 
             &.active {
@@ -151,6 +155,43 @@
         }
 
 
+    }
+
+    .popup_wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #00000060;
+        width: inherit;
+        height: inherit;
+
+        .pop {
+            width: 275px;
+            height: 265px;
+            background-color: var(--white);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            >img {
+                width: 86px;
+                margin-bottom: 26px;
+            }
+
+            h3 {
+                margin-bottom: 20px;
+                font-weight: 700;
+            }
+
+            button {
+                width: 243px;
+                height: 48px;
+                background-color: var(--gray100);
+                border-radius: 10px;
+            }
+        }
     }
 }
 

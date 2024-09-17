@@ -21,6 +21,12 @@
             text-align: center;
             font-weight: 600;
         }
+
+        .logout {
+            position: absolute;
+            right: 0;
+            color: var(--maincolor);
+        }
     }
 
     .main {
@@ -56,21 +62,31 @@
                     height: 71px;
                     border-radius: 5px;
                     margin-right: 12px;
+                    object-fit: cover;
                 }
 
                 >div {
+                    width: calc((100% - 83px));
+
                     >div {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
+                        flex-wrap: wrap;
                         margin-bottom: 8px;
 
                         h4 {
+                            width: calc(100% - 85px);
                             font-weight: 500;
                             color: var(--maincolor);
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            max-width: 17ch;
                         }
 
                         p {
+                            width: 79px;
                             color: var(--gray600);
                             font-size: 10px;
                         }
@@ -145,6 +161,37 @@
             background-color: var(--white);
             width: 100%;
             height: 393px;
+            display: flex;
+
+            img {
+                width: 100%;
+                height: 393px;
+            }
+
+            .swiper {
+                width: 100%;
+                height: 100%;
+            }
+
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .swiper-slide img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .swiper-pagination-bullet-active {
+                background-color: var(--maincolor) !important;
+            }
         }
 
         .text_box {

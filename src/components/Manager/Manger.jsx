@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/announce/back.svg'
 import See from '../../assets/img/join/password_see.svg'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Manger = () => {
+    const URL = 'https://www.eternal-server.store';
+
     const [click, setClick] = useState('')
     const [userId, setUserId] = useState('')
     const [pass, setPass] = useState('')
@@ -23,12 +26,28 @@ const Manger = () => {
     }, [userId, pass])
 
     const onLogin = () => {
-        if(!(userId && pass)){
+        if (!(userId && pass)) {
             alert('빈칸을 모두 채워주세요!')
             return;
         }
 
-        navigation('/announce/manager')
+        //   "username": "sswulion",
+        //   "password": "lion@!! "
+
+        axios.post(`${URL}/manager/login`, {
+            "username": userId,
+            "password": pass
+        })
+            .then((res) => {
+                if (res.status === 200) {
+                    alert('로그인이 완료되었습니다.');
+                    navigation('/announce/manager');
+                }
+            })
+            .catch((err) => {
+                alert('로그인 정보를 다시 확인해주세요.');
+                console.log(err);
+            })
     }
 
     return (
@@ -49,7 +68,7 @@ const Manger = () => {
                         <img src={See} alt="password see" />
                     </div>
                 </div>
-                <button className={all ? 'full' : ''} onClick={() => {onLogin()}}>로그인</button>
+                <button className={all ? 'full' : ''} onClick={() => { onLogin() }}>로그인</button>
             </div>
         </div>
     )

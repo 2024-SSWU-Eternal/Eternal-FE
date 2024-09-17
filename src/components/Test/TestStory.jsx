@@ -52,7 +52,7 @@ const TestStory = ({ setStory }) => {
         position: 'absolute',  
         top: 0, 
         left: 0,
-        width: '393px',
+        width: '100%',
         height: '100vh',
         backgroundImage: `url(${testme})`,
         backgroundSize: 'cover',

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Back from '../../assets/img/Test/back.avif'
+import Error from '../../assets/img/join/error.svg'
 import AllText from './js/text'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Loading from '../Loading/Loading';
 
 const Testing = () => {
     const [get, setGet] = useState([]);
@@ -10,7 +12,9 @@ const Testing = () => {
     const [questionindex, setQuestionindex] = useState(0);
     const [hear, setHear] = useState('');
     const [ending, setEnding] = useState(false);
+    const [popup, setPopup] = useState(false);
     const navigation = useNavigate();
+    const [loading,setLoading] = useState(false);
 
     useEffect(() => {
         if (questionindex === 13) {
@@ -20,7 +24,7 @@ const Testing = () => {
 
     const onSet = () => {
         if (hear === '') {
-            alert('선택지를 골라주세요!');
+            setPopup(true)
             return;
         }
 
@@ -36,6 +40,7 @@ const Testing = () => {
         const mostFrequentResult = findMostFrequent();
         const resultType = Number[mostFrequentResult - 1];
 
+        setLoading(true);
         const response = await axios.post('https://www.eternal-server.store/test', {
                 result: {
                     type: resultType,
@@ -43,8 +48,8 @@ const Testing = () => {
                 }
             });
             console.log('API Response:', response.data);
-
             navigation(`/testresult/${resultType}`);
+            setLoading(false);
     }
 
     const findMostFrequent = () => {
@@ -81,6 +86,7 @@ const Testing = () => {
 
     return (
         <div className='Testing_wrap container'>
+            {loading && <Loading />}
             <div>
                 <div className="header">
                     <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
@@ -104,6 +110,17 @@ const Testing = () => {
                 <button className="next full" onClick={() => { onEnding() }}>다음으로</button>
             ) : (
                 <button className="next full" onClick={() => { onSet() }}>다음으로</button>
+            )}
+            {popup ? (
+                <div className="popup_wrap">
+                    <div className="pop">
+                        <img src={Error} alt="error img" />
+                        <h3>선택지를 골라주세요!</h3>
+                        <button onClick={() => { setPopup(false) }}>확인</button>
+                    </div>
+                </div>
+            ) : (
+                <></>
             )}
         </div>
     )
