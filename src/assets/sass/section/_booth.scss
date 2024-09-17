@@ -5,6 +5,7 @@
     flex-direction: column;
 
     .wrap {
+
         width: 345px;
         margin: 0 auto;
     }
@@ -198,9 +199,10 @@
                         font-weight: bold;
                         color: var(--maincolor);
                         flex-grow: 1;
-                        width: 118px;
-                        padding: 0 3px;
-                        white-space: pre-wrap;
+                        width: 115px;  
+                        padding: 0 3px;     
+                        white-space: pre-wrap;           
+
                     }
 
                     .booth-location {
