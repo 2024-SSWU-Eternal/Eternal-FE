@@ -73,11 +73,9 @@ const Announe = () => {
         show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
     };
 
-    if (loading) {
-        return <Loading />
-    }
     return (
         <div className="Announe_wrap container">
+            {loading && <Loading />}
             <div className="header">
                 {params.manager === 'manager' ? (<></>):(
                     <button className="back" onClick={() => { onBack() }}><img src={Back} alt="back button" /></button>
