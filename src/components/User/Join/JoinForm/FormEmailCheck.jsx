@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const FormEmailCheck = ({ step, FadeIn, emailCheck, setEmailCheck, click, setClick }) => {
+const FormEmailCheck = ({ step, FadeIn, emailCheck, setEmailCheck, click, setClick, onEmail }) => {
     const [seconds, setSeconds] = useState(300);
     const [isActive, setIsActive] = useState(false);
     const [isExpired, setIsExpired] = useState(false);
@@ -57,7 +57,7 @@ const FormEmailCheck = ({ step, FadeIn, emailCheck, setEmailCheck, click, setCli
                             />
                             <p>{isExpired ? '만료' : formatTime(seconds)}</p>
                         </div>
-                        <button onClick={handleResend} disabled={isExpired}>재전송</button>
+                        <button onClick={() => {handleResend(); onEmail()}} disabled={isExpired}>재전송</button>
                     </div>
                 </motion.div>
             )}

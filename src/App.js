@@ -18,9 +18,12 @@ import Making from './components/ETC/Making'
 import Loading from './components/Loading/Loading'
 import FoodInfo from './components/FoodInfo/FoodInfo'
 import Reservation from './components/ETC/Reservation'
+import Stamp from './components/Stamp/Stamp'
+import Booth from './components/Booth/Booth'
+import BoothDetail from './components/Booth/BoothDetail'
+import Stampbefore from './components/Stamp/StampBefore'
 
 const App = () => {
-
     return (
         <BrowserRouter>
             <Routes>
@@ -29,7 +32,7 @@ const App = () => {
                 <Route path='/announce/:manager' element={<Announe />} />
                 <Route path='/announce/:detail/:manager' element={<AnnonceDetail />} />
                 <Route path='/announce/write' element={<AnnonceWrite />} />
-                <Route path='/announce/write/:modify' element={<AnnonceWrite />} />
+                <Route path='/announce/write/:modify/:board' element={<AnnonceWrite />} />
 
                 <Route path='/foodinfo' element={<FoodInfo />} />
 
@@ -50,8 +53,14 @@ const App = () => {
                 <Route path='/sponsor' element={<Sponsor />} />
                 <Route path='/making' element={<Making />} />
                 <Route path='/reservation' element={<Reservation />} />
-                
+
                 <Route path='/loading' element={<Loading />} />
+                
+                <Route path="/stamp/:stampNum" element={<Stamp />} />
+                <Route path="/stamp" element={<Stamp />} />
+                <Route path="/stampbefore" element={<Stampbefore />} />
+                <Route path='/booth' element={<Booth />} />
+                <Route path='/booth/:id' element={<BoothDetail />} />
             </Routes>
         </BrowserRouter>
     );

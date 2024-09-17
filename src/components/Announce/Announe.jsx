@@ -4,11 +4,18 @@ import Temporary from '../../assets/img/announce/temporary.png';
 import Write from '../../assets/img/announce/write_btn.svg';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import axios from 'axios';
+import Banner from '../ETC/Banner';
+import Loading from '../Loading/Loading';
 
 const Announe = () => {
+    const URL = 'https://www.eternal-server.store';
+
     const params = useParams();
-    const [manage, setManage] = useState(false)
+    const [manage, setManage] = useState(false);
+    const [data, setData] = useState([]);
     const navigation = useNavigate();
+    const [loading,setLoading] = useState(false);
 
     useEffect(() => {
         if (params.manager === 'manager') {
@@ -16,77 +23,40 @@ const Announe = () => {
         } else {
             setManage(false)
         }
-    }, [params])
+    }, [params]);
 
-    const announceData = [
-        {
-            title: "수정대동제 웹사이트 오픈",
-            date: "2024년 08월 16일",
-            content: "안녕하세요 멋쟁이사자처럼 12기 성신여대입니다. 2024 수정대동제를 맞아 웹사이트를 오픈하게 되었습니다. 많은",
-            imgSrc: Temporary
-        },
-        {
-            title: "수정대동제 웹사이트 오픈",
-            date: "2024년 08월 16일",
-            content: "안녕하세요 멋쟁이사자처럼 12기 성신여대입니다. 2024 수정대동제를 맞아 웹사이트를 오픈하게 되었습니다. 많은",
-            imgSrc: Temporary
-        },
-        {
-            title: "수정대동제 웹사이트 오픈",
-            date: "2024년 08월 16일",
-            content: "안녕하세요 멋쟁이사자처럼 12기 성신여대입니다.안녕하세요 멋쟁이사자처럼 12기 성신여대입니다.안녕하세요 멋쟁이사자처럼 12기 성신여대입니다. 2024 수정대동제를 맞아 웹사이트를 오픈하게 되었습니다. 많은",
-            imgSrc: Temporary
-        },
-        {
-            title: "수정대동제 웹사이트 오픈",
-            date: "2024년 08월 16일",
-            content: "안녕하세요 멋쟁이사자처럼 12기 성신여대입니다. 2024 수정대동제를 맞아 웹사이트를 오픈하게 되었습니다. 많은",
-            imgSrc: Temporary
-        },
-        {
-            title: "수정대동제 웹사이트 오픈",
-            date: "2024년 08월 16일",
-            content: "안녕하세요 멋쟁이사자처럼 12기 성신여대입니다. 2024 수정대동제를 맞아 웹사이트를 오픈하게 되었습니다. 많은",
-            imgSrc: Temporary
-        },
-        {
-            title: "수정대동제 웹사이트 오픈",
-            date: "2024년 08월 16일",
-            content: "안녕하세요 멋쟁이사자처럼 12기 성신여대입니다.안녕하세요 멋쟁이사자처럼 12기 성신여대입니다.안녕하세요 멋쟁이사자처럼 12기 성신여대입니다. 2024 수정대동제를 맞아 웹사이트를 오픈하게 되었습니다. 많은",
-            imgSrc: Temporary
-        },
-        {
-            title: "수정대동제 웹사이트 오픈",
-            date: "2024년 08월 16일",
-            content: "안녕하세요 멋쟁이사자처럼 12기 성신여대입니다. 2024 수정대동제를 맞아 웹사이트를 오픈하게 되었습니다. 많은",
-            imgSrc: Temporary
-        },
-        {
-            title: "수정대동제 웹사이트 오픈",
-            date: "2024년 08월 16일",
-            content: "안녕하세요 멋쟁이사자처럼 12기 성신여대입니다. 2024 수정대동제를 맞아 웹사이트를 오픈하게 되었습니다. 많은",
-            imgSrc: Temporary
-        },
-        {
-            title: "수정대동제 웹사이트 오픈",
-            date: "2024년 08월 16일",
-            content: "안녕하세요 멋쟁이사자처럼 12기 성신여대입니다.안녕하세요 멋쟁이사자처럼 12기 성신여대입니다.안녕하세요 멋쟁이사자처럼 12기 성신여대입니다. 2024 수정대동제를 맞아 웹사이트를 오픈하게 되었습니다. 많은",
-            imgSrc: Temporary
-        },
-    ];
+    useEffect(() => {
+        setLoading(true);
+        axios.get(`${URL}/notices`)
+            .then((res) => {
+                if (res.status === 200) {
+                    setData(res.data);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+    }, [])
 
-
-    const onDetail = () => {
+    const onDetail = (index) => {
         if (params.manager === 'manager') {
-            navigation('/announce/detail/manager');
+            navigation(`/announce/${index}/manager`);
         } else {
-            navigation('/announce/detail/normal');
+            navigation(`/announce/${index}/normal`);
         }
     };
 
     const onBack = () => {
         navigation('/');
     };
+
+    const onLogout = () => {
+        alert('로그아웃 되었습니다.');
+        navigation('/')
+    }
 
     const containerVariants = {
         hidden: { opacity: 1 },
@@ -105,32 +75,42 @@ const Announe = () => {
 
     return (
         <div className="Announe_wrap container">
+            {loading && <Loading />}
             <div className="header">
-                <button className="back" onClick={() => { onBack() }}><img src={Back} alt="back button" /></button>
+                {params.manager === 'manager' ? (<></>):(
+                    <button className="back" onClick={() => { onBack() }}><img src={Back} alt="back button" /></button>
+                )}
                 <h4>공지사항</h4>
+                {params.manager === 'manager' ? (
+                    <button className='logout' onClick={() => { onLogout() }}>로그아웃</button>
+                ) : (<></>)}
             </div>
             <div className="main">
-                <div className="banner">배너</div>
+                <Banner />
                 <motion.div
                     className="announce_list"
                     variants={containerVariants}
                     initial="hidden"
                     animate="show"
                 >
-                    {announceData.map((item, index) => (
+                    {data.map((data, index) => (
                         <motion.div
                             className="list"
                             key={index}
                             variants={itemVariants}
-                            onClick={() => { onDetail(); }}
+                            onClick={() => { onDetail(data.noticeId); }}
                         >
-                            <img src={item.imgSrc} alt="temporary img" />
+                            {data.images[0] ? (
+                                <img src={data.images[0]} alt="temporary img" />
+                            ) : (
+                                <img src={Temporary} alt='Temporary img' />
+                            )}
                             <div>
                                 <div className="top">
-                                    <h4>{item.title}</h4>
-                                    <p className="date">{item.date}</p>
+                                    <h4>{data.title}</h4>
+                                    <p className="date">{data.createdAt}</p>
                                 </div>
-                                <p className="bottom">{item.content}</p>
+                                <p className="bottom">{data.content}</p>
                             </div>
                         </motion.div>
                     ))}

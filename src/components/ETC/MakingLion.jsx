@@ -1,5 +1,4 @@
 import React from 'react'
-import Lion01 from '../../assets/img/etc/lion01.png'
 
 const MakingLion = ({ title, data }) => {
     return (
@@ -13,9 +12,19 @@ const MakingLion = ({ title, data }) => {
                                 <p className="organization">{list.organization}</p>
                                 <p className="name">{list.name}</p>
                                 <p className="department">{list.department}</p>
-                                <p className="desc">{list.desc}</p>
+                                <p className="desc">
+                                    {Array.isArray(list.desc) 
+                                        ? list.desc.map((line, index) => (
+                                            <span key={index}>
+                                                {line}
+                                                <br />
+                                            </span>
+                                        ))
+                                        : list.desc
+                                    }
+                                </p>
                             </div>
-                            <img src={Lion01} alt="" />
+                            <img src={list.img} alt="" />
                         </div>
                     ))
                 ) : (
@@ -26,7 +35,7 @@ const MakingLion = ({ title, data }) => {
                             <p className="department">{data.department}</p>
                             <p className="desc">{data.desc}</p>
                         </div>
-                        <img src={Lion01} alt="" />
+                        <img src={data.img} alt="" />
                     </div>
                 )}
             </div>

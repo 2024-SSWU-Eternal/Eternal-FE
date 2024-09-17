@@ -50,11 +50,11 @@ const TestEnding = () => {
     }, [index, Text.length])
 
     return (
-        <div className='TestEnding_wrap container'>
+        <>
             {ending ? (
-                <TestResult content={content} params={params}/>
+                <TestResult content={content} params={params} />
             ) : (
-                <>
+                <div className='TestEnding_wrap container'>
                     <div className="header">
                         <img className='back' src={Back} alt="back button" />
                     </div>
@@ -86,9 +86,9 @@ const TestEnding = () => {
                     ) : (
                         <button></button>
                     )}
-                </>
+                </div>
             )}
-        </div>
+        </>
     )
 }
 
