@@ -66,7 +66,7 @@ const TestResult = ({ content, params }) => {
     }, [params.ending]);
 
     return (
-        <div className='TestResult_wrap'>
+        <div className='TestResult_wrap container'>
             <div className="header">
                 <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
                 <h4>테스트 결과</h4>
@@ -95,6 +95,10 @@ const TestResult = ({ content, params }) => {
                     <p>추천 활동</p>
                     <h3>{content.suggestion}</h3>
                 </div>
+
+            </div>
+            <div className="gostamp">
+                <Link to='/stamp/9'>유형테스트 스탬프 받기</Link>
             </div>
             <div className="button_box">
                 <button className="gomain"><Link to='/'>메인으로</Link></button>
