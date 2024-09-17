@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Back from '../../assets/img/timetable/back.svg';
-import nowOnImage from '../../assets/img/timetable/nowon.svg';
+import nowOnImage from '../../assets/img/timetable/nowon.png';
 import ongoingImage from '../../assets/img/timetable/icon_ongoingprogram.svg';
 
 const Timetable = () => {
