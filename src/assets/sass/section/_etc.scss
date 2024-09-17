@@ -21,6 +21,7 @@
             position: absolute;
             width: 24px;
             height: 32px;
+            cursor: pointer;
         }
 
         .bar {
@@ -160,6 +161,18 @@
                             width: 145px;
                             right: -10px;
                             bottom: 0;
+                            max-height: 168px;
+                            object-fit: contain;
+                            mix-blend-mode: luminosity;
+
+
+                        }
+
+                        &:nth-child(6) {
+
+                            img {
+                                right: -17px;
+                            }
                         }
                     }
                 }
