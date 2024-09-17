@@ -3,6 +3,7 @@ import Back from '../../assets/img/Test/back.svg'
 import AllText from './js/text'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Loading from '../Loading/Loading';
 
 const Testing = () => {
     const [get, setGet] = useState([]);
@@ -11,6 +12,7 @@ const Testing = () => {
     const [hear, setHear] = useState('');
     const [ending, setEnding] = useState(false);
     const navigation = useNavigate();
+    const [loading,setLoading] = useState(false);
 
     useEffect(() => {
         if (questionindex === 13) {
@@ -36,6 +38,7 @@ const Testing = () => {
         const mostFrequentResult = findMostFrequent();
         const resultType = Number[mostFrequentResult - 1];
 
+        setLoading(true);
         const response = await axios.post('https://www.eternal-server.store/test', {
                 result: {
                     type: resultType,
@@ -43,8 +46,8 @@ const Testing = () => {
                 }
             });
             console.log('API Response:', response.data);
-
             navigation(`/testresult/${resultType}`);
+            setLoading(false);
     }
 
     const findMostFrequent = () => {
@@ -81,6 +84,7 @@ const Testing = () => {
 
     return (
         <div className='Testing_wrap container'>
+            {loading && <Loading />}
             <div>
                 <div className="header">
                     <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />

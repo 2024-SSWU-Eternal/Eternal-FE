@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import Loading from '../Loading/Loading';
 
 const AnnonceDetail = () => {
     const URL = 'https://www.eternal-server.store';
@@ -17,6 +18,7 @@ const AnnonceDetail = () => {
     const [imgdata, setImgData] = useState([])
     const [pop, setPop] = useState(false)
     const params = useParams();
+    const [loading,setLoading] = useState(false);
 
     useEffect(() => {
         if (params.manager === 'manager') {
@@ -27,6 +29,7 @@ const AnnonceDetail = () => {
     }, [params]);
 
     useEffect(() => {
+        setLoading(true);
         axios.get(`${URL}/notices/${params.detail}`)
             .then((res) => {
                 if (res.status === 200) {
@@ -36,6 +39,9 @@ const AnnonceDetail = () => {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                setLoading(false);
             })
     }, [])
 
@@ -62,6 +68,10 @@ const AnnonceDetail = () => {
             .catch((err) => {
                 console.log(err);
             })
+    }
+
+    if (loading) {
+        return <Loading />
     }
 
     return (
