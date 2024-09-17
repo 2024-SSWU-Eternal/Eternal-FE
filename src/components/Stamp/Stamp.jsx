@@ -170,7 +170,7 @@ const Stamp = () => {
   };
 
   return (
-    <div className={`Stamp_wrap container ${isSlidingOut ? 'SlideOut' : ''}`}>
+    <div className={`Stamp_wrap container`}>
       <div className='top'>
         <div className="back" onClick={handleBackClick}><img src={Back} alt="뒤로가기" /></div>
         <div className="title">내 빙고판</div>
@@ -180,16 +180,20 @@ const Stamp = () => {
         <div className="name">{userName}</div> 
         <span>의 빙고판</span>
       </div>
+      <div className="number-wrapper">
         <div className="number">{stampedCount}/{totalStamps}</div> 
+        <div className="I" onClick={togglePopup}>
+          <img src={I} alt="정보" />
+        </div>
       </div>
+      </div>
+
+
 
       <div className="info-wrapper">
         <div className="info-text">
           <div className="info">스탬프 투어를 통해 빙고판을 완성하고</div>
           <div className="info">상품을 받아보세요!</div>
-        </div>
-        <div className="I" onClick={togglePopup}>
-          <img src={I} alt="정보" />
         </div>
       </div>
 
