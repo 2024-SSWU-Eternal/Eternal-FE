@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useMemo  } from 'react';
 import Btn from '../../assets/img/foodinfo/icon_back.png';
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -417,18 +417,18 @@ const BoothDetail = () => {
 
     ];
 
-    const [isExiting, setIsExiting] = useState(false);
     const navigate = useNavigate();
     const { id } = useParams();
 
-    const booth = booths.find(b => b.id === parseInt(id));
+    // `useMemo`로 booth 데이터를 메모이제이션하여 불필요한 재연산 방지
+    const booth = useMemo(() => booths.find(b => b.id === parseInt(id)), [id]);
 
     const back = () => {
-        setIsExiting(true);
         setTimeout(() => {
             navigate(-1);
         }, 400);
     };
+
     if (!booth) {
         return <div>해당 부스를 찾을 수 없습니다.</div>;
     }
@@ -450,10 +450,10 @@ const BoothDetail = () => {
 
             <div className="info">
                 <div className="img">
-                    <img src={booth.image} alt={`${booth.name}`} />
+                    {/* 이미지 지연 로딩 적용 */}
+                    <img src={booth.image} alt={`${booth.name}`} loading="lazy" />
                 </div>
                 <div className="wrap">
-
                     <div className="title">{booth.name}</div>
                     <div className="date_loca">
                         <div className="dates">
@@ -484,7 +484,7 @@ const BoothDetail = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default BoothDetail
+export default BoothDetail;
