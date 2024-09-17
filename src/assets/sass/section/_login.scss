@@ -119,7 +119,7 @@
             margin-top: 24px;
             border-radius: 10px;
 
-            transition: border-bottom 400ms ease-in;
+            transition: all 400ms ease-in;
 
             &.active {
                 background-color: var(--maincolor);
