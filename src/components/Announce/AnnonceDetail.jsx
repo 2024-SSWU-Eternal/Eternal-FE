@@ -70,12 +70,9 @@ const AnnonceDetail = () => {
             })
     }
 
-    if (loading) {
-        return <Loading />
-    }
-
     return (
         <div className='AnnonceDetail_wrap container'>
+            {loading && <Loading />}
             {pop ? (
                 <div className='popup_wrap'>
                     <div className="popup">

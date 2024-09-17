@@ -3,10 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Autoplay } from "swiper/modules";
 import { Link } from 'react-router-dom'
-import banner1 from '../../assets/img/etc/banner1.png'
-import banner2 from '../../assets/img/etc/banner2.png'
-import banner3 from '../../assets/img/etc/banner3.png'
-import banner4 from '../../assets/img/etc/banner4.png'
+import banner1 from '../../assets/img/etc/banner1.avif'
+import banner2 from '../../assets/img/etc/banner2.avif'
+import banner3 from '../../assets/img/etc/banner3.avif'
+import banner4 from '../../assets/img/etc/banner4.avif'
 
 const Banner = () => {
     return (

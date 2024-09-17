@@ -10,6 +10,7 @@ import Alert from "../../assets/img/stamp/Alert.svg";
 import Check from "../../assets/img/stamp/check.svg";
 import Locate from "../../assets/img/stamp/Locate.svg";
 import Button from "../../assets/img/stamp/Button.svg";
+import Loading from '../Loading/Loading';
 
 const Stamp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -21,6 +22,7 @@ const Stamp = () => {
   const [userName, setUserName] = useState(''); 
   const [isSlidingOut, setIsSlidingOut] = useState(false); 
   const [alertMessage, setAlertMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   
   const previousStamps = useRef([]); 
   
@@ -48,6 +50,7 @@ const Stamp = () => {
   };
 
   const fetchStamps = async () => {
+    setLoading(true);
     try {
       const response = await fetch('https://www.eternal-server.store/user/stamps', {
         method: 'GET',
@@ -68,10 +71,13 @@ const Stamp = () => {
       }
     } catch {
       setError('네트워크 오류가 발생했습니다.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const registerStamp = async (stampNum) => {
+    setLoading(true);
     try {
       const response = await fetch(`https://www.eternal-server.store/user/stamp/${stampNum}`, {
         method: 'POST',
@@ -88,10 +94,13 @@ const Stamp = () => {
       }
     } catch {
       setError('네트워크 오류가 발생했습니다.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const fetchProfile = async () => {
+    setLoading(true);
     try {
       const response = await fetch('https://www.eternal-server.store/profile', {
         method: 'GET',
@@ -109,6 +118,8 @@ const Stamp = () => {
       }
     } catch {
       setError('네트워크 오류가 발생했습니다.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -171,6 +182,7 @@ const Stamp = () => {
 
   return (
     <div className={`Stamp_wrap container`}>
+      {loading && <Loading />}
       <div className='top'>
         <div className="back" onClick={handleBackClick}><img src={Back} alt="뒤로가기" /></div>
         <div className="title">내 빙고판</div>

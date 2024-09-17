@@ -3,8 +3,8 @@ import Back from '../../assets/img/Test/back.svg'
 import Test01 from '../../assets/img/Test/test01.svg'
 import Test02 from '../../assets/img/Test/test02.svg'
 import Test03 from '../../assets/img/Test/test03.svg'
-import Test04 from '../../assets/img/Test/test04.svg'
-import Test05 from '../../assets/img/Test/test05.svg'
+import Test04 from '../../assets/img/Test/test04.png'
+import Test05 from '../../assets/img/Test/test05.png'
 import Test06 from '../../assets/img/Test/test06.svg'
 import Test07 from '../../assets/img/Test/test07.png'
 import Test08 from '../../assets/img/Test/test08.svg'
@@ -69,12 +69,9 @@ const TestResult = ({ content, params }) => {
         fetchPercentageData();
     }, [params.ending]);
 
-    if (loading) {
-        return <Loading />
-    }
-
     return (
         <div className='TestResult_wrap container'>
+            {loading && <Loading />}
             <div className="header">
                 <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
                 <h4>테스트 결과</h4>

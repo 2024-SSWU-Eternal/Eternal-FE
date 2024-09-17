@@ -175,14 +175,11 @@ const JoinForm = ({ setAgree }) => {
         }
     }
 
-    if (loading) {
-        return <Loading />
-    }
-
     return (
         <>
 
             <div className='JoinForm_wrap'>
+                {loading && <Loading />}
                 <div className="header">
                     <button className="back" onClick={() => { onBack() }}><img src={Back} alt="back button" /></button>
                     <h4>회원가입</h4>
@@ -211,6 +208,7 @@ const JoinForm = ({ setAgree }) => {
             </div>
             {popup ? (
                 <div className="popup_wrap">
+                    {loading && <Loading />}
                     <div className="pop">
                         <img src={Error} alt="error img" />
                         <h3>{errormsg}</h3>
