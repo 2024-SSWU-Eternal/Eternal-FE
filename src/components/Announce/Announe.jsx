@@ -5,6 +5,7 @@ import Write from '../../assets/img/announce/write_btn.svg';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import Banner from '../ETC/Banner';
 
 const Announe = () => {
     const URL = 'https://www.eternal-server.store';
@@ -78,7 +79,7 @@ const Announe = () => {
                 ) : (<></>)}
             </div>
             <div className="main">
-                <div className="banner">배너</div>
+                <Banner />
                 <motion.div
                     className="announce_list"
                     variants={containerVariants}
