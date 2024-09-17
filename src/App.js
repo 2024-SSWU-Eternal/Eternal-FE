@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import RouteTransition from './RouteTransition.tsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Main from './components/Section/Main';
 import Announe from './components/Announce/Announe';
 import Map from './components/Map/Map';
@@ -11,21 +10,20 @@ import Login from './components/Login/Login';
 import Join from './components/User/Join/Join';
 
 const App = () => {
-    const location = useLocation();
 
     return (
-        <RouteTransition location={location}>
-            <Routes location={location} key={location.pathname}>
-                <Route path='/' element={<Main location={location} />} />
-                <Route path='/announce/:manager' element={<Announe location={location} />} />
-                <Route path='/map' element={<Map location={location} />} />
-                <Route path='/program' element={<Program location={location} />} />
-                <Route path='/test' element={<Test location={location} />} />
-                <Route path='/timetable' element={<Timetable location={location} />} />
-                <Route path='/join' element={<Join location={location} />} />
-                <Route path='/login' element={<Login location={location} />} />
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Main />} />
+                <Route path='/announce/:manager' element={<Announe />} />
+                <Route path='/map' element={<Map />} />
+                <Route path='/program' element={<Program />} />
+                <Route path='/test' element={<Test />} />
+                <Route path='/timetable' element={<Timetable />} />
+                <Route path='/join' element={<Join />} />
+                <Route path='/login' element={<Login />} />
             </Routes>
-        </RouteTransition>
+        </BrowserRouter>
     );
 };
 
