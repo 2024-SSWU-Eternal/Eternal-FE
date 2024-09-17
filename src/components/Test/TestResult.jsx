@@ -3,8 +3,8 @@ import Back from '../../assets/img/Test/back.svg'
 import Test01 from '../../assets/img/Test/test01.svg'
 import Test02 from '../../assets/img/Test/test02.svg'
 import Test03 from '../../assets/img/Test/test03.svg'
-import Test04 from '../../assets/img/Test/test04.svg'
-import Test05 from '../../assets/img/Test/test05.svg'
+import Test04 from '../../assets/img/Test/test04.png'
+import Test05 from '../../assets/img/Test/test05.png'
 import Test06 from '../../assets/img/Test/test06.svg'
 import Test07 from '../../assets/img/Test/test07.png'
 import Test08 from '../../assets/img/Test/test08.svg'
@@ -103,7 +103,7 @@ const TestResult = ({ content, params }) => {
 
             </div>
             <div className="gostamp">
-                <Link to='/stamp/9'>유형테스트 스탬프 받기</Link>
+                <Link to='/stampbefore'>유형테스트 스탬프 받기</Link>
             </div>
             <div className="button_box">
                 <button className="gomain"><Link to='/'>메인으로</Link></button>
