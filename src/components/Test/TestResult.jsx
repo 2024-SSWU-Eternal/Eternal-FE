@@ -10,11 +10,13 @@ import Test07 from '../../assets/img/Test/test07.png'
 import Test08 from '../../assets/img/Test/test08.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Loading from '../Loading/Loading';
 
 const TestResult = ({ content, params }) => {
     const [Img, setImg] = useState(Test01);
     const navigation = useNavigate()
     const [percentage, setPercentage] = useState(null)
+    const [loading,setLoading] = useState(false);
 
     const onBack = () => {
         navigation(-1);
@@ -54,19 +56,25 @@ const TestResult = ({ content, params }) => {
 
     useEffect(() => {
         const fetchPercentageData = async () => {
+            setLoading(true);
             const response = await axios.get('https://www.eternal-server.store/test');
             const { results } = response.data;
             const result = results.find((item) => item.type === params.ending);
             if (result) {
                 setPercentage(result.percentage);
+                setLoading(false);
             }
         };
 
         fetchPercentageData();
     }, [params.ending]);
 
+    if (loading) {
+        return <Loading />
+    }
+
     return (
-        <div className='TestResult_wrap'>
+        <div className='TestResult_wrap container'>
             <div className="header">
                 <img className='back' src={Back} alt="back button" onClick={() => { onBack() }} />
                 <h4>테스트 결과</h4>
@@ -95,6 +103,10 @@ const TestResult = ({ content, params }) => {
                     <p>추천 활동</p>
                     <h3>{content.suggestion}</h3>
                 </div>
+
+            </div>
+            <div className="gostamp">
+                <Link to='/stamp/9'>유형테스트 스탬프 받기</Link>
             </div>
             <div className="button_box">
                 <button className="gomain"><Link to='/'>메인으로</Link></button>

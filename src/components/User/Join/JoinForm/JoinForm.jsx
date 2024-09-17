@@ -8,6 +8,7 @@ import Error from '../../../../assets/img/join/error.svg'
 import FormPass from './FormPass';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../../Loading/Loading';
 
 const JoinForm = ({ setAgree }) => {
     const URL = 'https://www.eternal-server.store';
@@ -22,6 +23,8 @@ const JoinForm = ({ setAgree }) => {
     const [step, setStep] = useState(1);
     const [popup, setPopup] = useState(false);
     const [errormsg, setErrorMsg] = useState('인증번호가 달라요!');
+    const [loading,setLoading] = useState(false);
+
 
     const FadeIn = {
         initial: { y: -40, opacity: 0 },
@@ -65,6 +68,7 @@ const JoinForm = ({ setAgree }) => {
     }, [step]);
 
     const onEmail = () => {
+        setLoading(true);
         axios.post(`${URL}/user/send-verification-code`, {}, {
             params: {
                 email: `${email}@sungshin.ac.kr`
@@ -75,6 +79,9 @@ const JoinForm = ({ setAgree }) => {
             })
             .catch((err) => {
                 console.log(err)
+            })
+            .finally(() => {
+                setLoading(false);
             })
     }
 
@@ -99,6 +106,7 @@ const JoinForm = ({ setAgree }) => {
     }
 
     const onJoin = () => {
+        setLoading(true);
         axios.post(`${URL}/user/register`,
             {
                 "studentNumber": email,
@@ -119,6 +127,9 @@ const JoinForm = ({ setAgree }) => {
                 setPopup(true);
                 setErrorMsg('이미 가입된 이메일입니다.');
                 setStep(step)
+            })
+            .finally(() => {
+                setLoading(false);
             })
     }
 
@@ -162,6 +173,10 @@ const JoinForm = ({ setAgree }) => {
         } else {
             setStep(step - 1)
         }
+    }
+
+    if (loading) {
+        return <Loading />
     }
 
     return (

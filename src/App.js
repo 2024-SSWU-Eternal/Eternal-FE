@@ -21,6 +21,7 @@ import Reservation from './components/ETC/Reservation'
 import Stamp from './components/Stamp/Stamp'
 import Booth from './components/Booth/Booth'
 import BoothDetail from './components/Booth/BoothDetail'
+import Stampbefore from './components/Stamp/StampBefore'
 
 const App = () => {
     return (
@@ -57,6 +58,7 @@ const App = () => {
                 
                 <Route path="/stamp/:stampNum" element={<Stamp />} />
                 <Route path="/stamp" element={<Stamp />} />
+                <Route path="/stampbefore" element={<Stampbefore />} />
                 <Route path='/booth' element={<Booth />} />
                 <Route path='/booth/:id' element={<BoothDetail />} />
             </Routes>
