@@ -8,6 +8,7 @@
         cursor: pointer;
         position: relative;
         width: 24px;
+        z-index: 1;
     }
 
     .main {
@@ -17,6 +18,7 @@
         justify-content: center;
         align-items: center;
         padding-bottom: 100px;
+        z-index: 1;
 
         .title_box {
             text-align: center;
@@ -32,6 +34,11 @@
             }
         }
 
+        .story-img {
+            width: 393px;
+            margin-right: 20px;
+        }
+        
         >img {
             width: 260px;
             margin-left: 20px;
