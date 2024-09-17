@@ -49,9 +49,9 @@ const TestStory = ({ setStory }) => {
     }, [index, Text.length, navigation]);
 
     const backgroundStyle = {
-        position: 'fixed',  
+        position: 'absolute',  
         top: 0, 
-        left: 'center',
+        left: 0,
         width: '393px',
         height: '100vh',
         backgroundImage: `url(${testme})`,
