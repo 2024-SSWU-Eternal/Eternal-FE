@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Back from '../../assets/img/login/back.svg'
-import Logo from '../../assets/img/login/logo_main.svg'
+import Logo from '../../assets/img/main/Logo.png'
 import Eye from '../../assets/img/login/eyeicon.svg'
 import Error from '../../assets/img/join/error.svg'
 import axios from 'axios'
