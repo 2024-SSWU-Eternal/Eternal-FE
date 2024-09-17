@@ -1,6 +1,6 @@
 import React from 'react'
-import Back from '../../assets/img/Test/back.svg'
-import Cute01 from '../../assets/img/Test/cute_01.svg'
+import Back from '../../assets/img/Test/back.avif'
+import Cute01 from '../../assets/img/Test/cute_01.avif'
 import { useNavigate } from 'react-router-dom';
 
 const TestMain = ({ setStory }) => {

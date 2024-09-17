@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import Back from '../../assets/img/Test/back.avif'
 import Error from '../../assets/img/join/error.svg'
-import Back from '../../assets/img/Test/back.svg'
 import AllText from './js/text'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'

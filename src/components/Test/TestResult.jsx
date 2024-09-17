@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import Back from '../../assets/img/Test/back.svg'
-import Test01 from '../../assets/img/Test/test01.svg'
-import Test02 from '../../assets/img/Test/test02.svg'
-import Test03 from '../../assets/img/Test/test03.svg'
-import Test04 from '../../assets/img/Test/test04.png'
-import Test05 from '../../assets/img/Test/test05.png'
-import Test06 from '../../assets/img/Test/test06.svg'
-import Test07 from '../../assets/img/Test/test07.png'
-import Test08 from '../../assets/img/Test/test08.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Loading from '../Loading/Loading';
+import Back from '../../assets/img/Test/back.avif'
+import Test01 from '../../assets/img/Test/test01.avif'
+import Test02 from '../../assets/img/Test/test02.avif'
+import Test03 from '../../assets/img/Test/test03.avif'
+import Test04 from '../../assets/img/Test/test04.avif'
+import Test05 from '../../assets/img/Test/test05.avif'
+import Test06 from '../../assets/img/Test/test06.avif'
+import Test07 from '../../assets/img/Test/test07.avif'
+import Test08 from '../../assets/img/Test/test08.avif'
+
 
 const TestResult = ({ content, params }) => {
     const [Img, setImg] = useState(Test01);
