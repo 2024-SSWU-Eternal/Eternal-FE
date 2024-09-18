@@ -89,7 +89,7 @@ export const backEnd = [
         name: '이예령',
         department: '컴퓨터공학과',
         desc: '',
-        img: require('../../assets/img/etc/lion01.png'),
+        img: require('../../assets/img/etc/lion12.avif'),
     }
 ]
 
