@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Back from '../../assets/img/Test/back.svg'
-import Clack from '../../assets/img/Test/clack.svg'
+import Back from '../../assets/img/Test/back.avif'
+import Clack from '../../assets/img/Test/clack.avif'
 import { useParams } from 'react-router-dom'
 import Suryong from './js/result'
 import TestResult from './TestResult'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import back from '../../assets/img/booth/back.png';
+import back from '../../assets/img/booth/icon_back.png';
 import filter from '../../assets/img/booth/filter.svg';
 import searchbg from '../../assets/img/booth/searchbg.png';
 import search from '../../assets/img/booth/search.svg';
@@ -61,11 +61,13 @@ const Booth = () => {
         <>
             <div className='Booth_wrap container'>
 
-                <div className='Booth top'>
-                    <img src={back} alt="Back" className="back-icon" onClick={GoBack} />
-                    <h1 className="Booth-title">부스 정보</h1>
+                <header>
+                    <div className="back_btn" onClick={GoBack}><img src={back} alt="뒤로가기" /></div>
+                    <div className="title">부스 정보</div>
                     <img src={filter} alt="Filter" className="filter-icon" onClick={toggleFilter} />
-                </div>
+                </header>
+
+
                 <div className="wrap">
 
                     <div className="banner">
@@ -76,7 +78,7 @@ const Booth = () => {
                         <div className="booth-search-title">
                             <h2>2024 수정대동제 부스 톺아보기</h2>
                             <Link to='/foodinfo' className='Gofood'>푸드 트럭 영양 정보 확인</Link>
-                            </div>
+                        </div>
                         <div className="booth-search-bar">
                             <img src={searchbg} alt="Search" className="booth-search-bg" />
                             <input
