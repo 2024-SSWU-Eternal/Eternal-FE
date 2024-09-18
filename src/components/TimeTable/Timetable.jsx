@@ -145,6 +145,7 @@ const Timetable = () => {
                 <picture>
                     <source srcSet={`${nowOnImageAvif}?w=300 300w, ${nowOnImageAvif}?w=600 600w`} type="image/avif" />
                     <img src={nowOnImageAvif} alt="Now On" className="now-on-image" loading="lazy" />
+
                 </picture>
                 {nowOnPrograms.length > 0 ? (
                     <div className="now-on-details">
