@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Back from '../../assets/img/timetable/back.svg';
-import nowOnImage from '../../assets/img/timetable/nowon.png';
+import nowOnImageAvif from '../../assets/img/timetable/nowon.avif';
 import ongoingImage from '../../assets/img/timetable/icon_ongoingprogram.svg';
 
 const Timetable = () => {
@@ -75,7 +75,6 @@ const Timetable = () => {
         displayProgramsSequentially();
     }, [groupedPrograms]);
 
-    //같은 시간대 하나씩 띄우기
     useEffect(() => {
         if (nowOnPrograms.length > 0) {
             const interval = setInterval(() => {
@@ -143,7 +142,10 @@ const Timetable = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-                <img src={nowOnImage} alt="Now On" className="now-on-image" />
+                <picture>
+                    <source srcSet={`${nowOnImageAvif}?w=300 300w, ${nowOnImageAvif}?w=600 600w`} type="image/avif" />
+                    <img src={nowOnImageAvif} alt="Now On" className="now-on-image" loading="lazy" />
+                </picture>
                 {nowOnPrograms.length > 0 ? (
                     <div className="now-on-details">
                         <p className="now-on-time">
@@ -192,11 +194,9 @@ const Timetable = () => {
                                     )}
 
                                     <div className="program-details">
-
                                         {(['푸드트럭', '학생/체험형 부스', '프로모션 부스'].includes(program.name) || programIndex === 0) && (
                                             <img src={ongoingImage} alt="ongoingImg" className="ongoing-image" />
                                         )}
-
 
                                         <div className="event-info">
                                             <p className="program-name">{program.name}</p>
