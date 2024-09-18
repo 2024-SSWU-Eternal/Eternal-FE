@@ -10,19 +10,41 @@
         margin: 0 auto;
     }
 
-    .Booth {
+    header {
+        height: 60px;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .back_btn {
+           
+            position: absolute;
+            left: 24px;
+        }
+        .back_btn img{
+            width: 24px;
+            height: 32px;
+        }
+
+        .back_btn:hover {
+            cursor: pointer;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--black);
+        }
+        .filter-icon {
+            width: 24px;
+            height: 32px;
+            cursor: pointer;
+            position: absolute;
+            right: 24px;
+        }
     }
 
-    .back-icon {
-        width: 7px;
-        height: 14px;
-        cursor: pointer;
-        margin-left: 4px;
-        position: relative;
-    }
 
     .Booth-title {
         text-align: center;
@@ -33,14 +55,7 @@
         position: relative;
     }
 
-    .filter-icon {
-        width: 24px;
-        height: 32px;
-        cursor: pointer;
-        margin-left: 120px;
-        position: relative;
-        z-index: 10;
-    }
+   
 
     .back-icon,
     .Booth-title,
