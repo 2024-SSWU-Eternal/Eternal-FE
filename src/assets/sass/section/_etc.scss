@@ -330,11 +330,8 @@
     text-align: left;
     color:rgb(0, 0, 0);
   }
-  p {
-    margin-bottom: 60px; /* 마진을 60px로 조정하여 버튼과 내용 사이 공간을 확보 */
-}
-
-.floating-button {
+  
+  .floating-button {
     position: fixed;
     bottom: 10px;
     left: 50%;
@@ -351,14 +348,13 @@
     text-decoration: none;
     z-index: 1000;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 420px) {
+  }
+  @media (max-width: 420px) {
     .floating-button {
       bottom: 5px;
       font-size: 14px;
     }
-}
+  }
 .banner_wrap {
     position: relative;
     width: 100%;
