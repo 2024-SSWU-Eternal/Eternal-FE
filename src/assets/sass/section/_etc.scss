@@ -273,3 +273,45 @@
 
     }
 }
+
+.Sponsorbefore_wrap {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 24px 20px 24px;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 30px;
+
+        h4 {
+            font-weight: 600;
+        }
+
+        .back {
+            left: 0;
+            position: absolute;
+            width: 24px;
+            height: 32px;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 295px;
+            height: 8px;
+            background-color: #ffffff30;
+            border-radius: 50px
+        }
+    }
+
+    .main {
+        position: relative;
+        >h3 {
+            color: var(--black);
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+}
