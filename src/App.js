@@ -22,6 +22,7 @@ import Stamp from './components/Stamp/Stamp'
 import Booth from './components/Booth/Booth'
 import BoothDetail from './components/Booth/BoothDetail'
 import Stampbefore from './components/Stamp/StampBefore'
+import Sponsorbefore from './components/ETC/Sponsorbefore'
 
 const App = () => {
     return (
@@ -50,7 +51,7 @@ const App = () => {
                 <Route path='/join' element={<Join />} />
                 <Route path='/login' element={<Login />} />
 
-                <Route path='/sponsor' element={<Sponsor />} />
+                <Route path='/sponsor' element={<Sponsorbefore />} />
                 <Route path='/making' element={<Making />} />
                 <Route path='/reservation' element={<Reservation />} />
 
