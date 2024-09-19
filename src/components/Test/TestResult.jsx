@@ -14,7 +14,7 @@ import Test08 from '../../assets/img/Test/test08.avif'
 
 
 const TestResult = ({ content, params }) => {
-    const [Img, setImg] = useState(Test01);
+    const [Img, setImg] = useState();
     const navigation = useNavigate()
     const [percentage, setPercentage] = useState(null)
     const [loading,setLoading] = useState(false);

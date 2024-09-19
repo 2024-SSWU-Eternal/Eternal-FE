@@ -7,7 +7,7 @@ const Suryong = {
         suggestion: '푸드트럭 구경하기'
     },
     "여유룡": {
-        title: '언덕룡',
+        title: '여유룡',
         subtitle: '여유를 즐기는 수룡',
         desctitle: '톡톡 튀는 매력의 수룡이',
         desc: `직설적이고 실용적인 성격이에요. \n복잡한 생각을 안 해요. \n하고 싶은 건 해야 직성이 풀려요.`,
