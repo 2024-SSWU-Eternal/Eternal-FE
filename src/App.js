@@ -55,7 +55,7 @@ const App = () => {
                 <Route path='/making' element={<Making />} />
                 <Route path='/reservation' element={<Reservation />} />
 
-                <Route path='/loading' element={<Loading />} />
+                <Route path='/loading' element={<Loading />} /> 
                 
                 <Route path="/stamp/:stampNum" element={<Stamp />} />
                 <Route path="/stamp" element={<Stamp />} />
