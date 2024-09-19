@@ -1,4 +1,4 @@
-import React, {  useMemo  } from 'react';
+import React, { useMemo } from 'react';
 import Btn from '../../assets/img/foodinfo/icon_back.png';
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -119,7 +119,8 @@ const BoothDetail = () => {
             filter: '학생 부스',
             description: ["'Please give me more rock...' ",
 
-                "목마른 영혼들이 수정대동제 <Eternal>에 찾아왔다! "],
+                "목마른 영혼들이 수정대동제 <Eternal>에 찾아왔다! ",
+            "락밴드 동아리 Thirsty Soul만의 독특한 개성이 담긴 굿즈들을 만나보세요."],
             item: ["티셔츠, 타투스티커, 밀크글라스"],
 
         },
@@ -138,7 +139,7 @@ const BoothDetail = () => {
             id: 12,
             name: '랟스보스와 함께 ReSET! 디지털 성범죄 없는 세상',
             date: [2, 5],
-            image: require('../../assets/img/booth/boothimage.png'),
+            image: require('../../assets/img/booth/랟스보스.avif'),
             location: 'E-7',
             filter: '학생 부스',
             description: ["ReSET과 함께하는 딥페이크 성착취 근절 캠페인"],
@@ -412,7 +413,187 @@ const BoothDetail = () => {
             filter: '학생 부스',
             description: ["비거니즘 동아리 베지스탈에서 소규모 사진전과 더불어 동물권, 기후위기와 관련된 굿즈를 판매합니다! 스티커와 직접 만든 자수 천 뱃지, 자수 손수건 등이 있으니 구경 오세요! "],
             item: [" 스티커, 뱃지, 손수건"],
-        }
+        },
+        {
+            id: 37,
+            name: "인권상담소",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-1,B-2',
+            filter: '행정부서 부스',
+            description: ["인권상담소 교육 홍보, 행운의 돌림판 "],
+            item: " ",
+        },
+        {
+            id: 38,
+            name: "학생생활상담소",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-3',
+            filter: '행정부서 부스',
+            description: ["학생생활상담소 홍보",
+                " 봉중독예방센터와 중독예방 캠페인 진행 (외부기관 방문)"],
+            item: " ",
+        }, {
+            id: 39,
+            name: "학생복지위원회",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-4,B-5',
+            filter: '행정부서 부스',
+            description: ["성신누리 활동 홍보 및 모니터링 진행"],
+            item: " ",
+        },
+        {
+            id: 40,
+            name: "학군단",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-6,B-7',
+            filter: '행정부서 부스',
+            description: ["24년 후반기 학군단 모집 관련 홍보활동"],
+            item: " ",
+        }, {
+            id: 41,
+            name: "중앙도서관",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-8',
+            filter: '행정부서 부스',
+            description: ["도서관 이용 홍보,도서관 행사 홍보 등"],
+            item: " ",
+        },
+        {
+            id: 42,
+            name: "창업지원센터",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-9',
+            filter: '행정부서 부스',
+            description: ["창업지원센터 프로그램 홍보 및 창업동아리, 성신유니콘센터 홍보"],
+            item: " ",
+        },
+        {
+            id: 43,
+            name: "현장실습운영팀",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-10',
+            filter: '행정부서 부스',
+            description: ["현장실습운영팀 사업홍보 "],
+            item: " ",
+        },
+        {
+            id: 44,
+            name: "대외협력홍보팀",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-11',
+            filter: '행정부서 부스',
+            description: ["학교SNS 및 발전기금 제도 홍보"],
+            item: " ",
+        },
+        {
+            id: 45,
+            name: "국제교류지원팀",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-12',
+            filter: '행정부서 부스',
+            description: ["국제교류팀 홍보"],
+            item: " ",
+        },
+        {
+            id: 46,
+            name: "국제교육원",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-13,B-14',
+            filter: '행정부서 부스',
+            description: ["국제학생 부스 운영을 통한 문화교류"],
+            item: " ",
+        },
+        {
+            id: 47,
+            name: "교양교학팀",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-15',
+            filter: '행정부서 부스',
+            description: ["교양 교학팀 운영 신규 교과목 및 비교과 프로그램 관련 홍보"],
+            item: " ",
+        },
+        {
+            id: 48,
+            name: "교수학지원팀",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-16,B-17',
+            filter: '행정부서 부스',
+            description: ["교수학습지원팀 학습지원프로그램 홍보 및 운영"],
+            item: " ",
+        },
+        {
+            id: 49,
+            name: "박물관",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'B-19,B-20',
+            filter: '행정부서 부스',
+            description: ["성신여자대학교박물관 홍보"],
+            item: " ",
+        },
+        {
+            id: 50,
+            name: "Crystal zone",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'C-1',
+            filter: '총학 부스',
+            description: ["크리스탈 존 팔찌 배부, 수정이들을 위한 특별한 무대 관람 구역 제공 "],
+            item: " ",
+        },
+        {
+            id: 51,
+            name: "안내부스",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'C-1',
+            filter: '총학 부스',
+            description: ["스탬프 투어, 보물찾기 프로그램"],
+            item: " ",
+        },
+        {
+            id: 52,
+            name: "화(和)-여일",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'C-2',
+            filter: '총학 부스',
+            description: ["풍선 사격 컨셉의 경품 뽑기"],
+            item: " ",
+        },
+        {
+            id: 53,
+            name: "수익 사업 부스",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'C-2',
+            filter: '총학 부스',
+            description: ["굿즈 판매(슬로건, 반다나, 응원봉, 타투 스티커, 아크릴 키링)"],
+            item: " ",
+        },
+        {
+            id: 54,
+            name: "프로모션 부스",
+            date: [3, 6],
+            image: require('../../assets/img/booth/boothimage.avif'),
+            location: 'C-3,C-4',
+            filter: '총학 부스',
+            description: ["- Serendipia! : 뜻밖의 발견, 행운🍀 -",
+                "협찬 이벤트 : 미션(미션 1 인스타그램 팔로우 후 스토리에 사진 업로드 후 계정 태그, 미션 2 친구태그하고 댓글달기) 완료시 스퀴시 멜로우 증정(26일 2시부터)"],
+            item: "협찬 물품 : 박카스 젤리, 동아오츠카, 몬스터 에너지, 비플레인, 이브로쉐, 체레미마카, 스퀴시멜로우, 이마트 24 생수, 토니모리 토너, 씨드비 비누 ",
+        },
 
 
     ];
@@ -464,23 +645,28 @@ const BoothDetail = () => {
                         <div className="location">{booth.location}</div>
                     </div>
 
-                    <div className="subtitle">부스 설명</div>
+                    <div className="subtitle">{booth.filter === '제휴 부스' ? '협찬물품' : '부스 설명'}</div>
                     <div className="boothInfo">
                         {booth.description.map((desc, index) => (
                             <p key={index}>{desc}</p>
                         ))}
                     </div>
-
-                    <div className="subtitle">판매 물품</div>
-                    <div className="boothItem">
-                        {Array.isArray(booth.item) ? (
-                            booth.item.map((item, index) => (
-                                <p key={index}>{item}</p>
-                            ))
-                        ) : (
-                            <p>{booth.item}</p>
-                        )}
-                    </div>
+                    {(booth.filter === '학생 부스' || booth.filter === '제휴 부스') ? (
+                        <>
+                            <div className="subtitle">{booth.filter === '제휴 부스' ? '협찬 이벤트' : '판매 물품'}</div>
+                            <div className="boothItem">
+                                {Array.isArray(booth.item) ? (
+                                    booth.item.map((item, index) => (
+                                        <p key={index}>{item}</p>
+                                    ))
+                                ) : (
+                                    <p>{booth.item}</p>
+                                )}
+                            </div>
+                        </>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
         </div>
