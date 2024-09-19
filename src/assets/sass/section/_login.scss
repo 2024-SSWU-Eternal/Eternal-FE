@@ -16,10 +16,14 @@
         width: 100%;
 
         .back {
-            margin-left: 7px;
+            width: 24px;
             position: absolute;
             left: 0px;
-            transition: transform 400ms ease-in-out, opacity 400ms ease-in-out
+            transition: transform 400ms ease-in-out, opacity 400ms ease-in-out;
+        
+            img {
+                width: 10px;
+            }
         }
         
         p {
