@@ -22,7 +22,11 @@ const Banner = () => {
                 modules={[Autoplay]}
                 className='swipe'
             >
-                <SwiperSlide ><Link to='/booth'> <img src={banner1} alt="Banner 1" /></Link></SwiperSlide>
+                <SwiperSlide >
+                    <Link to='https://www.instagram.com/p/C_77nksS5dd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='>
+                        <img src={banner1} alt="Banner 1" />
+                    </Link>
+                </SwiperSlide>
                 <SwiperSlide><img src={banner2} alt="Banner 2" /></SwiperSlide>
                 <SwiperSlide ><Link to='/map'> <img src={banner3} alt="Banner 3" /></Link></SwiperSlide>
                 <SwiperSlide > <Link to='/booth'><img src={banner4} alt="Banner 4" /> </Link></SwiperSlide>
