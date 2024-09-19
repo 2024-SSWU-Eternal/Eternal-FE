@@ -192,6 +192,7 @@
                             >p:nth-child(1) {
                                 padding: 20px 16px 7px 16px;
                             }
+
                             >p:nth-child(2) {
                                 color: var(--maincolor);
                                 padding: 0 16px;
@@ -205,9 +206,11 @@
                         div {
                             filter: blur(5px);
                         }
+
                         img {
                             filter: blur(5px);
                         }
+
                         .role {
                             display: block;
                             filter: blur(0);
@@ -264,74 +267,92 @@
     opacity: 0;
     transition: all 0.4s ease-in-out;
     margin: 0 auto;
-    height: 105vh; 
-  }
- 
-  /* 활성화된 Swiper pagination bullet 색상 */
-  .swiper-pagination-bullet-active {
+
+    .swiper-container {
+        height: auto;
+    }
+
+    .main {
+        position: relative;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        height: 650px;
+    }
+
+    >a {
+        bottom: 20px;
+    }
+}
+
+/* 활성화된 Swiper pagination bullet 색상 */
+.swiper-pagination-bullet-active {
     background-color: #5C4795 !important;
-  }
-  
-  .Reservation_wrap.slide-in {
+}
+
+.Reservation_wrap.slide-in {
     opacity: 1;
     transform: translateX(0);
-  }
-  
-  .header {
+}
+
+.header {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     margin-bottom: 20px;
-  }
-  
-  .header h4 {
+}
+
+.header h4 {
     font-weight: 600;
-  }
-  
-  .header .back {
+}
+
+.header .back {
     left: 0;
     position: absolute;
     width: 24px;
     height: 32px;
     cursor: pointer;
-  }
-  
-  .swiper-container {
+}
+
+.swiper-container {
     width: 100%;
     height: auto;
-  }
-  
-  .full-width-image {
+}
+
+.full-width-image {
     width: 100;
     height: auto;
     object-fit: cover;
-  }
-  h3 {
+}
+
+h3 {
     font-size: 18px;
     font-weight: bolder;
     margin-bottom: 10px;
     color: #5C4795;
     z-index: 11;
-  }
-  .reservation-info-box {
-    background-color: #5c47950d; /* Transparent background */
+}
+
+.reservation-info-box {
+    background-color: #5c47950d;
+    /* Transparent background */
     padding: 20px;
     margin-top: 5px;
     border-radius: 10px;
     text-align: center;
     font-size: 14px;
     z-index: 1;
-  }
-  
-  .reservation-info-box p {
+}
+
+.reservation-info-box p {
     font-size: 14px;
     font-weight: 500;
     text-align: left;
-    color:rgb(0, 0, 0);
-  }
-  
-  .floating-button {
+    color: rgb(0, 0, 0);
+}
+
+.floating-button {
     position: fixed;
     bottom: 10px;
     left: 50%;
@@ -348,13 +369,15 @@
     text-decoration: none;
     z-index: 1000;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  @media (max-width: 420px) {
+}
+
+@media (max-width: 420px) {
     .floating-button {
-      bottom: 5px;
-      font-size: 14px;
+        bottom: 5px;
+        font-size: 14px;
     }
-  }
+}
+
 .banner_wrap {
     position: relative;
     width: 100%;
@@ -379,47 +402,5 @@
         }
 
 
-    }
-}
-
-.Sponsorbefore_wrap {
-    display: flex;
-    flex-direction: column;
-    padding: 60px 24px 20px 24px;
-
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        margin-bottom: 30px;
-
-        h4 {
-            font-weight: 600;
-        }
-
-        .back {
-            left: 0;
-            position: absolute;
-            width: 24px;
-            height: 32px;
-            cursor: pointer;
-        }
-
-        .bar {
-            width: 295px;
-            height: 8px;
-            background-color: #ffffff30;
-            border-radius: 50px
-        }
-    }
-
-    .main {
-        position: relative;
-        >h3 {
-            color: var(--black);
-            margin-top: 20px;
-            text-align: center;
-        }
     }
 }
