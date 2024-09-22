@@ -120,7 +120,7 @@ const BoothDetail = () => {
             description: ["'Please give me more rock...' ",
 
                 "목마른 영혼들이 수정대동제 <Eternal>에 찾아왔다! ",
-            "락밴드 동아리 Thirsty Soul만의 독특한 개성이 담긴 굿즈들을 만나보세요."],
+                "락밴드 동아리 Thirsty Soul만의 독특한 개성이 담긴 굿즈들을 만나보세요."],
             item: ["티셔츠, 타투스티커, 밀크글라스"],
 
         },
@@ -416,6 +416,21 @@ const BoothDetail = () => {
         },
         {
             id: 37,
+            name: "성신교육방송국 SEBS",
+            date: [3, 6],
+            image: require('../../assets/img/booth/성신교육방송국 SEBS.avif'),
+            location: 'E-8',
+            filter: '학생 부스',
+            description: ["- 순간을 영원으로, SEBS -",
+                "‘방송’이란 순간을 영원히 간직한다는 특성을 가지고 있습니다.",
+                "저희 SEBS가 수정대동제에서의 순간을 영원히 간직할 수 있도록 특별한 프로그램을 준비했습니다.",
+                "최신 밈에 탁월한 국원들과 함께하는 밈 스피드 퀴즈부터 SEBS 앵커와 함께하는 발음 테스트,",
+                "내가 신청한 노래가 학교에 울려퍼질 기회에, 방송제 초대권 응모 기회까지?",
+                "SEBS, 어디까지 준비한거야? 모두 SEBS 부스에서 색다른 체험 하시고, 상품도 받아가세요! "],
+            item: [" "],
+        },
+        {
+            id: 38,
             name: "Crystal zone",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -425,7 +440,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 38,
+            id: 39,
             name: "안내부스",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -435,7 +450,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 39,
+            id: 40,
             name: "화(和)-여일",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -445,7 +460,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 40,
+            id: 41,
             name: "수익 사업 부스",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -455,7 +470,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 41,
+            id: 42,
             name: "프로모션 부스",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -468,7 +483,7 @@ const BoothDetail = () => {
             item: "협찬 물품 : 박카스 젤리, 동아오츠카, 몬스터 에너지, 비플레인, 이브로쉐, 체레미마카, 스퀴시멜로우, 이마트 24 생수, 토니모리 토너, 씨드비 비누 ",
         },
         {
-            id: 42,
+            id: 43,
             name: "인권상담소",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -478,7 +493,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 43,
+            id: 44,
             name: "학생생활상담소",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -491,7 +506,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 44,
+            id: 45,
             name: "학생복지위원회",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -501,7 +516,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 45,
+            id: 46,
             name: "학군단",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -511,7 +526,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 46,
+            id: 47,
             name: "중앙도서관",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -521,7 +536,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 47,
+            id: 48,
             name: "창업지원센터",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -531,7 +546,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 48,
+            id: 49,
             name: "현장실습운영팀",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -541,7 +556,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 49,
+            id: 50,
             name: "대외협력홍보팀",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -551,7 +566,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 50,
+            id: 51,
             name: "국제교류지원팀",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -561,7 +576,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 51,
+            id: 52,
             name: "국제교육원",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -571,7 +586,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 52,
+            id: 53,
             name: "교양교학팀",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -581,7 +596,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 53,
+            id: 54,
             name: "교수학지원팀",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
@@ -591,7 +606,7 @@ const BoothDetail = () => {
             item: " ",
         },
         {
-            id: 54,
+            id: 55,
             name: "박물관",
             date: [3, 6],
             image: require('../../assets/img/booth/boothimage.avif'),
