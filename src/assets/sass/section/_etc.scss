@@ -47,34 +47,84 @@
             height: 650px;
             overflow-y: scroll;
             display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
-            justify-content: space-between;
-
+            gap: 8px;
+            
+            
             .list {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
-                width: 48%;
-                height: 220px;
-                padding: 20px 15px;
-                background-color: #ffffff10;
-                border-radius: 5px;
-                margin-bottom: 10px;
+                border: 1px solid var(--gray200);
+                border-radius: 4.31px;
+                padding: 0 16px;
+                height: 134px;
+                position: relative;
 
                 .top {
+
                     .desc {
-                        font-size: 14px;
+                        font-size: 12px;
+                        margin-top: 16px;
                     }
 
                     .title {
-                        font-weight: 500;
-                        font-size: 16px;
+                        font-size: 14px;
+                        color: var(--white);
                     }
                 }
 
                 .bottom {
-                    text-align: right;
-                    color: var(--white);
+                    display: flex;
+                    width: 100%;
+                    justify-content: end;
+
+                    img {
+                        position: absolute;
+                        right: 16px;
+                        bottom: 26px;
+
+                    }
+                }
+    
+                &:nth-child(1) {
+                    background-color: #136FE5;
+
+                    .desc {
+                        color: #AFD0FB;
+                    }
+                    
+                    img {
+                        height: 41.88px;
+                        width: 250px;
+                    }
+                }
+
+                &:nth-child(2) {
+                    background-color: #49EB3E;
+
+                    .desc {
+                        color: #F3FCF2;
+                    }
+
+                    img {
+                        height: 69.96px;
+                        width: 209px;
+                        bottom: 17px;
+                    }
+                }
+
+                &:nth-child(3) {
+                    background-color: #2A2822;
+
+                    .desc {
+                        color: #CACACA;
+                    }
+                    
+                    img {
+                        height: 38px;
+                        width: 241.97px;
+                    }
                 }
             }
         }

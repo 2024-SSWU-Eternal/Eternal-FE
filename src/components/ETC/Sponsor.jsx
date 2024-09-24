@@ -1,6 +1,10 @@
 import React from 'react'
 import Back from '../../assets/img/Test/back.svg'
 import { useNavigate } from 'react-router-dom'
+import seedbee from '../../assets/img/etc/seedbee.avif'
+import beplain from '../../assets/img/etc/beplain.avif'
+import cheremimaka from '../../assets/img/etc/cheremimaka.avif'
+
 
 const Sponsor = () => {
     const navigation = useNavigate();
@@ -23,67 +27,30 @@ const Sponsor = () => {
                 <div className="list_wrap">
                     <div className="list">
                         <div className="top">
-                            <p className="desc">후원사 한줄 소개</p>
-                            <p className="title">후원사 이름</p>
-                            <p className="desc">후원 내용</p>
+                            <p className="desc">사람을 아름답게, 세상을 건강하게</p>
+                            <p className="title">씨드비</p>
                         </div>
-                        <p className="bottom">후원사 로고</p>
+                        <div className="bottom">
+                            <img src={seedbee} alt="" />
+                        </div>
                     </div>
                     <div className="list">
                         <div className="top">
-                            <p className="desc">후원사 한줄 소개</p>
-                            <p className="title">후원사 이름</p>
-                            <p className="desc">후원 내용</p>
+                            <p className="desc">즐거운 피부 자신감</p>
+                            <p className="title">비플레인</p>
                         </div>
-                        <p className="bottom">후원사 로고</p>
+                        <div className="bottom">
+                            <img src={beplain} alt="" />
+                        </div>
                     </div>
                     <div className="list">
                         <div className="top">
-                            <p className="desc">후원사 한줄 소개</p>
-                            <p className="title">후원사 이름</p>
-                            <p className="desc">후원 내용</p>
+                            <p className="desc">지속가능한 사랑을 연구하는 섹슈얼 웰니스 브랜드</p>
+                            <p className="title">체레미 마카</p>
                         </div>
-                        <p className="bottom">후원사 로고</p>
-                    </div>
-                    <div className="list">
-                        <div className="top">
-                            <p className="desc">후원사 한줄 소개</p>
-                            <p className="title">후원사 이름</p>
-                            <p className="desc">후원 내용</p>
+                        <div className="bottom">
+                            <img src={cheremimaka} alt="" />
                         </div>
-                        <p className="bottom">후원사 로고</p>
-                    </div>
-                    <div className="list">
-                        <div className="top">
-                            <p className="desc">후원사 한줄 소개</p>
-                            <p className="title">후원사 이름</p>
-                            <p className="desc">후원 내용</p>
-                        </div>
-                        <p className="bottom">후원사 로고</p>
-                    </div>
-                    <div className="list">
-                        <div className="top">
-                            <p className="desc">후원사 한줄 소개</p>
-                            <p className="title">후원사 이름</p>
-                            <p className="desc">후원 내용</p>
-                        </div>
-                        <p className="bottom">후원사 로고</p>
-                    </div>
-                    <div className="list">
-                        <div className="top">
-                            <p className="desc">후원사 한줄 소개</p>
-                            <p className="title">후원사 이름</p>
-                            <p className="desc">후원 내용</p>
-                        </div>
-                        <p className="bottom">후원사 로고</p>
-                    </div>
-                    <div className="list">
-                        <div className="top">
-                            <p className="desc">후원사 한줄 소개</p>
-                            <p className="title">후원사 이름</p>
-                            <p className="desc">후원 내용</p>
-                        </div>
-                        <p className="bottom">후원사 로고</p>
                     </div>
                 </div>
             </div>
