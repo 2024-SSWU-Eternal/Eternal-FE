@@ -827,6 +827,7 @@
         overflow-y: scroll;
         scrollbar-width: none;
         -ms-overflow-style: none;
+ 
         
  
         .img{
@@ -852,7 +853,8 @@
                     display: flex;
                     gap: 10px;
                     .date{
-                        width: 90px;
+                        min-width: 80px;
+                        width: auto;
                         height: 30px;
                         border-radius: 24px;
                         font-size: 12px;
@@ -860,6 +862,7 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        padding: 0 10px;
                     }
                 }
                 .date:first-child{
@@ -884,7 +887,8 @@
                 color: var(--purple01);
             }
             .boothInfo, .boothItem{
-                width: 346px;
+                width: 100%;
+   
                 padding:24px 16px;
                 background-color: #5C479505;
                 border-radius: 8px;

@@ -706,6 +706,29 @@ const BoothDetail = () => {
                 "100% 당첨 이슬 뽑기 이벤트도 놓치지 마세요!"],
             item: " ",
         },
+        {
+            id: 64,
+            name: "대도시의 사랑법 <영화>",
+            date: ["9월 25일 12-14시", "9월 26일 12-14시"],
+            image: require('../../assets/img/booth/대도시의 사랑법.avif'),
+            location: 'D-9',
+            filter: '제휴 부스',
+            description: ["풍선 사격 컨셉의 경품뽑기"],
+            item: " ",
+        },
+        {
+            id: 65,
+            name: "포토에이스",
+            date: ["9월 25일~9월 27일"],
+            image: require('../../assets/img/booth/포토에이스.avif'),
+            location: '행정관 앞',
+            filter: '제휴 부스',
+            description: ["수정대동제에서 특별한 순간을 남기세요 !",
+                "<Eternal>에서만 즐길 수 있는 프레임으로 추억을 담아보시고,",
+                "친구들과의 소중한 시간을 기록할 기회를 놓치지 마세요 !"],
+            item: " ",
+        },
+
 
 
 
@@ -753,19 +776,19 @@ const BoothDetail = () => {
                     <div className="date_loca">
                         <div className="dates">
                             {booth.date.map(d => (
-                                <div key={d} className="date">{dateMap[d]}</div>
+                                <div key={d} className="date">{dateMap[d] || d}</div>
                             ))}
                         </div>
                         <div className="location">{booth.location}</div>
                     </div>
 
-                    <div className="subtitle">{booth.filter === '제휴 부스' ? '협찬물품' : '부스 설명'}</div>
+                    <div className="subtitle"> 부스 설명</div>
                     <div className="boothInfo">
                         {booth.description.map((desc, index) => (
                             <p key={index}>{desc}</p>
                         ))}
                     </div>
-                    {(booth.filter === '학생 부스' || booth.filter === '제휴 부스') ? (
+                    {(booth.filter === '학생 부스' ) ? (
                         <>
                             <div className="subtitle">{booth.filter === '제휴 부스' ? '협찬 이벤트' : '판매 물품'}</div>
                             <div className="boothItem">
