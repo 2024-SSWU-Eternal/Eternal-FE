@@ -104,7 +104,7 @@ const TestResult = ({ content, params }) => {
 
             </div>
             <div className="gostamp">
-                <Link to='/stampbefore'>유형테스트 스탬프 받기</Link>
+                <Link to='/stamp/9'>유형테스트 스탬프 받기</Link>
             </div>
             <div className="button_box">
                 <button className="gomain"><Link to='/'>메인으로</Link></button>
