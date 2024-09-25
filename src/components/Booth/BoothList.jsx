@@ -586,14 +586,18 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
     }
 
 
-    const filteredBooths = booths.filter(booth =>
-        (selectedDates.length === 0 || selectedDates.some(date => dateMap[date]?.some(d => booth.date.includes(d)))) &&
-        (selectedTimes.length === 0 || selectedTimes.some(time => timeMap[time]?.some(t => booth.date.includes(t)))) &&
-        (selectedBoothTypes.length === 0 || selectedBoothTypes.includes(booth.filter)) &&
-        (keyword === '' ||
+    const filteredBooths = booths.filter(booth => {
+        const matchesDates = selectedDates.length === 0 || selectedDates.some(date => dateMap[date]?.some(d => booth.date.includes(d)));
+        const matchesTimes = selectedTimes.length === 0 || selectedTimes.some(time => timeMap[time]?.some(t => booth.date.includes(t)));
+        const matchesBoothType = selectedBoothTypes.length === 0 || selectedBoothTypes.includes(booth.filter);
+
+
+        const matchesKeyword = keyword === '' ||
             booth.name.toLowerCase().includes(keyword.toLowerCase()) ||
-            (booth.description && booth.description.toLowerCase().includes(keyword.toLowerCase())))
-    );
+            (booth.description && booth.description.some(desc => desc.toLowerCase().includes(keyword.toLowerCase())));
+
+        return matchesDates && matchesTimes && matchesBoothType && matchesKeyword;
+    });
 
     return (
         <div className="booth-list">
@@ -603,43 +607,23 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
 
                     <div className="booth-info">
                         <div className="booth-name-location">
-                            <h3 className={`booth-name`}>
-                                {booth.name}
-                            </h3>
-
+                            <h3 className="booth-name">{booth.name}</h3>
                             <p className="booth-location">{booth.location}</p>
                         </div>
 
                         <div className="booth-details">
-
                             <span className="booth-date">
-                                {booth.date.map((date, index) => {
-                                    let result = '';
-                                    switch (date) {
-                                        case 1:
-                                            result = '수요일 오전';
-                                            break;
-                                        case 2:
-                                            result = '수요일 오후';
-                                            break;
-                                        case 3:
-                                            result = '수요일 종일';
-                                            break;
-                                        case 4:
-                                            result = '목요일 오전';
-                                            break;
-                                        case 5:
-                                            result = '목요일 오후';
-                                            break;
-                                        case 6:
-                                            result = '목요일 종일';
-                                            break;
-                                        default:
-                                            result = date;
-                                    } 
-
-                                    return index === 0 ? result : ` / ${result}`;
-                                })}
+                            {booth.date.map((date, index) => {
+                                    const dayMap = {
+                                        1: '수요일 오전',
+                                        2: '수요일 오후',
+                                        3: '수요일 종일',
+                                        4: '목요일 오전',
+                                        5: '목요일 오후',
+                                        6: '목요일 종일',
+                                    };
+                                    return dayMap[date] || date;
+                                }).join(' / ')}
                             </span>
                             <button className="booth-button" onClick={() => boothDetail(booth.id)}>상세정보 보기</button>
                         </div>
@@ -647,7 +631,6 @@ const BoothList = ({ selectedDates, selectedTimes, selectedBoothTypes, keyword }
                 </div>
             ))}
         </div>
-
     );
 };
 
